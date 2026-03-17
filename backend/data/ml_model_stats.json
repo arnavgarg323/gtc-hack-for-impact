@@ -1,0 +1,217 @@
+{
+  "binary_classifier": {
+    "model": "GradientBoostingClassifier (calibrated)",
+    "cv_roc_auc_mean": 0.982,
+    "cv_roc_auc_std": 0.033
+  },
+  "multiclass_classifier": {
+    "model": "RandomForestClassifier (balanced)",
+    "cv_f1_weighted_mean": 0.983,
+    "cv_f1_weighted_std": 0.012
+  },
+  "feature_importances": [
+    {
+      "feature": "median_household_income",
+      "importance": 0.3227
+    },
+    {
+      "feature": "biz_per_1k_pop",
+      "importance": 0.2263
+    },
+    {
+      "feature": "food_biz_count",
+      "importance": 0.1204
+    },
+    {
+      "feature": "biz_per_sq_mi",
+      "importance": 0.0929
+    },
+    {
+      "feature": "poverty_rate_pct",
+      "importance": 0.0709
+    },
+    {
+      "feature": "area_sq_mi",
+      "importance": 0.0422
+    },
+    {
+      "feature": "households_no_vehicle_pct",
+      "importance": 0.0216
+    },
+    {
+      "feature": "total_population",
+      "importance": 0.0206
+    },
+    {
+      "feature": "pct_asian",
+      "importance": 0.0189
+    },
+    {
+      "feature": "pct_hispanic",
+      "importance": 0.0175
+    },
+    {
+      "feature": "pct_under_18",
+      "importance": 0.0162
+    },
+    {
+      "feature": "pct_white",
+      "importance": 0.0143
+    },
+    {
+      "feature": "pct_65_plus",
+      "importance": 0.0128
+    },
+    {
+      "feature": "pct_black",
+      "importance": 0.0025
+    }
+  ],
+  "risk_tier_counts": {
+    "critical": 50,
+    "low": 152,
+    "minimal": 206
+  },
+  "top_at_risk_tracts": [
+    {
+      "geoid": "6085503220",
+      "risk_score": 94.1,
+      "risk_tier": "critical",
+      "desert_probability": 90.1,
+      "actual_classification": "food_desert",
+      "centroid_lat": 37.28739355168065,
+      "centroid_lon": -121.83804503819816,
+      "total_population": 4691,
+      "poverty_rate_pct": 6.6,
+      "median_household_income": 96705,
+      "biz_per_1k_pop": 2.77,
+      "food_biz_count": 13
+    },
+    {
+      "geoid": "6085512043",
+      "risk_score": 94.1,
+      "risk_tier": "critical",
+      "desert_probability": 90.1,
+      "actual_classification": "severe_food_desert",
+      "centroid_lat": 37.26169001193936,
+      "centroid_lon": -121.80471575934052,
+      "total_population": 5266,
+      "poverty_rate_pct": 7.1,
+      "median_household_income": 81984,
+      "biz_per_1k_pop": 2.28,
+      "food_biz_count": 12
+    },
+    {
+      "geoid": "6085503902",
+      "risk_score": 94.1,
+      "risk_tier": "critical",
+      "desert_probability": 90.1,
+      "actual_classification": "food_desert",
+      "centroid_lat": 37.37353157328012,
+      "centroid_lon": -121.82832045769077,
+      "total_population": 6187,
+      "poverty_rate_pct": 9.5,
+      "median_household_income": 121083,
+      "biz_per_1k_pop": 1.94,
+      "food_biz_count": 12
+    },
+    {
+      "geoid": "6085503511",
+      "risk_score": 94.1,
+      "risk_tier": "critical",
+      "desert_probability": 90.2,
+      "actual_classification": "severe_food_desert",
+      "centroid_lat": 37.34260231190043,
+      "centroid_lon": -121.81406380108686,
+      "total_population": 3560,
+      "poverty_rate_pct": 9.5,
+      "median_household_income": 125972,
+      "biz_per_1k_pop": 0.56,
+      "food_biz_count": 2
+    },
+    {
+      "geoid": "6085502203",
+      "risk_score": 94.1,
+      "risk_tier": "critical",
+      "desert_probability": 90.2,
+      "actual_classification": "severe_food_desert",
+      "centroid_lat": 37.30637566722056,
+      "centroid_lon": -121.91806801570472,
+      "total_population": 3875,
+      "poverty_rate_pct": 12.7,
+      "median_household_income": 125750,
+      "biz_per_1k_pop": 2.58,
+      "food_biz_count": 10
+    },
+    {
+      "geoid": "6085503508",
+      "risk_score": 94.1,
+      "risk_tier": "critical",
+      "desert_probability": 90.2,
+      "actual_classification": "food_desert",
+      "centroid_lat": 37.35451232552757,
+      "centroid_lon": -121.81140999658092,
+      "total_population": 5979,
+      "poverty_rate_pct": 10.3,
+      "median_household_income": 125469,
+      "biz_per_1k_pop": 1.0,
+      "food_biz_count": 6
+    },
+    {
+      "geoid": "6085503213",
+      "risk_score": 94.1,
+      "risk_tier": "critical",
+      "desert_probability": 90.1,
+      "actual_classification": "food_desert",
+      "centroid_lat": 37.30167245766874,
+      "centroid_lon": -121.83736789952864,
+      "total_population": 4920,
+      "poverty_rate_pct": 15.9,
+      "median_household_income": 72174,
+      "biz_per_1k_pop": 2.24,
+      "food_biz_count": 11
+    },
+    {
+      "geoid": "6085503116",
+      "risk_score": 94.1,
+      "risk_tier": "critical",
+      "desert_probability": 90.1,
+      "actual_classification": "severe_food_desert",
+      "centroid_lat": 37.27744830103254,
+      "centroid_lon": -121.85373199662382,
+      "total_population": 6396,
+      "poverty_rate_pct": 7.9,
+      "median_household_income": 109509,
+      "biz_per_1k_pop": 1.88,
+      "food_biz_count": 12
+    },
+    {
+      "geoid": "6085503802",
+      "risk_score": 94.1,
+      "risk_tier": "critical",
+      "desert_probability": 90.1,
+      "actual_classification": "severe_food_desert",
+      "centroid_lat": 37.38428801364773,
+      "centroid_lon": -121.8355147941978,
+      "total_population": 7647,
+      "poverty_rate_pct": 8.9,
+      "median_household_income": 114023,
+      "biz_per_1k_pop": 1.18,
+      "food_biz_count": 9
+    },
+    {
+      "geoid": "6085502906",
+      "risk_score": 94.1,
+      "risk_tier": "critical",
+      "desert_probability": 90.2,
+      "actual_classification": "food_desert",
+      "centroid_lat": 37.24781290326449,
+      "centroid_lon": -121.90141337016304,
+      "total_population": 5021,
+      "poverty_rate_pct": 6.7,
+      "median_household_income": 126438,
+      "biz_per_1k_pop": 1.99,
+      "food_biz_count": 10
+    }
+  ]
+}

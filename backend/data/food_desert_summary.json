@@ -1,0 +1,27 @@
+{
+  "county_median_income": 166968,
+  "low_income_threshold": 133574,
+  "total_tracts": 408,
+  "total_population": 1902047,
+  "food_desert_tracts": 50,
+  "severe_food_desert_tracts": 22,
+  "food_desert_population": 235445,
+  "food_desert_population_pct": 12.4,
+  "low_access_tracts": 201,
+  "low_income_tracts": 121,
+  "zero_business_tracts": 9,
+  "classification_counts": {
+    "low_access_only": 151,
+    "adequate": 136,
+    "low_income_only": 71,
+    "food_desert": 28,
+    "severe_food_desert": 22
+  },
+  "thresholds_used": {
+    "low_income_poverty_rate_pct": 20.0,
+    "low_income_median_income_pct_of_county": 80.0,
+    "low_access_biz_per_1k_pop": 3.0,
+    "severe_no_vehicle_pct": 10.0,
+    "severe_elderly_pct": 15.0
+  }
+}

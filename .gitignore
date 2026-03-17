@@ -1,0 +1,19 @@
+# Node
+node_modules/
+.next/
+.turbo/
+dist/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# Data / logs
+*.log
+cufile.log
+
+# OS
+.DS_Store

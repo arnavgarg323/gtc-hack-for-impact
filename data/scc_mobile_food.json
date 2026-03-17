@@ -1,0 +1,815 @@
+[{"program_identifier":"3 BROTHERS KITCHEN 60006R2","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"26-0684","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"3 CHULAS 19371X2","site_address":"1605 ALMADEN RD SAN JOSE","permit_decal":"26-0699","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"3 HERMANOS MEXICAN GRILL 5N44985","site_address":"387 S 1ST ST SAN JOSE","permit_decal":"26-0504","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"A LA CARTE OF LOAVES & FISHES FAMILY KITCHEN 36763M2","site_address":"16505 BUTTERFILED BL MORGAN HILL","permit_decal":"26-0817","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"A LA CARTE OF LOAVES AND FISHES","site_address":"16505 BUTTERFILED BL MORGAN HILL","permit_decal":"26-0486","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"A LA CARTE-LOAVES & FISHES 04017W2","site_address":"16505 BUTTERFIELD BL MORGAN HILL","permit_decal":"26-0864","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"A QUE NONO LLC 82889X3","site_address":"2215 TASMAN DR SANTA CLARA","permit_decal":"26-0789","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"AAMCHI MUMBAI 73546C3","site_address":"570 N SHORELINE BL MOUNTAIN VIEW","permit_decal":"26-0810","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"ABBAS ICE CREAM 40876J2","site_address":"224 S 24TH ST SAN JOSE","permit_decal":"26-0601","permit_expire_date":"03/31/2026"}
+,{"program_identifier":"ACAI BRASIL SJ 4VK6025","site_address":"1605 ALMADEN RD SAN JOSE","permit_decal":"26-0682","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"ADELITA COCINA CENTRO AMERICANA Y MEXICANA 4TU7259","site_address":"1670 ROGERS AV SAN JOSE","permit_decal":"27-0021","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"ADVENGER'S TRUCK 37855S3","site_address":"660 E GISH RD SAN JOSE","permit_decal":"26-0565","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"AGUAS FRESCAS BARAJAS 4R86254","site_address":"601 MCCRAY ST # 103 HOLLISTER","permit_decal":"26-0541","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"AKITA SUSHI 62674U2","site_address":"2251 THE ALAMEDA SANTA CLARA","permit_decal":"26-0450","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"AKITA SUSHI 69166A2","site_address":"2251 THE ALAMEDA SANTA CLARA","permit_decal":"26-0206","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"ALEXA'S KITCHEN 01518H2","site_address":"1670 ROGERS AV SAN JOSE","permit_decal":"26-0288","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"ALOHA ARIA'S SHAVE ICE 4UJ6218","site_address":"61 RICKENBACKER CL LIVERMORE","permit_decal":"26-0618","permit_expire_date":"09/30/2026"}
+,{"program_identifier":"ALONDRA PRODUCE 70226C1","site_address":"277 RIDGE VISTA AV SAN JOSE","permit_decal":"26-0070","permit_expire_date":"03/31/2026"}
+,{"program_identifier":"ALONDRA PRODUCE 97199G3","site_address":"277 RIDGE VISTA AV SAN JOSE","permit_decal":"26-0384","permit_expire_date":"03/31/2026"}
+,{"program_identifier":"ALVAREZ TAQUERIA 83717D3","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"26-0335","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"AMANECER 55391T3","site_address":"1605 ALMADEN RD SAN JOSE","permit_decal":"26-0348","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"ANATOLIA FIRE 15995V1","site_address":"326 COMMERCIAL AV SAN JOSE","permit_decal":"26-0546","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"ANDY'S CART 2 43957W3","site_address":"1199 COLEMAN AV SAN JOSE","permit_decal":"26-0754","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"ANDYS CART 42627V3","site_address":"1199 COLEMAN AV SAN JOSE","permit_decal":"26-0753","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"ANTOJITOS CHAPINES 8U98508","site_address":"1670 ROGERS AV SAN JOSE","permit_decal":"26-0414","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"ANTOJITOS EL PRIMO 2U79688","site_address":"660 E GISH RD  SAN JOSE","permit_decal":"26-0194","permit_expire_date":"03/31/2026"}
+,{"program_identifier":"ANTOJITOS ESTILO DI 4VR6468","site_address":"2806 STORY RD SAN JOSE","permit_decal":"26-0124","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"ANTOJITOS IRAHETA 4TB9511","site_address":"1670 ROGERS AV SAN JOSE","permit_decal":"26-0784","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"ANTOJITOS MI MORENITA 4N99604","site_address":"660 E GISH RD  SAN JOSE","permit_decal":"26-0262","permit_expire_date":"03/31/2026"}
+,{"program_identifier":"ANTOJITOS MICHUACANOS 97773F3","site_address":"4580 ALMADEN EX 103 SAN JOSE","permit_decal":"27-0065","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"ANTOJITOS OAXAQUENOS Y POBLANOS 8H18177","site_address":"1670 ROGERS AV SAN JOSE","permit_decal":"26-0660","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"ANTOJITOS PANZAS VERDES 4KJ4868","site_address":"418 CAPITOL EX SAN JOSE","permit_decal":"26-0285","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"ANTOJITOS Y BIRRIA ESTILO JALISCO 17754P3","site_address":"2003 STORY RD # 100 SAN JOSE","permit_decal":"26-0101","permit_expire_date":"03/31/2026"}
+,{"program_identifier":"ANTOJOS LOS COMPAS 29004J3","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"27-0056","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"APNA FOODS 44426L3","site_address":"579 S MAIN ST MILPITAS","permit_decal":"26-0832","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"AREPAS 4MD5104","site_address":"1384 LINCOLN AV SAN JOSE","permit_decal":"26-0764","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"AT-KITCHEN LLC AT399","site_address":"4580 ALMADEN EX # 103 SAN JOSE","permit_decal":"26-0716","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"AURORA CATERING 12535C2","site_address":"1670 ROGERS AV SAN JOSE","permit_decal":"26-0691","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"AURORA CATERING 34002R3","site_address":"1670 ROGERS AV SAN JOSE","permit_decal":"27-0064","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"AUTENTICA COCINA LA JAROCHITA 4NW1227","site_address":"1605 ALMADEN RD SAN JOSE","permit_decal":"26-0102","permit_expire_date":"03/31/2026"}
+,{"program_identifier":"BABAS KITCHEN CA LLC 83458A3","site_address":"153 E FREMONT AV SUNNYVALE","permit_decal":"26-0090","permit_expire_date":"03/31/2026"}
+,{"program_identifier":"BAFS-BFM-BEER CART #12","site_address":"1590 BERRYESSA RD  SAN JOSE","permit_decal":"SOS-0032","permit_expire_date":"03/31/2027"}
+,{"program_identifier":"BAFS-BFM-BEER CART #17","site_address":"1590 BERRYESSA RD  SAN JOSE","permit_decal":"SOS-0028","permit_expire_date":"03/31/2027"}
+,{"program_identifier":"BAFS-BFM-BEER CART #18","site_address":"1590 BERRYESSA RD  SAN JOSE","permit_decal":"SOS-0027","permit_expire_date":"03/31/2027"}
+,{"program_identifier":"BAFS-BFM-BEER CART #25","site_address":"1590 BERRYESSA RD  SAN JOSE","permit_decal":"SOS-0030","permit_expire_date":"03/31/2027"}
+,{"program_identifier":"BAFS-BFM-BEER CART #3","site_address":"1590 BERRYESSA RD  SAN JOSE","permit_decal":"SOS-0031","permit_expire_date":"03/31/2027"}
+,{"program_identifier":"BAFS-BFM-CHUCKWAGON BEER PORTABLE","site_address":"1590 BERRYESSA RD  SAN JOSE","permit_decal":"SOS-0029","permit_expire_date":"03/31/2027"}
+,{"program_identifier":"BARK & BITE EXPRESS 75258K3","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"26-0298","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"BARYA KITCHEN 65527J2","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"26-0688","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"BAY AREA MUNCHIEZ 4VF6310","site_address":"555 NICHOLS RD BAY POINT","permit_decal":"26-0402","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"BAY AREA SOFTY 05987X3","site_address":"451 DUMBARTON AV REDWOOD CITY","permit_decal":"26-0629","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"BBQ KALBI 65482A1","site_address":"660 E GISH RD SAN JOSE","permit_decal":"26-0617","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"BBQ SIZZLE 57872G2","site_address":"3600 CASTRO VALLEY BL CASTRO VALLEY","permit_decal":"26-0721","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"BEAN TRUCK 514754 55317C1","site_address":"5079 DISK DR SAN JOSE","permit_decal":"26-0254","permit_expire_date":"03/31/2026"}
+,{"program_identifier":"BELLO'S PRODUCE 90035W3","site_address":"1039 DURNESS PL SAN JOSE","permit_decal":"26-0299","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"BETY CHAVEZ CATERING LLC 23665U1","site_address":"660 E GISH RD SAN JOSE","permit_decal":"26-0808","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"BHAJANSAHIB 4VK5913","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"26-0200","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"BIBZ N RIBZ 5D11212","site_address":"4580 ALMADEN EX # 103 SAN JOSE","permit_decal":"26-0712","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"BIBZ N RIBZ LLC 4SY5200","site_address":"4580 ALMADEN EX SAN JOSE","permit_decal":"26-0150","permit_expire_date":"03/31/2026"}
+,{"program_identifier":"BIG J ICE CREAM 80585Z3","site_address":"330 RACE ST SAN JOSE","permit_decal":"27-0050","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"BINH NGO CATERING 5K15102","site_address":"660 E GISH RD SAN JOSE","permit_decal":"27-0077","permit_expire_date":"12/31/2026"}
+,{"program_identifier":"BIRRIA EL VAQUERITO 4VG7957","site_address":"235 TENNANT AV # 5 MORGAN HILL","permit_decal":"26-0119","permit_expire_date":"03/31/2026"}
+,{"program_identifier":"BIRRIA MARISOL'S 5X73449","site_address":"1670 ROGERS AV SAN JOSE","permit_decal":"26-0643","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"BIRRIA Y DELLICIAS LA REYNITA  4TZ2525","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"26-0881","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"BIRRIERIA & TAQUERIA LA GRAN SENORA 84826M3","site_address":"4660 PEARL AV SAN JOSE","permit_decal":"26-0830","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"BISTRO 107 AT TESTAROSSA","site_address":"830 JURY CT # 1 SAN JOSE","permit_decal":"26-0611","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"BLUE MOON BAR @ THE MOUNTAIN WINERY","site_address":"14831 PIERCE RD  SARATOGA","permit_decal":"16-0959","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"BLUEY TRUCK 50221C2","site_address":"1180 DISCOVERY WY SUNNYVALE","permit_decal":"26-0134","permit_expire_date":"03/31/2026"}
+,{"program_identifier":"BOAST COFFEE CO 44295K3","site_address":"650 CASTRO ST # 130 MOUNTAIN VIEW","permit_decal":"26-0108","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"BOMBAY EXPRESS 86851B3","site_address":"4580 ALMADEN EX # 103 SAN JOSE","permit_decal":"27-0036","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"BOMBZIES BBQ 56838R1","site_address":"1044 SHARY CL CONCORD","permit_decal":"26-0856","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"BREAKBOX NORCAL LLC 4XD4331","site_address":"1302 S 1ST ST SAN JOSE","permit_decal":"27-0029","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"BS&P PORTABLE BOTTLE BAR","site_address":"4900 MARIE P DEBARTOLO WY SANTA CLARA","permit_decal":"18-463","permit_expire_date":"03/31/2027"}
+,{"program_identifier":"CABALEN SWEET & SAVORY 4TU3105","site_address":"1044 SHARRY CL CONCORD","permit_decal":"27-0073","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"CALI COOL 4MP7201","site_address":"4580 ALMADEN EX UNIT 103 SAN JOSE","permit_decal":"26-0624","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"CALIFAS CORP. 4RT5397","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"26-0279","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"CALIFORNIA DRIVEN 8K70456","site_address":"855 N 13TH ST SAN JOSE","permit_decal":"26-0508","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"CALIFORNIA INSPIRATIONS CATERING 4VV4071","site_address":"1849 LITTLE ORCHARD ST SAN JOSE","permit_decal":"26-0542","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"CAMILA'S CATERING 4H28291","site_address":"660 E GISH RD SAN JOSE","permit_decal":"26-0370","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"CAMILONCHES 4TC6078","site_address":"1605 ALMADEN RD SAN JOSE","permit_decal":"26-0137","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"CAMINO AL SABOR 4VB2687","site_address":"235 TENNANT AV # 5 MORGAN HILL","permit_decal":"26-0766","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"CAN CART #1 ( BEER )","site_address":"1 AMPHITHEATRE PY  MOUNTAIN VIEW","permit_decal":"18-281","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"CAN CART #2 ( BEER )","site_address":"1 AMPHITHEATRE PY  MOUNTAIN VIEW","permit_decal":"18-282","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"CAN CART #4 ( BEER )","site_address":"1 AMPHITHEATRE PY  MOUNTAIN VIEW","permit_decal":"18-284","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"CAN CART #5 ( BEER )","site_address":"1 AMPHITHEATRE PY  MOUNTAIN VIEW","permit_decal":"18-285","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"CAN CART #6 ( BEER )","site_address":"1 AMPHITHEATRE PY  MOUNTAIN VIEW","permit_decal":"18-286","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"CAN CART #7 ( BEER )","site_address":"1 AMPHITHEATRE PY  MOUNTAIN VIEW","permit_decal":"18-287","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"CANNED BEER CART 10","site_address":"1 AMPHITHEATRE PY  MOUNTAIN VIEW","permit_decal":"19-0649","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"CANNED BEER CART 11","site_address":"1 AMPHITHEATRE PY  MOUNTAIN VIEW","permit_decal":"19-0650","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"CANNED BEER CART 12","site_address":"1 AMPHITHEATRE PY  MOUNTAIN VIEW","permit_decal":"19-0651","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"CAPELO'S HILL COUNTRY BBQ #2 06376W1","site_address":"2655 MIDDLEFIELD RD REDWOOD CITY","permit_decal":"26-0537","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"CARDENAS TAMALES #2 4UT1138","site_address":"792 E JULIAN ST SAN JOSE","permit_decal":"26-0411","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"CARDENAS TAMALES 4LC9798","site_address":"792 E JULIAN ST SAN JOSE","permit_decal":"26-0827","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"CARNITAS MICHOACAN 02594X3","site_address":"5526 MONTEREY RD SAN JOSE","permit_decal":"26-0482","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"CARRASCO FLAVOR 70290A2","site_address":"1605 ALMADEN RD SAN JOSE","permit_decal":"26-0430","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"CART # 36","site_address":"1 AMPHITHEATRE PY  MOUNTAIN VIEW","permit_decal":"20-0449","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"CART # 37","site_address":"1 AMPHITHEATRE PY  MOUNTAIN VIEW","permit_decal":"20-0450","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"CASA BENDITA 7R66291","site_address":"794 S 1ST ST SAN JOSE","permit_decal":"26-0483","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"CASA CART 3","site_address":"1 AMPHITHEATRE PY  MOUNTAIN VIEW","permit_decal":"19-0544","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"CASA CART 4","site_address":"1 AMPHITHEATRE PY  MOUNTAIN VIEW","permit_decal":"19-0545","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"CASA CART 6","site_address":"1 AMPHITHEATRE PY  MOUNTAIN VIEW","permit_decal":"19-0547","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"CASA COCKTAIL CART","site_address":"1 AMPHITHEATRE PY  MOUNTAIN VIEW","permit_decal":"18-272","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"CASA COCKTAIL CART #2","site_address":"1 AMPHITHEATRE PY  MOUNTAIN VIEW","permit_decal":"18-439","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"CASPIAN GRILL LLC 4XD4333","site_address":"1302 S 1ST ST SAN JOSE","permit_decal":"27-0006","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"CATO'S TACOS 4PP9005","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"26-0701","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"CELESTE CATERING 6H09497","site_address":"660 E GISH RD  SAN JOSE","permit_decal":"26-0796","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"CHAAT ON WHEELS 4UR6409","site_address":"4580 ALMADEN EX # 103 SAN JOSE","permit_decal":"26-0121","permit_expire_date":"03/31/2026"}
+,{"program_identifier":"CHAAT ON WHEELS 8E36152","site_address":"1721 ROGERS AV # S SAN JOSE","permit_decal":"26-0160","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"CHATEAU DECK BAR @ THE MOUNTAIN WINERY","site_address":"14831 PIERCE RD  SARATOGA","permit_decal":"16-0958","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"CHATORI CHAAT 5HNN675","site_address":"1475 MAIN ST SANTA CLARA","permit_decal":"26-0591","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"CHATORI CHAAT EXPRESS 4PP8414","site_address":"153 E FREMONT AV SUNNYVALE","permit_decal":"26-0311","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"CHAVEZ CATERING 48367P2","site_address":"660 E GISH RD  SAN JOSE","permit_decal":"26-0814","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"CHEESE ON BOARD 4VR1656","site_address":"235 TENNANT AV # 5 MORGAN HILL","permit_decal":"26-0539","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"CHEFIS BAY AREA 4TS9844","site_address":"16410 MONTEREY RD MORGAN  HILL","permit_decal":"26-0266","permit_expire_date":"03/31/2026"}
+,{"program_identifier":"CHEFMUS 4UP5857","site_address":"1302 S 1ST ST SAN JOSE","permit_decal":"26-0762","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"CHEZ ICE CREAM 20167P","site_address":"330 RACE ST  SAN JOSE","permit_decal":"26-0418","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"CHICK N' BROS 41831V3","site_address":"660 E GISH RD SAN JOSE","permit_decal":"26-0308","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"CHICK N' BROS 66162V2","site_address":"660 E GISH RD SAN JOSE","permit_decal":"26-0484","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"CHICK N' BROS 91507S2","site_address":"660 E GISH RD  SAN JOSE","permit_decal":"27-0047","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"CHICK-FIL-A BAY AREA FOOD TRUCK YMS051","site_address":"1162 BLOSSOM HILL RD SAN JOSE","permit_decal":"26-0198","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"CHICK-N-GO 4VV2805","site_address":"1044 SHARY CL CONCORD","permit_decal":"26-0178","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"CHUBBY'S CHICK'N 6A11408","site_address":"1670 ROGERS AV SAN JOSE","permit_decal":"27-0061","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"CHULA PUEBLA 2 92716V3","site_address":"1670 ROGERS AV SAN JOSE","permit_decal":"26-0567","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"CHULA PUEBLA 48400T1","site_address":"1670 ROGERS AV SAN JOSE","permit_decal":"26-0173","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"CHULOS TACOS GRILL 95792A3","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"26-0528","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"CHUP CHAAP 4VG8016","site_address":"2148 STORY RD SAN JOSE","permit_decal":"26-0620","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"CHURROS LAND","site_address":"1590 BERRYESSA RD SAN JOSE","permit_decal":"25-0256","permit_expire_date":"05/31/2026"}
+,{"program_identifier":"CIELITO LINDO MEXICAN STREET KITCHEN 5V65780","site_address":"451 DUMBARTON AV REDWOOD CITY","permit_decal":"27-0052","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"CITLALY'S CATERING CORP 53176A3","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"26-0588","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"COACHELLA FRESH FOOD 4SR2486","site_address":"4580 ALMADEN EX SAN JOSE","permit_decal":"26-0100","permit_expire_date":"03/31/2026"}
+,{"program_identifier":"COAST CATERING 7K47259","site_address":"152 W LAKE AV WATSONVILLE","permit_decal":"26-0334","permit_expire_date":"03/31/2026"}
+,{"program_identifier":"COCINA TERESITA 81348U1","site_address":"1605 ALMADEN RD SAN JOSE","permit_decal":"26-0570","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"COCKTAIL CART #2","site_address":"1 AMPHITHEATRE PY  MOUNTAIN VIEW","permit_decal":"18-274","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"COCKTAIL CART #3","site_address":"1 AMPHITHEATRE PY  MOUNTAIN VIEW","permit_decal":"18-275","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"COCKTAIL CART #4","site_address":"1 AMPHITHEATRE PY  MOUNTAIN VIEW","permit_decal":"18-276","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"COCKTAIL CART #5","site_address":"1 AMPHITHEATRE PY  MOUNTAIN VIEW","permit_decal":"18-277","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"COCKTAIL CART 7 @ SHORELINE AMPHITHEATRE","site_address":"1 AMPHITHEATRE PY  MOUNTAIN VIEW","permit_decal":"19-0653","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"COCKTAIL CART 8 @ SHORELINE AMPHITHEATRE","site_address":"1 AMPHITHEATRE PY  MOUNTAIN VIEW","permit_decal":"19-0684","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"CON SABOR A MEXICO #2 3Z56157","site_address":"1590 BERRYESSA RD SAN JOSE","permit_decal":"26-0503","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"CON SABOR A MEXICO 4F55323","site_address":"1590 BERRYESSA RD SAN JOSE","permit_decal":"26-0420","permit_expire_date":"03/31/2026"}
+,{"program_identifier":"COOKIES N CREAM 15421V3","site_address":"1670 ROGERS AV SAN JOSE","permit_decal":"26-0426","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"COSECHAS 4WH1194","site_address":"1302 S 1ST ST SAN JOSE","permit_decal":"26-0487","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"COTORRITOS CATERING 5K20030","site_address":"660 E GISH RD SAN JOSE","permit_decal":"26-0715","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"COUSIN'S MAINE LOBSTER 88720F3","site_address":"PIER 41 THE EMBARCADERO SAN FRANCISCO","permit_decal":"26-0843","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"CRAVINGS 4836K3","site_address":"1681 DELTA CT HAYWARD","permit_decal":"26-0169","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"CRAZY EMPANADAS 29100P2","site_address":"1800 SUTTER ST LIVERMORE","permit_decal":"26-0575","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"CREPELICIOUS 4VV9616","site_address":"761 EL CAMINO REAL REDWOOD CITY","permit_decal":"27-0003","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"CRISTINA'S MEXICAN DELIGHTS 49612B1","site_address":"1670 ROGERS AV SAN JOSE","permit_decal":"26-0652","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"CRUISING CONES 6 5UB4325","site_address":"145 S KILROY AV TURLOCK","permit_decal":"26-0140","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"CUNADO'S TRUCK 8V43985","site_address":"196 RANCH DR MILPITAS","permit_decal":"26-0822","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"CUONG CATERING 4J20707","site_address":"660 E GISH RD  SAN JOSE","permit_decal":"26-0138","permit_expire_date":"03/31/2026"}
+,{"program_identifier":"CUPERTINO HIGH SCHOOL MOBILE CART","site_address":"10100 FINCH AV CUPERTINO","permit_decal":"22-1101","permit_expire_date":"08/31/2026"}
+,{"program_identifier":"CURRY ON WHEELS 85160B3","site_address":"235 TENNANT AV MORGAN HILL","permit_decal":"27-0054","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"CURRY UP NOW #4 41579N2","site_address":"107 S LINCOLN AV S SAN FRANCISCO","permit_decal":"26-0228","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"CURVEBALL TRUCK LLC. 93445W2","site_address":"326 SHAW RD S SAN FRANCISCO","permit_decal":"26-0379","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"DAILY GRIND 8Z26644","site_address":"660 E GISH RD SAN JOSE","permit_decal":"26-0638","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"DAMAN ICE CREAM 8T93856","site_address":"330 RACE ST SAN JOSE","permit_decal":"26-0340","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"DANVINGIT PARTY SERVICES 36596J1","site_address":"1605 ALMADEN RD SAN JOSE","permit_decal":"27-0071","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"DE LUNA'S WOK 4WN1191","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"26-0512","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"DEL MAR OSTIONERIA 32498N3","site_address":"1605 ALMADEN RD SAN JOSE","permit_decal":"26-0287","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"DELI D'LIZZ 4VY8401","site_address":"5304 MONTEREY RD SAN JOSE","permit_decal":"26-0571","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"DELICIA ORIGINAL 5G65899","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"26-0580","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"DELICIA ORIGINAL 7F15874","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"26-0581","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"DELICIAS EL CIPITIO 4WA8752","site_address":"1605 ALMADEN RD SAN JOSE","permit_decal":"26-0803","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"DELICIAS JUQUILITA 4L36455","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"26-0829","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"DELICIAS MI TIERRA CATERING CORP 2F90647","site_address":"1080 SARATOGA AV SAN JOSE","permit_decal":"26-0592","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"DIANA'S TAMALES #2 52077L3","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"26-0854","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"DIANA'S TAMALES 38390F2","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"26-0854","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"DIANNA'S KITCHEN 8V12500","site_address":"660 E GISH RD  SAN JOSE","permit_decal":"26-0820","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"DIEGUITO'S TAQUERIA 3W62365","site_address":"660 E GISH RD SAN JOSE","permit_decal":"26-0824","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"DIPPIN DOTS CART #2","site_address":"447 GREAT MALL PY MILPITAS","permit_decal":"15-0605","permit_expire_date":"10/31/2026"}
+,{"program_identifier":"DOSA CONFESSIONS MILPITAS 4WM2417","site_address":"10 S ABBOTT AV MILPTAS","permit_decal":"26-0128","permit_expire_date":"03/31/2026"}
+,{"program_identifier":"DULCE VICTORIA AMERICAN AND MEXICAN FOOD 8V21201","site_address":"660 E GISH RD  SAN JOSE","permit_decal":"27-0005","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"EAT ON MONDAY 59673T1","site_address":"1658 S MILPITAS BL MILPITAS","permit_decal":"26-0725","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"EDUING'S KITCHEN 4XG4937","site_address":"2001 O'TOOLE AV SAN JOSE","permit_decal":"27-0069","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"EGGMANIA 4VB5620","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"26-0332","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"EL AGUACHIL 4DS9434","site_address":"674 N 13TH ST SAN JOSE","permit_decal":"26-0115","permit_expire_date":"03/31/2026"}
+,{"program_identifier":"EL BOMBERO 408 4VR6367","site_address":"387 S 1ST ST SAN JOSE","permit_decal":"26-0576","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"EL BOMBERO 408 73514C3","site_address":"387 S FIRST ST SAN JOSE","permit_decal":"26-0577","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"EL BOMBERO 408 99760A2","site_address":"1611 MONTEREY RD SAN JOSE","permit_decal":"26-0826","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"EL BUEN PASTOR 6Z36241","site_address":"660 E GISH RD SAN JOSE","permit_decal":"27-0001","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"EL BURRITO CRAZY 4MK9894","site_address":"414 E WILLIAM ST # 4 SAN JOSE","permit_decal":"26-0409","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"EL BURRITO LOCO 6Y69155","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"26-0813","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"EL BURRITO NORTENO 4RL1452","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"26-0480","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"EL CABRITO DE TEXCOCO #2 19321F4","site_address":"235 TENNANT AV # S MORGAN HILL","permit_decal":"27-0049","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"EL CABRITO TAQUERIA DE TEXCOCO 4TB5965","site_address":"235 TENNANT AV MORGAN HILL","permit_decal":"26-0752","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"EL CALIFAS TACOS 03412X2","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"26-0496","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"EL CAMALEON 05737P2","site_address":"660 E GISH RD SAN JOSE","permit_decal":"27-0044","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"EL CAMINANTE AKA SPARTAN TACO TRUCK 5K61992","site_address":"1008 BLOSSOM HILL RD SAN JOSE","permit_decal":"26-0276","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"EL CONRRO LINA B 39355A4","site_address":"301 E SANTA CLARA ST SAN JOSE","permit_decal":"26-0677","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"EL COSTENO 31966Z3","site_address":"660 E GISH RD SAN JOSE","permit_decal":"26-0412","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"EL CUNADOS TACOS Y MICHES 86981B3","site_address":"90 S ABEL ST MILPITAS","permit_decal":"26-0251","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"EL FUEGO MEXICAN CUISINE 30445S3","site_address":"103 HORNE AV SAN FRANCISCO","permit_decal":"27-0058","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"EL GRAN TAMAL COLOMBIANO 73658P3","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"26-0460","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"EL GUAPO KITCHEN 33508G3","site_address":"737 SAN BENITO ST HOLLISTER","permit_decal":"26-0448","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"EL MINI TACO 6A20990","site_address":"420 S SAN ANTONIO RD LOS ALTOS","permit_decal":"26-0443","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"EL PACHUQUIN CORDOBES LLC 41449G3","site_address":"55 FIFTH AV # B REDWOOD CITY","permit_decal":"26-0349","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"EL PAISA BY LOS ALEGRES 02565X3","site_address":"3102 MIDDLEFIELD RD REDWOOD CITY","permit_decal":"26-0609","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"EL RANCHERO DEL SUR 8K78882","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"26-0703","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"EL RANCHO LATINO 5H14119","site_address":"1358 S WINCHESTER BL SAN JOSE","permit_decal":"26-0622","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"EL SABOR DE MI BARRIO 2K38188","site_address":"660 E GISH RD SAN JOSE","permit_decal":"26-0159","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"EL SABOR DE MICHOACAN MEXICAN FOOD 8Y80549","site_address":"660 E GISH RD SAN JOSE","permit_decal":"26-0791","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"EL SABOR OAXAQUENO DONA CELE 4VU1164","site_address":"1670 ROGERS AV SAN JOSE","permit_decal":"26-0879","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"EL SABOR YUCATECO 4WX4665","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"26-0432","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"EL SABROSON #2 73446K3","site_address":"1670 ROGERS AV SAN JOSE","permit_decal":"27-0026","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"EL SABROSON 16017C1","site_address":"1670 ROGERS AV SAN JOSE","permit_decal":"26-0540","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"EL SAZON DE CLAUDIA 4XC9860","site_address":"796 S 1ST ST SAN JOSE","permit_decal":"26-0722","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"EL SAZON DE LA NENA 4WM4907","site_address":"1605 ALMADEN RD SAN JOSE","permit_decal":"26-0557","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"EL SAZON TAPATIO 4UA7181","site_address":"1721 ROGERS AV SAN JOSE","permit_decal":"27-0059","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"EL SOMBRERO 100X 4UX8748","site_address":"235 TENNANT AV MORGAN HILL","permit_decal":"26-0800","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"EL SUR 48966U1","site_address":"2832 MIDDLEFIELD RD REDWOOD CITY","permit_decal":"26-0192","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"EL TACO DE ORO 8A62811","site_address":"5220 N 1ST ST ALVISO","permit_decal":"26-0837","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"EL TACO DE ORO CATERING 03167H2","site_address":"5220 N 1ST ST ALVISO","permit_decal":"26-0776","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"EL TACO RANCHERO 7J56022","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"26-0597","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"EL TIBURON LLC 4WA8627","site_address":"1302 S 1ST ST SAN JOSE","permit_decal":"26-0461","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"EL TORITO AZTECA 49874M1","site_address":"660 E GISH RD SAN JOSE","permit_decal":"26-0072","permit_expire_date":"03/31/2026"}
+,{"program_identifier":"EL TORITO LLC 8UKN452","site_address":"578 CLEVELAND AV ALBANY","permit_decal":"26-0283","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"EL TORO TACOS 8J99788","site_address":"1670 ROGERS AV SAN JOSE","permit_decal":"26-0568","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"EL VIEJON MEXICAN FOOD 01601A4","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"26-0777","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"EL VIEJON MEXICAN FOOD 17624X3","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"26-0543","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"ELENAS TAMALES 4VB7087","site_address":"2885 STEVENS CREEK SANTA CLARA","permit_decal":"26-0780","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"ERIKA CATERING TRUCK 68626X1","site_address":"1670 ROGERS AV SAN JOSE","permit_decal":"26-0511","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"ESMERALDA'S CATERING #2 6K51478","site_address":"1670 ROGERS AV  SAN JOSE","permit_decal":"26-0408","permit_expire_date":"03/31/2026"}
+,{"program_identifier":"ETERNA PRIMAVERA 7B35378","site_address":"7500 MASONIC DR SAN JOSE","permit_decal":"26-0514","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"EVEREST MOMO 43281B4","site_address":"153 E FREMONT AV SUNNYVALE","permit_decal":"26-0774","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"EVEREST MOMO 4PY1671","site_address":"153 E FREMONT AV SUNNYVALE","permit_decal":"26-0488","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"EXQUISITO SABOR SALVADORENO 8Z35627","site_address":"1901 LAS PLUMAS # 30 SAN JOSE","permit_decal":"26-0694","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"FAMOSA TAQUERIA 43277U3","site_address":"1704 SENTER RD SAN JOSE","permit_decal":"26-0662","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"FELIPE EL KORA #2 09002A4","site_address":"1783 ALUM ROCK AV # 20 SAN JOSE","permit_decal":"26-0455","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"FERNANDO EL TAQUERO 1TAQERO","site_address":"1605 ALMADEN RD SAN JOSE","permit_decal":"26-0792","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"FIESTA TACOS 71657G1","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"26-0626","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"FIRE & SLICE 8S80916","site_address":"7560 MONTEREY RD GILROY","permit_decal":"26-0240","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"FIRE AND RICE LLC 6P34977","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"26-0242","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"FLEX TRUCK A01004 74643R1","site_address":"5079 DISK DR SAN JOSE","permit_decal":"26-0237","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"FLEX TRUCK A08130 52656Y1","site_address":"5079 DISK DR SAN JOSE","permit_decal":"26-0273","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"FLEX TRUCK A08131 52663Y1","site_address":"5079 DISK DR SAN JOSE","permit_decal":"26-0256","permit_expire_date":"03/31/2026"}
+,{"program_identifier":"FLEX TRUCK A08132 52653Y1","site_address":"5079 DISK DR SAN JOSE","permit_decal":"26-0274","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"FLEX TRUCK A11363 28558U2","site_address":"5079 DISK DR SAN JOSE","permit_decal":"26-0236","permit_expire_date":"03/31/2026"}
+,{"program_identifier":"FLEX TRUCK A12222 77935G2","site_address":"5079 DISK DR SAN JOSE","permit_decal":"26-0255","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"FLEX TRUCK A12348 27984V2","site_address":"5079 DISK DR SAN JOSE","permit_decal":"26-0698","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"FLEX TRUCK A12349 28559U2","site_address":"5079 DISK DR SAN JOSE","permit_decal":"26-0717","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"FLEX TRUCK A14063 37656J3","site_address":"5079 DISK DR SAN JOSE","permit_decal":"26-0235","permit_expire_date":"03/31/2026"}
+,{"program_identifier":"FLEX TRUCK A14064 37655J3","site_address":"5079 DISK DR SAN JOSE","permit_decal":"26-0695","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"FLEX TRUCK A14065 15981V2","site_address":"5070 DISK DR SAN JOSE","permit_decal":"26-0560","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"FLEX TRUCK A14066 00014X2","site_address":"5079 DISK DR SAN JOSE","permit_decal":"26-0305","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"FLEX TRUCK A14067 15985V2","site_address":"5079 DISK DR SAN JOSE","permit_decal":"26-0719","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"FLEX TRUCK A15210 93488V2","site_address":"5079 DISK DR SAN JOSE","permit_decal":"26-0720","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"FLEX TRUCK A15211 33095X2","site_address":"5079 DISK DR SAN JOSE","permit_decal":"26-0697","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"FLEX TRUCK A15212 00016X2","site_address":"5079 DISK DR SAN JOSE","permit_decal":"26-0696","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"FLEX TRUCK A18712 57832N2","site_address":"5079 DISK DR SAN JOSE","permit_decal":"26-0718","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"FLEX TRUCK-A08135 18439Y1","site_address":"5079 DISK DR SAN JOSE","permit_decal":"26-0253","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"FLOR DE PINEAPPLE 33759H3","site_address":"3334 VICTOR CT # 7 SANTA CLARA","permit_decal":"26-0387","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"FLYING IDLIS 4VD2708","site_address":"1469 LANDESS AV MILPITAS","permit_decal":"26-0619","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"FONSECAS MEXICAN FOOD TRUCK 4RE6351","site_address":"1605 ALMADEN RD SAN JOSE","permit_decal":"26-0152","permit_expire_date":"03/31/2026"}
+,{"program_identifier":"FOOD FOR THOUGHT 1486592","site_address":"1701 ROCK ST MOUNTAIN VIEW","permit_decal":"26-0532","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"FREMONT HIGH SCHOOL MOBILE CART","site_address":"575 W FREMONT AV SUNNYVALE","permit_decal":"22-1105","permit_expire_date":"08/31/2026"}
+,{"program_identifier":"FRESH CATCH POKE 08351T1","site_address":"4432 E PEARL AV SAN JOSE","permit_decal":"26-0656","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"FRESH CATCH POKE 8K70837","site_address":"4432 PEARL AV SAN JOSE","permit_decal":"26-0161","permit_expire_date":"03/31/2026"}
+,{"program_identifier":"FRITOS CHICKEN LLC 98472E4","site_address":"1605 ALMADEN RD SAN JOSE","permit_decal":"26-0723","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"FROGO LLC 4SR2001","site_address":"900 AVENUE D SAN FRANCISCO","permit_decal":"26-0454","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"FRONTERA GRILL 33072Y2","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"26-0733","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"FRONTERA GRILL INC 13665U3","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"26-0667","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"FRONTERA GRILL INC 4VT1157","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"26-0226","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"GALINDO'S ICE CREAM 27193S3","site_address":"224 S 24 ST SAN JOSE","permit_decal":"26-0706","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"GARLIC CITY SMASH BURGERS 4RY6685","site_address":"767 FIRST ST GILROY","permit_decal":"26-0588","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"GERRY'S GRILL FOOD TRUCK 4VD5065","site_address":"2430 WHIPPLE RD HAYWARD","permit_decal":"26-0478","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"GIGI'S CATERING 81809E3","site_address":"660 E GISH RD SAN JOSE","permit_decal":"26-0880","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"GILL FOOD TRUCK 17591V3","site_address":"1721 ROGERS AV # S SAN JOSE","permit_decal":"27-0048","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"GN EVENT RENTAL INC 4SX3025","site_address":"39195 FARWELL DR FREMONT","permit_decal":"26-0471","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"GOLDEN GATE GYRO 31169W3","site_address":"1044 SHARY CL CONCORD","permit_decal":"26-0428","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"GOLDEN ICE CREAM 68585L2","site_address":"22359 MEEKLAND AV HAYWARD","permit_decal":"26-0345","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"GONZALEZ ICE CREAM AND FRUIT 62924U1","site_address":"224 S 24TH ST SAN JOSE","permit_decal":"26-0268","permit_expire_date":"03/31/2026"}
+,{"program_identifier":"GOOGLE 100 LOMAX - BV200 COFFEE CART - 100 LOMAX LN","site_address":"100 LOMAX LN MOUNTAIN VIEW","permit_decal":"S0S-0001","permit_expire_date":"09/30/2026"}
+,{"program_identifier":"GP ICE CREAM 71724N1","site_address":"224 S 24TH ST SAN JOSE","permit_decal":"26-0477","permit_expire_date":"03/31/2026"}
+,{"program_identifier":"GREGOIRE CULINARY TRUCK 97853Y3","site_address":"6613 HOLLIS ST EMERYVILLE","permit_decal":"26-0795","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"GRILLMAN 21357S3","site_address":"478 STOCKTON AV SAN JOSE","permit_decal":"26-0202","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"GRILLZILLAS 48073D4","site_address":"1605 ALMADEN RD SAN JOSE","permit_decal":"26-0499","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"GRILLZILLAS 78994Y3","site_address":"1605 ALAMDEN RD SAN JOSE","permit_decal":"26-0400","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"GUSTO CULPOSO 4VG7931","site_address":"1605 ALMADEN RD SAN JOSE","permit_decal":"26-0690","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"GUTIERREZ AUTENTICA COMIDA MEXICANA 35373R1","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"26-0530","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"HALAL BITES OF CHICAGO 4TV8862","site_address":"1880HIR SUTTER ST LIVERMORE","permit_decal":"26-0494","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"HAO'S CATERING 2F91876","site_address":"660 E GISH RD SAN JOSE","permit_decal":"26-0114","permit_expire_date":"03/31/2026"}
+,{"program_identifier":"HAPPY PLATE 77744T2","site_address":"1000 OLD QUARRY RD SAN JOSE","permit_decal":"26-0693","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"HASH N DASH 4WL2627","site_address":"2500 MASONIC DR SAN JOSE","permit_decal":"26-0809","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"HAVANA ON WHEELS 4WB2331","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"26-0884","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"HERMANOS LOPEZ #2 01151F4","site_address":"660 E GISH RD SAN JOSE","permit_decal":"26-0757","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"HERMANOS LOPEZ 11978B4","site_address":"660 E GISH RD  SAN JOSE","permit_decal":"26-0763","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"HERNANDEZ CATERING 6X61085","site_address":"660 E GISH RD SAN JOSE","permit_decal":"26-0406","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"HEROICA 7T20839","site_address":"478 STOCKTON AV SAN JOSE","permit_decal":"26-0322","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"HET SAY 4UX8784","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"26-0687","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"HILTON SANTA CLARA LARGE CART #1","site_address":"4949 GREAT AMERICA PY  SANTA CLARA","permit_decal":"17-0357","permit_expire_date":"06/30/2026"}
+,{"program_identifier":"HILTON SANTA CLARA LARGE CART #2","site_address":"4949 GREAT AMERICA PY  SANTA CLARA","permit_decal":"17-0352","permit_expire_date":"06/30/2026"}
+,{"program_identifier":"HILTON SANTA CLARA SMALL CART #1","site_address":"4949 GREAT AMERICA PY  SANTA CLARA","permit_decal":"17-0353","permit_expire_date":"06/30/2026"}
+,{"program_identifier":"HILTON SANTA CLARA SMALL CART #2","site_address":"4949 GREAT AMERICA PY  SANTA CLARA","permit_decal":"17-0354","permit_expire_date":"06/30/2026"}
+,{"program_identifier":"HILTON SANTA CLARA SMALL CART #3","site_address":"4949 GREAT AMERICA PY  SANTA CLARA","permit_decal":"17-0355","permit_expire_date":"06/30/2026"}
+,{"program_identifier":"HINT OF DESI 81544G3","site_address":"2430 WHIPPLE RD HAYWARD","permit_decal":"26-0189","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"HOMESTEAD HIGH SCHOOL MOBILE CART","site_address":"21370 HOMESTEAD RD CUPERTINO","permit_decal":"22-1104","permit_expire_date":"08/31/2026"}
+,{"program_identifier":"HONG PRODUCE 7FEJ334","site_address":"1744 RIVER BIRCH DR SAN JOSE","permit_decal":"26-0740","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"HONGRY KONG 20834F1","site_address":"407 OLD COUNTY RD BELMONT","permit_decal":"26-0595","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"HOPES KITCHEN 4WS3507","site_address":"1854 BAY RD EAST PALO ALTO","permit_decal":"26-0636","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"HOUSE OF TIFFINS 64127W3","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"26-0378","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"HUGO'S TAQUERIA INC 51461Y3","site_address":"199 WILLOW ST SAN JOSE","permit_decal":"26-0333","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"I LOVE CHEESESTEAK 2 15809Z1","site_address":"1135 CAMPBELL AV SAN JOSE","permit_decal":"26-0289","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"ICE CREAM LAND 51046F1","site_address":"1670 ROGERS AV SAN JOSE","permit_decal":"26-0519","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"INDIAN EXPRESS 81894T1","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"27-0053","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"IRAQI CHEF 4LR5147","site_address":"205 N 4TH ST SAN JOSE","permit_decal":"26-0685","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"ISELA'S CATERING 38252B3","site_address":"660 E GISH RD SAN JOSE","permit_decal":"26-0518","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"ISLAND ICE 4WP9969","site_address":"4580 ALMADEN EX UNIT 103 SAN JOSE","permit_decal":"26-0127","permit_expire_date":"03/31/2026"}
+,{"program_identifier":"IVAN'S BAKED POTATOES AND CORN 51288X3","site_address":"20 C MENKER ST WATSONVILLE","permit_decal":"26-0665","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"JEVIKAL CA 4XB3715","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"27-0014","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"JOE'S TACO SHOP 1UA3530","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"26-0534","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"JOJO'S HOT CHICKEN 48753M1","site_address":"1635 ALUM ROCK AV SAN JOSE","permit_decal":"26-0338","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"JOJOS HOT CHICKEN LLC 66959J2","site_address":"1635 ALUM ROCK SAN JOSE","permit_decal":"26-0566","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"JOLLY'S OLD-FASHIONED  TEAS CREAM 4RU6255","site_address":"81 37TH AV SAN MATEO","permit_decal":"26-0375","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"JOSE'S CATERING 2C70121","site_address":"660 E GISH RD SAN JOSE","permit_decal":"26-0737","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"JR'S NY PIZZA 4WX5137","site_address":"16410 MONTEREY RD MORGAN HILL","permit_decal":"27-0019","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"JUANITA'S CATERING 59108P2","site_address":"1670 ROGERS AV SAN JOSE","permit_decal":"26-0876","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"JUANITA'S FRUIT 8V95696","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"26-0612","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"JUDIE'S TACOS LOCOS 20529G2","site_address":"1670 ROGERS AV SAN JOSE","permit_decal":"26-0081","permit_expire_date":"03/31/2026"}
+,{"program_identifier":"JULIE'S CATERING 6V89930","site_address":"660 E GISH RD SAN JOSE","permit_decal":"26-0664","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"JULIE-NGUYEN CATERING 3Y81421","site_address":"660 E GISH RD SAN JOSE","permit_decal":"26-0840","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"JUNIOR'S ROASTER #3 4LA1267","site_address":"3046 H DELA ROSA SR ST SOLEDAD","permit_decal":"26-0735","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"JUNIOR'S ROASTER #4 4TC4179","site_address":"3046 H DE LA ROSA SR ST SOLEDAD","permit_decal":"26-0501","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"JUST MIX EAT 29022M2","site_address":"660 E GISH RD SAN JOSE","permit_decal":"26-0659","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"KABOB TROLLEY 33994E2","site_address":"2723 OAKDALE AV SAN FRANCISCO","permit_decal":"26-0550","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"KABOB TROLLEY 33995E2","site_address":"2723 OAKDALE AV SAN FRANCISCO","permit_decal":"26-0521","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"KAIZOKU SUSHI 78680F2","site_address":"1710 BERRYESSA RD # 111 SAN JOSE","permit_decal":"26-0093","permit_expire_date":"03/31/2026"}
+,{"program_identifier":"KARTHIKA KITCHEN  58010Z3","site_address":"300 W CALAVERAS BL MILPITAS","permit_decal":"26-0632","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"KENTUCKY CATERING P525361","site_address":"10007 MAIN ST PENNGROVE","permit_decal":"26-0555","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"KENZ COFFEE BAR 4UV4061","site_address":"855 SERVICE ST SAN JOSE","permit_decal":"26-0310","permit_expire_date":"03/31/2026"}
+,{"program_identifier":"KHWANTAS THAI  8H84004","site_address":"4580 ALMADEN EX SAN JOSE","permit_decal":"26-0641","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"KICKOFF EVENT CATERING 7895V41","site_address":"1922 BROADWAY ST VALLEJO","permit_decal":"26-0584","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"KING HIBACHI 4WR5618","site_address":"988 ACOSTA PLZ SALINAS","permit_decal":"26-0419","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"KINGS CREPES 8N16003","site_address":"126 E FREMONT AV SUNNYVALE","permit_decal":"26-0309","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"KONA ICE OF MONTEREY AND SALINAS 65219E2","site_address":"1325 ABBOTT ST #4 SALINAS","permit_decal":"26-0058","permit_expire_date":"03/31/2026"}
+,{"program_identifier":"KONA ICE OF MOUNTAIN VIEW 11012C4","site_address":"2500 MASONIC DR SAN JOSE","permit_decal":"26-0144","permit_expire_date":"03/31/2026"}
+,{"program_identifier":"KONA ICE OF MOUNTAIN VIEW 42529V3","site_address":"2500 MASONIC DR SAN JOSE","permit_decal":"26-0143","permit_expire_date":"03/31/2026"}
+,{"program_identifier":"KONA ICE OF MOUNTAIN VIEW 55227L3","site_address":"2500 MASONIC DR SAN JOSE","permit_decal":"26-0291","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"KONA ICE OF MOUNTAIN VIEW 55365L3","site_address":"2500 MASONIC DR SAN JOSE","permit_decal":"26-0292","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"KONA ICE SOUTH SAN JOSE 51874G1","site_address":"1658 S MILPITAS BL MILPITAS","permit_decal":"26-0533","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"KONA ICE WEST SAN JOSE 10167J2","site_address":"2306 ALMADEN RD SAN JOSE","permit_decal":"26-0243","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"KONA ICE WEST SAN JOSE 77635S3","site_address":"2306 ALMADEN RD SAN JOSE","permit_decal":"26-0241","permit_expire_date":"03/31/2026"}
+,{"program_identifier":"KONA ICE WEST SAN JOSE 85359S1","site_address":"2306 ALMADEN RD SAN JOSE","permit_decal":"26-0231","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"KONA ISLAND COFFEE 4VL3287","site_address":"1635 ALUM ROCK AV SAN JOSE","permit_decal":"26-0271","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"LA AZTECA TAQUERIA 4KVG912","site_address":"660 E GISH RD SAN JOSE","permit_decal":"26-0175","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"LA BARCA DEL SABOR 4EN8217","site_address":"235 TENNANT AV # 5 MORGAN HILL","permit_decal":"27-0018","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"LA BURBUJA 22148S3","site_address":"2512 CALIFORNIA ST MOUNTAIN VIEW","permit_decal":"27-0094","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"LA BURRITA 5N92913","site_address":"1593 MONTEREY RD SAN JOSE","permit_decal":"27-0070","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"LA CHAPARRA 16930X3","site_address":"1670 ROGERS AV  SAN JOSE","permit_decal":"26-0820","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"LA CHAPARRITA OAXAQUENA 20987N3","site_address":"660 E GISH RD SAN JOSE","permit_decal":"27-0012","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"LA CHILANGA 6A08266","site_address":"226 W ALMA AV SAN JOSE","permit_decal":"26-0816","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"LA COCINA DE CHATITA 4SJ1073","site_address":"4580 ALMADEN EX # 103 SAN JOSE","permit_decal":"26-0859","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"LA COSTENITA 6R37259","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"26-0564","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"LA CUEVA MEXICAN GRUB 8Y47600","site_address":"478 STOCKTON AV SAN JOSE","permit_decal":"26-0661","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"LA ESTRELLITA TAQUERIA #1 4MN7044","site_address":"1670 ROGERS AV SAN JOSE","permit_decal":"27-0036","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"LA FAMILIA FOOD TRUCK 52933E3","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"27-0089","permit_expire_date":"03/31/2026"}
+,{"program_identifier":"LA FONDITA 39753B3","site_address":"1681 DELTA CT HAYWARD","permit_decal":"26-0177","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"LA GARNACHA MEXICANA 01607A4","site_address":"660 E GISH RD SAN JOSE","permit_decal":"26-0714","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"LA JACARANDA OAXAQUENA 4HT6843","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"26-0608","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"LA MARAVILLA MEXICAN FOOD 16567G3","site_address":"660 E GISH RD SAN JOSE","permit_decal":"26-0186","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"LA MEXICANA BS 8C25194","site_address":"1670 ROGERS AV SAN JOSE","permit_decal":"26-0844","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"LA MICRO DEL SABOR 4VN2073","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"26-0838","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"LA MORE Y EL TOXICO 4XA9083","site_address":"1670 ROGERS AV SAN JOSE","permit_decal":"27-0031","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"LA OAXAQUENSE 73220V2","site_address":"1605 ALMADEN RD SAN JOSE","permit_decal":"26-0416","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"LA PAISANITA (MEXICAN FOOD) 01613A4","site_address":"1670 ROGERS AV SAN JOSE","permit_decal":"26-0193","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"LA PANDERIA 98064Z1","site_address":"4580 ALMADEN EX # 103 SAN JOSE","permit_decal":"26-0492","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"LA PATRONA CMX 4UB4402","site_address":"2670 EL CAMINO REAL SANTA CLARA","permit_decal":"26-0433","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"LA PODEROSA AYG TACOS 7W64004","site_address":"1670 ROGERS AV SAN JOSE","permit_decal":"26-0099","permit_expire_date":"03/31/2026"}
+,{"program_identifier":"LA PRIMITA FRUTERIA 4RR3191","site_address":"4130 MONTEREY HY SAN JOSE","permit_decal":"26-0574","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"LA PUPUSA LOCA TAQUERIA 4EC3957","site_address":"1605 ALMADEN RD SAN JOSE","permit_decal":"26-0741","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"LA TORTA REAL 86557K3","site_address":"1901 LAS PLUMAS AV # 30 SAN JOSE","permit_decal":"27-0042","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"LA TRADICION DE NUEVA ITALIA 4PF6731","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"27-0041","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"LALKHAN'S INDIAN EXPRESS 8Z90737","site_address":"1670 ROGERS AV SAN JOSE","permit_decal":"27-033","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"LANT'S POPCORN AND COTTON CANDY","site_address":"611 GREAT MALL DR MILPITAS","permit_decal":"25-0063","permit_expire_date":"02/28/2027"}
+,{"program_identifier":"LAS CHERRYS 4UX8783","site_address":"1302 S 1ST ST SAN JOSE","permit_decal":"26-0761","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"LAS DELICIAS DE TONITA 4WD4689","site_address":"2882 STORY RD SAN JOSE","permit_decal":"27-0098","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"LAS MINAS GUATEMALAN 43385P3","site_address":"478 STOCKTON AV SAN JOSE","permit_decal":"26-0578","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"LAS TEQUILERAS MEXICAN GRILL 90022X3","site_address":"225 W MAIN AV MORGAN HILL","permit_decal":"26-0711","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"LAURA ROSAS #1 4N23030","site_address":"1670 ROGERS AV  SAN JOSE","permit_decal":"26-0481","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"LAURA ROSAS 2F91853","site_address":"1670 ROGERS AV SAN JOSE","permit_decal":"26-0473","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"LEGOS 04410Y2","site_address":"660 E GISH RD SAN JOSE","permit_decal":"26-0339","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"LESLEY'S CATERING 63950W3","site_address":"660 E GISH RD  SAN JOSE","permit_decal":"26-0572","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"LILLIEMAE'S 4VD4538","site_address":"2670 EL CAMINO REAL SANTA CLARA","permit_decal":"26-0598","permit_expire_date":"07/31/2026"}
+,{"program_identifier":"LINDA'S TAQUERIA #1 8E05819","site_address":"1605 ALMADEN RD SAN JOSE","permit_decal":"27-0090","permit_expire_date":"03/31/2026"}
+,{"program_identifier":"LION TEA & DRAGON BITES 74641R1","site_address":"407 OLD COUNTY RD BELMONT","permit_decal":"26-0386","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"LOS ALEBRIJES 4WB9920","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"26-0728","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"LOS BARRILES ICE CREAM 88102U1","site_address":"1670 ROGERS AV SAN JOSE","permit_decal":"26-0623","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"LOS CHAPULINES 8K70536","site_address":"660 E GISH RD  SAN JOSE","permit_decal":"26-0727","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"LOS CORIAS 50061P2","site_address":"235 TENANT AV # 5 MORGAN HILL","permit_decal":"26-0683","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"LOS JAMAYTECOS 65050J2","site_address":"4660 PEARL AV SAN JOSE","permit_decal":"26-0239","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"LOS JAROCHOS GRILL 12770G1","site_address":"660 E GISH RD SAN JOSE","permit_decal":"26-0131","permit_expire_date":"03/31/2026"}
+,{"program_identifier":"LOS KUYAS CATERING LLC 99995D3","site_address":"326 SHAW RD SAN FRANCISCO","permit_decal":"26-0850","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"LOS PAMBAZOS #1 9BMD639","site_address":"478 STOCKTON AV SAN JOSE","permit_decal":"26-0596","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"LOS PAMBAZOS #2 41918C3","site_address":"478 STOCKTON AV SAN JOSE","permit_decal":"26-0597","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"LOS TACOS 4VZ1332","site_address":"1670 ROGERS AV SANTA CLARA","permit_decal":"26-0590","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"LOS TACOS DE LA ESQUINA CDMX 65544E4","site_address":"1635 ALUM ROCK AV SAN JOSE","permit_decal":"26-0610","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"LOS TACOS DE MI TIERRA 4WL2628","site_address":"1150 MCGINNESS AV # B SAN JOSE","permit_decal":"27-0045","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"LOS TWINS MEXICAN GRILL 4VJ3332","site_address":"2042 MCKEE RD SAN JOSE","permit_decal":"26-0376","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"LUCKY'S CATERING 5K44626","site_address":"660 E GISH RD SAN JOSE","permit_decal":"26-0758","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"LUMA'S CATERING 3U94587","site_address":"1670 ROGERS AV SAN JOSE","permit_decal":"26-0401","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"LUV'S BROWNIES 95666S1","site_address":"1670 ROGERS AV SAN JOSE","permit_decal":"26-0836","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"LYNA'S KITCHEN 94363A4","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"26-0645","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"LYNBROOK HIGH SCHOOL MOBILE CART","site_address":"1280 JOHNSON AV SAN JOSE","permit_decal":"22-1102","permit_expire_date":"08/31/2026"}
+,{"program_identifier":"MADHU IDIYAPPA KADAI 4VP6713","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"27-0015","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"MAGIC COFFEE 4UX7907","site_address":"155 S MURPHY AV SUNNYVALE","permit_decal":"26-0282","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"MAMACITAS CATERING 44670L1","site_address":"2512 CALIFORNIA ST MOUNTAIN VIEW","permit_decal":"26-0552","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"MANJODH ICE CREAM 77278E1","site_address":"224 S 24TH ST SAN JOSE","permit_decal":"26-0549","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"MARGARITA'S TAQUERIA 44358A3","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"26-0863","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"MARIBEL'S CATERING 37011A3","site_address":"1670 ROGERS AV  SAN JOSE","permit_decal":"26-0516","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"MARIBEL'S MEXICAN FOOD #2 34990V1","site_address":"1670 ROGERS AV SAN JOSE","permit_decal":"26-0745","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"MARISCOS EL AQUACHILES 8 #4SS1056","site_address":"199 WILLOW ST SAN JOSE","permit_decal":"26-0371","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"MARISCOS ESTILO MAZATLAN  \"EL CHARCO\" 4PS8383","site_address":"1605 ALMADEN RD SAN JOSE","permit_decal":"26-0815","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"MARISCOS LOS KORAS #2 12448R1","site_address":"1783 ALUM ROCK AV # 20 SAN JOSE","permit_decal":"26-0293","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"MARTHAS CATERING 19410W3","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"26-0154","permit_expire_date":"03/31/2026"}
+,{"program_identifier":"MARY TRAN CATERING 48322P2","site_address":"660 E GISH RD SAN JOSE","permit_decal":"26-0672","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"MARY VOLZ ICE CREAM 6F13619","site_address":"330 RACE ST SAN JOSE","permit_decal":"26-0793","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"MASALA THEORY 15158M1","site_address":"1635 ALUM ROCK AV SAN JOSE","permit_decal":"26-0303","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"MASTER G 1MR2063","site_address":"1721 ROGERS AV STE 5 SAN JOSE","permit_decal":"26-0425","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"MAVI'S ICE CREAM 66177R3","site_address":"224 S 24th ST SAN JOSE","permit_decal":"26-0286","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"MAZZEH GRILL 86714S2","site_address":"949 RUFF DR # 8.1 SAN JOSE","permit_decal":"26-0479","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"MBM POTATOES AND CORN 4VH7661","site_address":"37311 FREMONT BL FREMONT","permit_decal":"26-0668","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"MC FOOD INC 5K65545","site_address":"149 N WHITE RD SAN JOSE","permit_decal":"26-0269","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"MC FOOD INC. 81721E1","site_address":"149 N WHITE RD SAN JOSE","permit_decal":"26-0185","permit_expire_date":"03/31/2026"}
+,{"program_identifier":"MC SUSHI 73376F2","site_address":"660 E GISH RD SAN JOSE","permit_decal":"26-0673","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"ME OI 6M36621","site_address":"1605 ALMADEN RD SAN JOSE","permit_decal":"26-0181","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"MELINA'S KITCHEN/TACOS EL ZAPOTECO 06274Y2","site_address":"451 DUMBARTON AV REDWOOD CITY","permit_decal":"26-0522","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"MELISA'S CATERING #2 2S90456","site_address":"1670 ROGERS AV  SAN JOSE","permit_decal":"26-0272","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"MENDOZA BROTHERS 5U75107","site_address":"1670 ROGERS AV SAN JOSE","permit_decal":"26-0806","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"MESTIZO 8T88992","site_address":"1635 ALUM ROCK AV SAN JOSE","permit_decal":"26-0324","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"MEXCLA STREET EATS 3U75139","site_address":"1605 ALMADEN RD SAN JOSE","permit_decal":"26-0680","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"MEXICO BAKERY 8Z26807","site_address":"2243 ALUM ROCK AV SAN JOSE","permit_decal":"26-0825","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"MEXICO BAKERY CF55V41","site_address":"1560 ALUM ROCK AV SAN JOSE","permit_decal":"26-0529","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"MI SANDWICHITO 4D01083","site_address":"787 THE ALAMEDA # 10 SAN JOSE","permit_decal":"26-0126","permit_expire_date":"03/31/2026"}
+,{"program_identifier":"MI TAQUERIA LA SUPREMA 4SS5481","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"26-0517","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"MIA'S CATERING 6D98026","site_address":"660 E GISH RD SAN JOSE","permit_decal":"26-0790","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"MICHELADAS EL CUNAO 4UN2705","site_address":"387 S 1ST ST SAN JOSE","permit_decal":"26-0162","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"MIKE & NIKI'S HONEY 30277N2","site_address":"1600 DELL AV # B CAMPBELL","permit_decal":"26-0544","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"MIMI'S CATERING 55664C1","site_address":"660 E GISH RD SAN JOSE","permit_decal":"27-0011","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"MIMOSAS MEXICAN KITCHEN 25490Y2","site_address":"478 STOCKTON AV SAN JOSE","permit_decal":"26-0346","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"MIO TACO 41445C2","site_address":"1670 ROGERS AV  SAN JOSE","permit_decal":"26-0651","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"MISSION BISTRO XPRESS 1499164","site_address":"3000 MISSION COLLEGE BL MS-2 SANTA CLARA","permit_decal":"26-0459","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"MISTER SOFTEE NOR CAL 933MEE","site_address":"3400 YALE WY FREMONT","permit_decal":"26-0259","permit_expire_date":"03/31/2026"}
+,{"program_identifier":"MISTER SOFTEE NORCAL 79584N3","site_address":"3400 YALE WY FREMONT","permit_decal":"26-0713","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"MIXTECA POBLANA 8B61254","site_address":"1901 LAS PLUMAS ST # 30 SAN JOSE","permit_decal":"26-0553","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"MOBOWL 8V15932","site_address":"249 VISITACION AV BRISBANE","permit_decal":"26-0812","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"MOLATTE CAFE 51746R2","site_address":"2855 STORY RD SAN JOSE","permit_decal":"26-0666","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"MOLINAS KITCHEN 88821C4","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"26-0702","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"MOMO MANTRA 3R45411","site_address":"1721 ROGERS AV SAN JOSE","permit_decal":"27-0068","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"MONCHIS MARISCOS 5U25941","site_address":"301 S VAN NESS AV SAN FRANCISCO","permit_decal":"26-0730","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"MONTE VISTA HIGH SCHOOL MOBILE CART","site_address":"21840 MCCLELLAN RD CUPERTINO","permit_decal":"22-1103","permit_expire_date":"08/31/2026"}
+,{"program_identifier":"MOUNTRAIN 11223M3","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"26-0765","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"MOZZERIA 27896W1","site_address":"2400 MONARCH ST ALAMEDA","permit_decal":"26-0404","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"MR BOMBAY 91767K2","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"27-0008","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"MR SHRIMP 40266N2","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"26-0116","permit_expire_date":"03/31/2026"}
+,{"program_identifier":"MR TACO EXPRESS 9VKR075","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"26-0848","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"MR. RICE KEBAB 39341U3","site_address":"2655 MIDDLEFIELD RD REDWOOD CITY","permit_decal":"26-0495","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"MUMBAI EXPRESS 42565V3","site_address":"731 S WOLFE RD SUNNYVALE","permit_decal":"26-0368","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"NACHOS AND TACO'S YOUR WAY 4UV4662","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"26-0642","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"NAMASTE NEPAL 4PP8407","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"26-0818","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"NAMMA BENGALURU ADDA 4XD4337","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"27-0067","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"NELLY'S CATERING 33317T1","site_address":"168 W 10TH ST GILROY","permit_decal":"26-0103","permit_expire_date":"03/31/2026"}
+,{"program_identifier":"NEMOS PRODUCE 26594S3","site_address":"660 SHERWOOD DR GILROY","permit_decal":"26-0614","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"NEMOS PRODUCE 51895N3","site_address":"660 SHERWOOD DR GILROY","permit_decal":"26-0613","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"NENE'S CATERING 56233Z3","site_address":"1670 ROGERES AV SAN JOSE","permit_decal":"26-0786","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"NEW DELHI CHAAT INC 4NH2126","site_address":"855 SERVICE ST SAN JOSE","permit_decal":"26-0166","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"NEZA BIRRIERA #2 99548E2","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"26-0888","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"NEZA BIRRIERIA #2 81972G3","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"26-0191","permit_expire_date":"03/31/2026"}
+,{"program_identifier":"NINOS ICE CREAM 68442X1","site_address":"17865 MONTEREY ST MORGAN HILL","permit_decal":"26-0828","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"NOB HILL PIZZA #2 ( ICE CREAM )","site_address":"155 SOUTH BL SAN MATEO","permit_decal":"26-0603","permit_expire_date":"09/30/2026"}
+,{"program_identifier":"NOB HILL PIZZA #6 (HOT DOGS)","site_address":"155 SOUTH BL SAN MATEO","permit_decal":"26-0602","permit_expire_date":"09/30/2026"}
+,{"program_identifier":"NOB HILL PIZZA (COTTON CANDY)","site_address":"155 SOUTH BL SAN MATEO","permit_decal":"26-0604","permit_expire_date":"09/30/2026"}
+,{"program_identifier":"NOB HILL PIZZA (POPCORN)","site_address":"155 SOUTH BL SAN MATEO","permit_decal":"26-0605","permit_expire_date":"09/30/2026"}
+,{"program_identifier":"NUEVAS GENERACIONES TAQUERIA NGT2","site_address":"1635 ALUM ROCK AV SAN JOSE","permit_decal":"26-0462","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"OAXACA TAMALES EXPRESS 4EZ9815","site_address":"2376 EL CAMINO SANTA CLARA","permit_decal":"26-0869","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"OAXACALIFORNIA 10302W3","site_address":"1302 S 1ST ST SAN JOSE","permit_decal":"27-0037","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"OAXACAN KITCHEN-MOBILE 8Y72311","site_address":"2905 PARK AV SANTA CLARA","permit_decal":"26-0744","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"OLD GREEN WOOD BBQ AT THE GOLD RUSH SALOON 5N85843","site_address":"1010 S WOLFE RD SUNNYVALE","permit_decal":"26-0767","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"OLIMPOS CHURROS #2 4EP5650","site_address":"588 E ALMA AV SAN JOSE","permit_decal":"26-0655","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"OLIMPOS CHURROS 4VK5994","site_address":"588 E ALMA AV SAN JOSE","permit_decal":"26-0654","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"ORALIA'S CATERING 2N17436","site_address":"660 E GISH RD  SAN JOSE","permit_decal":"26-0785","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"ORCHARD VALLEY COFFEE","site_address":"349 E CAMPBELL AV CAMPBELL","permit_decal":"24-0571","permit_expire_date":"08/31/2026"}
+,{"program_identifier":"PACIFICO SHRIMP 8XMY789","site_address":"1605 ALMADEN RD SAN JOSE","permit_decal":"26-0295","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"PALETERIA ANGELES #1","site_address":"224 S 24TH ST SAN JOSE","permit_decal":"26-0750","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"PALETERIA ANGELES #2","site_address":"224 S 24TH ST SAN JOSE","permit_decal":"26-0751","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"PALETERIA CHIVE","site_address":"330 RACE ST SAN JOSE","permit_decal":"26-0391","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"PALETERIA EL RINCON 79648T1","site_address":"224 S 24TH ST SAN JOSE","permit_decal":"26-0210","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"PALETERIA JORGE #1","site_address":"224 S 24TH ST SAN JOSE","permit_decal":"26-0208","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"PALETERIA JORGE #2","site_address":"224 S 24TH ST SAN JOSE","permit_decal":"26-0209","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"PALETERIA Y NEVERIA EL ENCANTO 1380969","site_address":"326 COMMERICAL ST SAN JOSE","permit_decal":"26-0640","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"PANE E POMODORO 4SB7120","site_address":"794 S 1ST ST SAN JOSE","permit_decal":"26-0700","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"PANWAARI PAAN SHOP 4UA6216","site_address":"1111 W EL CAMINO REAL SUNNYVALE","permit_decal":"26-0229","permit_expire_date":"03/31/2026"}
+,{"program_identifier":"PATIO DEL COPAL 82538A3","site_address":"3281 SIERRA RD SAN JOSE","permit_decal":"26-0657","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"PATRONA TACOS 17084G3","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"26-0845","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"PAULINA'S CATERING 8D94835","site_address":"660 E GISH RD  SAN JOSE","permit_decal":"26-0833","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"PAUSD/PAMC EV3 1675164","site_address":"780 ARASTRADERO RD PALO ALTO","permit_decal":"26-0589","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"PAV BHAJI AND MORE 4VG7927","site_address":"2695 EL CAMINO REAL SANTA CLARA","permit_decal":"26-0773","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"PAV BHAJI AND MORE LLC 4TV8168","site_address":"2695 EL CAMINO REAL SANTA CLARA","permit_decal":"26-0778","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"PEPIPOLLO 4RV8431","site_address":"1820 ALUM ROCK AV # 25 SAN JOSE","permit_decal":"26-0465","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"PETRAS KITCHEN 6P82315","site_address":"2633 CALIFORNIA ST MOUNTAIN VIEW","permit_decal":"26-0585","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"PHI DANG CATERING 73832R2","site_address":"660 E GISH RD SAN JOSE","permit_decal":"26-0851","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"PICNIC BASKET 95453A1","site_address":"1135 CAMPBELL AV SAN JOSE","permit_decal":"27-0022","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"PIZZETTA 80968B2","site_address":"300 WILLOW ST SAN JOSE","permit_decal":"26-0440","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"POKE BRADDAHS 6Y27004","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"26-0670","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"POLLOS ASADO EL TREBOL 4LH3924","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"26-0427","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"PORT OF PERI PERI 5D42168","site_address":"3283 WALNUT AV FREMONT","permit_decal":"26-0112","permit_expire_date":"03/31/2026"}
+,{"program_identifier":"PRE-HISPANIC MX CUISINE X705326","site_address":"1605 ALMADEN RD SAN JOSE","permit_decal":"26-0509","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"PRINCESS CRAVINGS #2 86728S3","site_address":"478 STOCKTON AV SAN JOSE","permit_decal":"26-0445","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"PRINCESS FRUIT AND FOOD 8X45133","site_address":"17865 MONTERREY RD # M MORGAN HILL","permit_decal":"26-0873","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"PRUNERIDGE GOLF CLUB  4JU4538","site_address":"400 N SARATOGA AV SANTA CLARA","permit_decal":"26-0726","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"PUPUSA LADY 7CIN611","site_address":"235 TENANT AV MORGAN HILL","permit_decal":"26-0635","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"PUPUSERIA Y TAQUERIA LOS GUANACOS 37373N2","site_address":"660 E GISH RD SAN JOSE","permit_decal":"26-0644","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"PUPUSERIA Y TAQUERIA NUEVA JERUSALEN 4WU6225","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"26-0749","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"QUIERO MEXICAN FOOD 6L01326","site_address":"3270 KELLER ST SAN JOSE","permit_decal":"26-0731","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"QUIROGA TAQUERIA 4NE6614","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"26-0306","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"R&K COCINA 4RR8792","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"26-0092","permit_expire_date":"03/31/2026"}
+,{"program_identifier":"RAJ ICE CREAM 23681H2","site_address":"224 S 24TH ST SAN JOSE","permit_decal":"26-0429","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"RASPADOS LA GLORIA 4WU2731","site_address":"1635 ALUM ROCK AV SAN JOSE","permit_decal":"27-0028","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"REAL MEXICO 5M62715","site_address":"1670 ROGERS AV SAN JOSE","permit_decal":"26-0230","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"REDWOOD BITES 94004J2","site_address":"356 WOODSIDE PLZ REDWOOD CITY","permit_decal":"26-0639","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"REDWOOD DECK BAR @ THE MOUNTAIN WINERY","site_address":"14831 PIERCE RD  SARATOGA","permit_decal":"16-0960","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"RESPECTABLE BIRD V916R0","site_address":"237 EL CAMINO REAL S SAN FRANCISCO","permit_decal":"26-0520","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"RHEMA CATERING 45028B4","site_address":"1670 ROGERS AV SAN JOSE","permit_decal":"26-0593","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"RICOS TACOS LOS GUEROS 4SZ4055","site_address":"549 W JULIAN ST SAN JOSE","permit_decal":"26-0647","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"RINCON DEL CIELO 25925C4","site_address":"451 DUMBARTON AV REDWOOD CITY","permit_decal":"26-0232","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"RIOS REFRESHMENTS CART","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"26-0290","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"ROAD DOGS 3M83676","site_address":"660 E GISH RD  SAN JOSE","permit_decal":"26-0587","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"ROADHOUSE 48 43868H3","site_address":"1605 ALMADEN RD SAN JOSE","permit_decal":"26-0296","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"ROADSIDE ROTISSERIE #2 – 43793U1","site_address":"1415 BROADWAY STE K ALAMEDA","permit_decal":"26-0064","permit_expire_date":"03/28/2026"}
+,{"program_identifier":"ROADSIDE ROTISSERIE #4 79631S2","site_address":"1415 BROADWAY STE K ALAMEDA","permit_decal":"26-0562","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"ROADSIDE ROTISSERIE#1 62889B2","site_address":"1415 BROADWAY STE K ALAMEDA","permit_decal":"26-0561","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"ROCKO'S ICE CREAM TACOS 98782L1","site_address":"2905 PARK AV SANTA CLARA","permit_decal":"26-0380","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"RODRIGUEZ FOOD TRUCK 55980E3","site_address":"1670 ROGERS AV SAN JOSE","permit_decal":"26-0337","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"ROJAS MEXICAN FOOD 2G87024","site_address":"660 E GISH RD SAN JOSE","permit_decal":"26-0413","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"ROJAS MEXICAN FOOD 7J70016","site_address":"660 E GISH RD SAN JOSE","permit_decal":"26-0472","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"ROLIROTI 01499M3","site_address":"7800 EDGEWATER DR OAKLAND","permit_decal":"26-0855","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"ROLIROTI 57288W2","site_address":"7800 EDGEWATER DR OAKLAND","permit_decal":"26-0261","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"ROLLING THUNDER (BBQ TRUCK) 50219C2","site_address":"1180 DISCOVERY WY SUNNYVALE","permit_decal":"26-0452","permit_expire_date":"03/31/2026"}
+,{"program_identifier":"ROSARIOS TACOS 4SG1630","site_address":"889 S ALMADEN AV SAN JOSE","permit_decal":"26-0267","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"ROY'S BARBECUE 4GN5992","site_address":"560 W 18TH ST MERCED","permit_decal":"26-0301","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"ROYAL BURGER U566243","site_address":"794 S 1ST ST SAN JOSE","permit_decal":"26-0407","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"RUBI'S TAQUERIA 45V3124","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"26-0709","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"RUSBY'S CATERING 72404D3","site_address":"660 E GISH RD SAN JOSE","permit_decal":"26-0847","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"RUTA 100 7Z08824","site_address":"660 E GISH RD SAN JOSE","permit_decal":"27-0043","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"RUTA 60 8V96385","site_address":"1670 ROGERS AV SAN JOSE","permit_decal":"26-0385","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"SABOR CASERO INTERNACIONAL 7A28200","site_address":"660 E GISH RD SAN JOSE","permit_decal":"26-0633","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"SABOR TORTILLAS 51856Y3","site_address":"2920 ALUM ROCK AV SAN JOSE","permit_decal":"26-0787","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"SABROSONIC TOUR 73425K3","site_address":"1670 ROGERS AV SAN JOSE","permit_decal":"26-0171","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"SAIGON STREET 2 BANH - MI & MORE LLC 60665A2","site_address":"660 E GISH RD SAN JOSE","permit_decal":"26-0249","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"SAIGON STREET FOOD 8N20205","site_address":"660 E GISH RD SAN JOSE","permit_decal":"26-0742","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"SAJJ STREET EATS 51889G1","site_address":"879 HAMILTON AV MENLO PARK","permit_decal":"26-0556","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"SAM'S CHOWDERMOBILE 44022U2","site_address":"4210 N CABRILLO HY HALF MOON BAY","permit_decal":"26-0686","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"SAM'S CHOWDERMOBILE 44027U2","site_address":"4210 N CABRILLO HY  HALF MOON BAY","permit_decal":"26-0705","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"SAN JOSE EARTHQUAKES STADIUM - DRAFT 7","site_address":"1123 COLEMAN AV SAN JOSE","permit_decal":"24-991","permit_expire_date":"09/30/2026"}
+,{"program_identifier":"SAN JOSE EARTHQUAKES STADIUM - JMR 1","site_address":"1123 COLEMAN AV SAN JOSE","permit_decal":"24-0993","permit_expire_date":"09/30/2026"}
+,{"program_identifier":"SAN JOSE EARTHQUAKES STADIUM - JMR 2","site_address":"1123 COLEMAN AV SAN JOSE","permit_decal":"24-992","permit_expire_date":"09/30/2026"}
+,{"program_identifier":"SAN JOSE POLICE-ICE CREAM TRUCK 1511057","site_address":"488 N 6TH ST SAN JOSE","permit_decal":"26-0646","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"SAN MIGUEL TAQUERIA 56167A1","site_address":"2512 CALIFORNIA ST MOUNTAIN VIEW","permit_decal":"26-0798","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"SANTA CLARA UNIFIED SCHOOL DISTRICT 1410830","site_address":"3250 MONROE ST SANTA CLARA","permit_decal":"26-0871","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"SAP CENTER - 109 COCKTAIL CART","site_address":"525 W SANTA CLARA ST SAN JOSE","permit_decal":"18-735","permit_expire_date":"10/31/2026"}
+,{"program_identifier":"SAP CENTER - 111 GRILL CART","site_address":"525 W SANTA CLARA ST SAN JOSE","permit_decal":"18-732","permit_expire_date":"10/31/2026"}
+,{"program_identifier":"SAP CENTER - 113L COCKTAIL CART","site_address":"525 W SANTA CLARA ST SAN JOSE","permit_decal":"18-737","permit_expire_date":"10/31/2026"}
+,{"program_identifier":"SAP CENTER - 113R COCKTAIL CART","site_address":"525 W SANTA CLARA ST SAN JOSE","permit_decal":"18-733","permit_expire_date":"10/31/2026"}
+,{"program_identifier":"SAP CENTER - 117 DRAFT BEER & WINE CART","site_address":"525 W SANTA CLARA ST SAN JOSE","permit_decal":"18-734","permit_expire_date":"10/31/2026"}
+,{"program_identifier":"SAP CENTER - 118 DRAFT BEER CART","site_address":"525 W SANTA CLARA ST SAN JOSE","permit_decal":"18-725","permit_expire_date":"10/31/2026"}
+,{"program_identifier":"SAP CENTER - 118 NACHO CART","site_address":"525 W SANTA CLARA ST SAN JOSE","permit_decal":"18-736","permit_expire_date":"10/31/2026"}
+,{"program_identifier":"SAP CENTER - 124 DRAFT BEER & WINE CART","site_address":"525 W SANTA CLARA ST SAN JOSE","permit_decal":"18-744","permit_expire_date":"12/31/2026"}
+,{"program_identifier":"SAP CENTER - 126 DRAFT BEER CART","site_address":"525 W SANTA CLARA ST SAN JOSE","permit_decal":"18-730","permit_expire_date":"10/31/2026"}
+,{"program_identifier":"SAP CENTER - 126 GRILL CART","site_address":"525 W SANTA CLARA ST SAN JOSE","permit_decal":"18-731","permit_expire_date":"10/31/2026"}
+,{"program_identifier":"SAP CENTER - 209 COCKTAIL CART","site_address":"525 W SANTA CLARA ST SAN JOSE","permit_decal":"18-729","permit_expire_date":"10/31/2026"}
+,{"program_identifier":"SAP CENTER - 221 DRAFT BEER CART","site_address":"525 W SANTA CLARA ST SAN JOSE","permit_decal":"18-745","permit_expire_date":"12/31/2026"}
+,{"program_identifier":"SAP CENTER - 225 COCKTAIL CART","site_address":"525 W SANTA CLARA ST SAN JOSE","permit_decal":"19-728","permit_expire_date":"10/31/2026"}
+,{"program_identifier":"SAP CENTER - PH COCKTAIL CART #1","site_address":"525 W SANTA CLARA ST SAN JOSE","permit_decal":"18-726","permit_expire_date":"10/31/2026"}
+,{"program_identifier":"SAP CENTER - PH COCKTAIL CART #2","site_address":"525 W SANTA CLARA ST SAN JOSE","permit_decal":"18-723","permit_expire_date":"10/31/2026"}
+,{"program_identifier":"SAP CENTER- 103 ABC PORTABLE","site_address":"525 W SANTA CLARA ST SAN JOSE","permit_decal":"2921G","permit_expire_date":"08/31/2026"}
+,{"program_identifier":"SAP CENTER- 120 HOT DOG CART","site_address":"525 W SANTA CLARA ST SAN JOSE","permit_decal":"18-743","permit_expire_date":"11/30/2026"}
+,{"program_identifier":"SATAY BY THE BAY 52058X2","site_address":"103 HORNE AV SAN FRANCISCO","permit_decal":"26-0374","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"SCRATCH COOKERY 3K75362","site_address":"30 FOUNTAIN ALLEY # 150 SAN JOSE","permit_decal":"26-0238","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"SCRATCH COOKERY 96321A1","site_address":"30 FOUNTAIN ALLEY # 150 SAN JOSE","permit_decal":"26-0529","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"SEASONED & CO 4TZ3701","site_address":"2365 TRIPALDI WY HAYWARD","permit_decal":"27-0057","permit_expire_date":"02/28/2027"}
+,{"program_identifier":"SHA & DAVID KITCHEN 5C09097","site_address":"1670 ROGERS AV SAN JOSE","permit_decal":"27-0055","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"SHADDAI GUATEMALAN CUISINE 4KU1105","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"26-0493","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"SHAMAL BURGERS AND MORE 16597F4","site_address":"578 CLEVELAND AV ALBANY","permit_decal":"26-0748","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"SHANE'S COFFEE, TEA, AND PASTRIES 1NL7364","site_address":"1127 SEBASTOPOL RD SANTA ROSA","permit_decal":"26-0743","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"SHRIMPIN AINT EAZY 4UX8764","site_address":"3273 S WHITE RD SAN JOSE","permit_decal":"26-0497","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"SIPS & SCOOPS 1KG5700","site_address":"126 E FREMONT AV SUNNYVALE","permit_decal":"26-0759","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"SJES - BBQ PORTABLE (CART)","site_address":"1123 COLEMAN AV SAN JOSE","permit_decal":"23-021","permit_expire_date":"02/28/2027"}
+,{"program_identifier":"SJES - BOTTLED BEER PORTABLE 1 (CART)","site_address":"1123 COLEMAN AV SAN JOSE","permit_decal":"23-013","permit_expire_date":"02/28/2027"}
+,{"program_identifier":"SJES - BOTTLED BEER PORTABLE 2 (CART)","site_address":"1123 COLEMAN AV SAN JOSE","permit_decal":"23-020","permit_expire_date":"02/28/2027"}
+,{"program_identifier":"SJES - BOTTLED BEER PORTABLE 3 (CART)","site_address":"1123 COLEMAN AV SAN JOSE","permit_decal":"23-007","permit_expire_date":"02/28/2027"}
+,{"program_identifier":"SJES - CAVERY PORTABLE (CART)","site_address":"1123 COLEMAN AV SAN JOSE","permit_decal":"23-022","permit_expire_date":"02/28/2027"}
+,{"program_identifier":"SJES - CLUB BAR 2 (CART)","site_address":"1123 COLEMAN AV SAN JOSE","permit_decal":"23-019","permit_expire_date":"02/28/2027"}
+,{"program_identifier":"SJES - CLUB BAR 3 (CART)","site_address":"1123 COLEMAN AV SAN JOSE","permit_decal":"23-006","permit_expire_date":"02/28/2027"}
+,{"program_identifier":"SJES - DRAFT BEER PORTABLE 1 (CART)","site_address":"1123 COLEMAN AV SAN JOSE","permit_decal":"23-012","permit_expire_date":"02/28/2027"}
+,{"program_identifier":"SJES - DRAFT BEER PORTABLE 2 (CART)","site_address":"1123 COLEMAN AV SAN JOSE","permit_decal":"23-014","permit_expire_date":"02/28/2027"}
+,{"program_identifier":"SJES - DRAFT BEER PORTABLE 3 (CART)","site_address":"1123 COLEMAN AV SAN JOSE","permit_decal":"23-018","permit_expire_date":"02/28/2027"}
+,{"program_identifier":"SJES - DRAFT BEER PORTABLE 4 (CART)","site_address":"1123 COLEMAN AV SAN JOSE","permit_decal":"23-005","permit_expire_date":"02/28/2027"}
+,{"program_identifier":"SJES - DRAFT BEER PORTABLE 5 (CART)","site_address":"1123 COLEMAN AV SAN JOSE","permit_decal":"23-008","permit_expire_date":"02/28/2027"}
+,{"program_identifier":"SJES - DRAFT BEER PORTABLE 6 (CART)","site_address":"1123 COLEMAN AV SAN JOSE","permit_decal":"23-010","permit_expire_date":"02/28/2027"}
+,{"program_identifier":"SJES - SAUSAGE PORTABLE (CART)","site_address":"1123 COLEMAN AV SAN JOSE","permit_decal":"23-011","permit_expire_date":"02/28/2027"}
+,{"program_identifier":"SJES - SLIDER PORTABLE (CART)","site_address":"1123 COLEMAN AV SAN JOSE","permit_decal":"23-017","permit_expire_date":"02/28/2027"}
+,{"program_identifier":"SJES - WINE PORTABLE (CART)","site_address":"1123 COLEMAN AV SAN JOSE","permit_decal":"23-015","permit_expire_date":"02/28/2027"}
+,{"program_identifier":"SMASH N DASH  8F95348","site_address":"2120 WALSH AV SANTA CLARA","permit_decal":"27-0034","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"SMASHERZ 22958T3","site_address":"900 AVENUE D SAN FRANCISCO","permit_decal":"26-0110","permit_expire_date":"03/31/2026"}
+,{"program_identifier":"SMOKE TRAP BBQ 4PX3921","site_address":"303 N SANTA CRUZ AV LOS GATOS","permit_decal":"26-0328","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"SOS - CHROMATIC COFFEE CART","site_address":"460 LINCOLN AV SAN JOSE","permit_decal":"SOS-0019","permit_expire_date":"05/31/2026"}
+,{"program_identifier":"SOS - PLUR COFFEE LLC","site_address":"2425 SAMARITAN DR SAN JOSE","permit_decal":"24-0778","permit_expire_date":"10/31/2026"}
+,{"program_identifier":"SOS - TH BOB MILK TEA","site_address":"525 N 7TH ST SAN JOSE","permit_decal":"SOS - 0153","permit_expire_date":"11/30/2026"}
+,{"program_identifier":"SOS - TONO COFFEE CART @ EXHIBIT","site_address":"525 N 7TH ST SAN JOSE","permit_decal":"SOS-0154","permit_expire_date":"11/30/2026"}
+,{"program_identifier":"SOS GA -  PAVILION BEER CART #4","site_address":"2401 AGNEW RD  SANTA CLARA","permit_decal":"SOS-0008","permit_expire_date":"11/30/2026"}
+,{"program_identifier":"SOS GA - -PAVILION BEER CART #5","site_address":"2401 AGNEW RD  SANTA CLARA","permit_decal":"SOS-0010","permit_expire_date":"11/30/2026"}
+,{"program_identifier":"SOS GA - PAVILION  BEER CART #2","site_address":"2401 AGNEW RD  SANTA CLARA","permit_decal":"SOS-0012","permit_expire_date":"11/30/2026"}
+,{"program_identifier":"SOS GA - PAVILION BEER CART #1","site_address":"2401 AGNEW RD  SANTA CLARA","permit_decal":"SOS-0011","permit_expire_date":"11/30/2026"}
+,{"program_identifier":"SOS GA - PAVILION BEER CART #3","site_address":"2401 AGNEW RD  SANTA CLARA","permit_decal":"SOS-0007","permit_expire_date":"11/30/2026"}
+,{"program_identifier":"SOS GA - PAVILION BEER CART #6","site_address":"2401 AGNEW RD  SANTA CLARA","permit_decal":"SOS-0013","permit_expire_date":"11/30/2026"}
+,{"program_identifier":"SOS GA - PAVILION BEER CART #7","site_address":"2401 AGNEW RD  SANTA CLARA","permit_decal":"SOS-009","permit_expire_date":"11/30/2026"}
+,{"program_identifier":"SOS- KICKIN FLAVORS (HAO SHI JI)","site_address":"447 GREAT MALL DR MILPITAS","permit_decal":"S0S-0138","permit_expire_date":"07/31/2026"}
+,{"program_identifier":"SOS- LEVI STADIUM ICE CREAM PUSH CART DOTS #2","site_address":"4900 MARIE P. BARTOLO WY SANTA CLARA","permit_decal":"SOS-0005","permit_expire_date":"10/31/2026"}
+,{"program_identifier":"SOS- LEVI'S STADIUM ICE CREAM PUSH CART MARS #1","site_address":"4900 MARIE P. BARTOLO WY SANTA CLARA","permit_decal":"SOS-0002","permit_expire_date":"10/31/2026"}
+,{"program_identifier":"SOS-ADOBE NORTH TOWER - CREATIVE GROUNDS CHAAT CART","site_address":"333 W SAN FERNANDO ST SAN JOSE","permit_decal":"SOS-0035","permit_expire_date":"09/30/2026"}
+,{"program_identifier":"SOS-ADOBE NORTH TOWER - CREATIVE GROUNDS CREPES","site_address":"333 W SAN FERNANDO ST SAN JOSE","permit_decal":"SOS-0035","permit_expire_date":"09/30/2026"}
+,{"program_identifier":"SOS-BACKYARD BREW CART","site_address":"433 S CALIFORNIA AV PALO ALTO","permit_decal":"SOS-0017","permit_expire_date":"12/31/2026"}
+,{"program_identifier":"SOS-CANDIES STATION","site_address":"925 BLOSSOM HILL RD SAN JOSE","permit_decal":"SOS-0021","permit_expire_date":"09/30/2026"}
+,{"program_identifier":"SOS-FREEZER CART #1","site_address":"1 AMPHITHEATRE PY MOUNTAIN VIEW","permit_decal":"SOS-0136","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"SOS-FREEZER CART #2","site_address":"1 AMPHITHEATRE PY MOUNTAIN VIEW","permit_decal":"SOS-0137","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"SOS-KJ'S CAFE A LA CARTE @ EVC","site_address":"3095 YERBA BUENA RD SAN JOSE","permit_decal":"SOS-0139","permit_expire_date":"09/30/2026"}
+,{"program_identifier":"SOS-KJ'S CAFE A LA CARTE @ SAN JOSE CITY COLLEGE","site_address":"2100 MOORPARK AV SAN JOSE","permit_decal":"SOS-0018","permit_expire_date":"10/31/2026"}
+,{"program_identifier":"SOS-LEVI STADIUM ICE CREAM PUSH CART DOTS #1","site_address":"4900 MARIE P. BARTOLO WY SANTA CLARA","permit_decal":"SOS-0004","permit_expire_date":"10/31/2026"}
+,{"program_identifier":"SOS-NEIMAN MARCUS/NM CAFE BAR","site_address":"400 STANFORD SHOPPING CENTER PALO ALTO","permit_decal":"SOS-0016","permit_expire_date":"12/31/2026"}
+,{"program_identifier":"SOS-ON CALL","site_address":"520 LASUEN MALL STANFORD","permit_decal":"SOS-0015","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"SOS-PLUR CAFE","site_address":"70 W HEDDING ST SAN JOSE","permit_decal":"SOS-0132","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"SOS-QUEENS COFFEE @ DELTA QUEEN","site_address":"981 E HAMILTON AV CAMPBELL","permit_decal":"SOS-0014","permit_expire_date":"06/30/2026"}
+,{"program_identifier":"SOS-VIRAL TREATS","site_address":"925 BLOSSOM HILL RD SAN JOSE","permit_decal":"SOS-0152","permit_expire_date":"10/31/2026"}
+,{"program_identifier":"SOS-VIRAL TREATS @VALLEY FAIR MALL","site_address":"2855 STEVENS CREEK BL SANTA CLARA","permit_decal":"SOS-0134","permit_expire_date":"05/31/2026"}
+,{"program_identifier":"SOUL PATCH LLC 4WP8668","site_address":"3390 DE LA CRUZ BL # J SANTA CLARA","permit_decal":"26-0405","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"SPARTAN TACO TRUCK 38699U2","site_address":"515 S 10 ST SAN JOSE","permit_decal":"26-0277","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"SPEEDY GUZMAN 7ENG324","site_address":"17385 MONTEREY RD MORGAN HILL","permit_decal":"26-0831","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"SPEEDY PANINI 5R29762","site_address":"968 RALSTON AV BELMONT","permit_decal":"26-0621","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"SPICE STREET 01343S2","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"27-0075","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"SPICE STREET 4RN6323","site_address":"679 TASMAN DR SUNNYVALE","permit_decal":"26-0155","permit_expire_date":"03/31/2026"}
+,{"program_identifier":"SPLASH FRUITS #2 @ THE GREAT MALL","site_address":"652 GREAT MALL DR MILPITAS","permit_decal":"16-0973","permit_expire_date":"07/31/2026"}
+,{"program_identifier":"SPLASH FRUITS @ GREAT MALL","site_address":"447 GREAT MALL DR MILPITAS","permit_decal":"15-0681","permit_expire_date":"07/31/2026"}
+,{"program_identifier":"STACKED 90550W1","site_address":"1605 ALMADEN RD SAN JOSE","permit_decal":"27-0032","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"STEAKSTOP 4WF8538","site_address":"738 SAN BENITO ST HOLLISTER","permit_decal":"26-0466","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"STEPH'S CATERING 90764Z3","site_address":"1670 ROGERS AV  SAN JOSE","permit_decal":"26-0382","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"STINKY NOODLE 57305N2","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"26-0783","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"STREET BITE VIETNAMESE TIM-CHARLIE 11299A4","site_address":"660 E GISH RD SAN JOSE","permit_decal":"27-0079","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"SUMMER'S ICE DREAM 8KRS806","site_address":"330 RACE ST SAN JOSE","permit_decal":"26-0476","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"SUPER MARIOS # 2 87439S2","site_address":"2365 TRIPALDI WY HAYWARD","permit_decal":"26-0399","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"SUPER STAR ICE CREAM 7P39309","site_address":"330 RACE ST  SAN JOSE","permit_decal":"26-0381","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"SUPER TACOS EL CONRRO #2 63934R3","site_address":"301 E SANTA CLARA ST SAN JOSE","permit_decal":"26-0630","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"SUPER TACOS EL CONRRO #3 4UA6837","site_address":"301 E SANTA CLARA ST SAN JOSE","permit_decal":"26-0631","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"SUPER TACOS EL CONRRO LA PAZ 9AUB046","site_address":"301 E SANTA CLARA ST SAN JOSE","permit_decal":"26-0858","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"SUPER TACOS PINO SUAREZ 21288Z3","site_address":"660 E GISH RD SAN JOSE","permit_decal":"26-0523","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"SUQAAR EXPRESS 4VC4440","site_address":"1721 ROGERS AV STE S SAN JOSE","permit_decal":"26-0554","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"SURYA DARSHINI DOSA TRUCK 29399R2","site_address":"691 S MILPITAS BL # 131 MILPITAS","permit_decal":"26-0347","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"SWARAJ INDIA 68607T1","site_address":"1855 EL CAMINO REAL SANTA CLARA","permit_decal":"26-0227","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"SZNNSPICE 3M82600","site_address":"380 INDUSTRIAL RD SAN CARLOS","permit_decal":"26-0606","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"T-MO 52646N3","site_address":"1605 ALMADEN RD SAN JOSE","permit_decal":"26-0438","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TA' CONTRERAS 4UE2084","site_address":"451 DUMBARTON AV REDWOOD CITY","permit_decal":"26-0746","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TACO AXOLOTL 4VK6014","site_address":"4161 HAMILTON AV SAN JOSE","permit_decal":"26-0344","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TACO CHENCHO #4 4WL2913","site_address":"2168 STORY RD SAN JOSE","permit_decal":"26-0252","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TACO DELISH 4VK5899","site_address":"1635 ALUM ROCK AV SAN JOSE","permit_decal":"26-0318","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TACO EL MOLCAJETE 2K36719","site_address":"2215 TASMAN DR SANTA CLARA","permit_decal":"26-0650","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TACOMANIA 4MA3958","site_address":"5292 MONTEREY HY SAN JOSE","permit_decal":"26-0875","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TACOMANIA 4PL5841","site_address":"5292 MONTEREY HY SAN JOSE","permit_decal":"26-0551","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TACOMANIA 4SJ4336","site_address":"5292 MONTEREY HY SAN JOSE","permit_decal":"26-0878","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TACOMIENDO 94431L1","site_address":"784 N 13TH ST SAN JOSE","permit_decal":"26-0313","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TACOS AL PASTOR 8S33970","site_address":"1670 ROGERS AV SAN JOSE","permit_decal":"26-0449","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TACOS AL VAPOR BLANQUITA 4WL5227","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"26-0458","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TACOS AZTECA INC 4VD2709","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"26-0692","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TACOS CHENCHO 4RZ7835","site_address":"2168 STORY RD SAN JOSE","permit_decal":"26-0037","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TACOS CHENCHO 4TU9833","site_address":"2168 STORY RD SAN JOSE","permit_decal":"26-0531","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TACOS DEL BARRIO 9KZD382","site_address":"1635 ALUM ROCK AV SAN JOSE","permit_decal":"26-0142","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TACOS DEL GUERO 4JP4689","site_address":"40 HORLEIN CT GILROY","permit_decal":"26-0447","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TACOS DEL GUERO 4KU4738","site_address":"40 HORNLEIN CT GILROY","permit_decal":"26-0446","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TACOS DEL GUERO 6X02656","site_address":"40 HEINLEIN CT GILROY","permit_decal":"26-0453","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TACOS DON VALLE LLC 16549W1","site_address":"1901 LAS PLUMAS AV # 30 SAN JOSE","permit_decal":"26-0172","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TACOS EL ABUELO #2 2A89965","site_address":"235 TENNANT AV # 5 MORGAN HILL","permit_decal":"26-0315","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TACOS EL ABUELO 4CE7989","site_address":"235 TENNANT AV # 5 MORGAN HILL","permit_decal":"26-0616","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TACOS EL BUEN SABOR #2 8W24687","site_address":"660 E GISH RD SAN JOSE","permit_decal":"26-0195","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TACOS EL CHAVALON 4VD9519","site_address":"1605 ALMADEN RD SAN JOSE","permit_decal":"26-0653","permit_expire_date":"03/31/2026"}
+,{"program_identifier":"TACOS EL CHORE 17676P3","site_address":"784 N 13TH ST SAN JOSE","permit_decal":"26-0676","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TACOS EL COWBOY 88784X3","site_address":"451 DUMBARTON AV REDWOOD CITY","permit_decal":"26-0388","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TACOS EL DINAMITA 4WX5220","site_address":"807 ALDO AV # 105 SANTA CLARA","permit_decal":"26-0769","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TACOS EL GORDITO 8G90243","site_address":"1670 ROGERS AV SAN JOSE","permit_decal":"26-0369","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TACOS EL GUERITO 4RA9196","site_address":"3110 MCKEE RD SAN JOSE","permit_decal":"26-0183","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TACOS EL GUERO ESTILO TEPA #3 74489C4","site_address":"1327 ALUM ROCK AV SAN JOSE","permit_decal":"26-0105","permit_expire_date":"03/31/2026"}
+,{"program_identifier":"TACOS EL GUERO ESTILO TEPA #4UF3937","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"26-0607","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TACOS EL NOA NOA 37353Y1","site_address":"680 KIFER RD SUNNYVALE","permit_decal":"26-0704","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TACOS EL POLLO Y EL GALLITO 31820T3","site_address":"5353 ALMADEN EX SAN JOSE","permit_decal":"26-0260","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TACOS EL POLLO Y EL GALLITO 36621G3","site_address":"5353 ALMADEN EX STE M22 SAN JOSE","permit_decal":"26-0245","permit_expire_date":"03/31/2026"}
+,{"program_identifier":"TACOS EL RUFLES 2  89932U1","site_address":"4580 ALMADEN EX 103 SAN JOSE","permit_decal":"26-0372","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TACOS EL RUFLES 8R94906","site_address":"4580 ALMADEN EX # 103 SAN JOSE","permit_decal":"27-0035","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TACOS GENESIS 4SU2040","site_address":"2868 STORY RD SAN JOSE","permit_decal":"26-0457","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TACOS HUANDACAREO 08002Z1","site_address":"1670 ROGERS AV SAN JOSE","permit_decal":"26-0233","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TACOS KING DAVID 95455A1","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"26-0176","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TACOS LA CASCADA 4EP3611","site_address":"13 TARPY RD ROYAL OAK","permit_decal":"27-0074","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TACOS LA CHILANGUITA #2 25921C4","site_address":"400 E LAKE AV WATSONVILLE","permit_decal":"26-0485","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TACOS LA CHILANGUITA 99968D3","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"26-0547","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TACOS LA CHOCA 12083M1","site_address":"1670 ROGERS AV SAN JOSE","permit_decal":"26-0771","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TACOS LA CHOCA 4VB1314","site_address":"1670 ROGERS AV SAN JOSE","permit_decal":"26-0770","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TACOS LA ESTRELLA 50083P2","site_address":"1306 E JULIAN ST SAN JOSE","permit_decal":"26-0436","permit_expire_date":"03/31/2026"}
+,{"program_identifier":"TACOS LA FAMILIA 8Y11950","site_address":"807 ALDO AV # 105 SANTA CLARA","permit_decal":"26-0513","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TACOS LA KIKI 4RC1799","site_address":"5304 MONTEREY RD SAN JOSE","permit_decal":"27-0088","permit_expire_date":"03/31/2026"}
+,{"program_identifier":"TACOS LA MORENITA INC #2 47012Y1","site_address":"235 TENNANT AV # 5 MORGAN HILL","permit_decal":"26-0679","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TACOS LA MORENITA INC 4PG5949","site_address":"235 TENNANT AV # 5 MORGAN HILL","permit_decal":"26-0204","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TACOS LA PATRONA 21281B1","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"26-0515","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TACOS LA PATRONA 4UD3479","site_address":"7990 MONTEREY RD GILROY","permit_decal":"26-0444","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TACOS LAS MISMAS 4WU2716","site_address":"1520 ALUM ROCK AV SAN JOSE","permit_decal":"26-0063","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TACOS LOS 3 HERMANOS 4TH2809","site_address":"199 WILLOW ST SAN JOSE","permit_decal":"26-0558","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TACOS LOS 3 HERMANOS 86289J1","site_address":"199 WILLOW ST SAN JOSE","permit_decal":"26-0304","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TACOS LOS 3 REYES #3 4NY6323","site_address":"2520 STORY RD SAN JOSE","permit_decal":"26-0846","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TACOS LOS 3 REYES 4LH5463","site_address":"2520 STORY RD SAN JOSE","permit_decal":"26-0868","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TACOS LOS 3 REYES 4VJ7955","site_address":"2520 STORY RD SAN JOSE","permit_decal":"27-0016","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TACOS LOS PRIMOS DEL SUR 9WOV647","site_address":"2512 CALIFORNIA ST MOUNTAIN VIEW","permit_decal":"26-0437","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TACOS LOS REYES DE TIERRA MIXTECA 4NL8934","site_address":"1302 S 1ST ST SAN JOSE","permit_decal":"26-0775","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TACOS MENDOZA 4G96677","site_address":"1605 ALMADEN RD SAN JOSE","permit_decal":"26-0579","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TACOS MEXICANOS DON ELY ELYHM38","site_address":"1025 S WINCHESTER BL SAN JOSE","permit_decal":"26-0681","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TACOS MOLINA 21975S3","site_address":"1605 ALMADEN RD SAN JOSE","permit_decal":"26-0857","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TACOS MONARCA 8Y69712","site_address":"1670 ROGERS AV SAN JOSE","permit_decal":"26-0091","permit_expire_date":"03/31/2026"}
+,{"program_identifier":"TACOS MONTERO 7V69989","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"26-0442","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TACOS SAN AGUSTIN 08834U1","site_address":"660 E GISH RD SAN JOSE","permit_decal":"26-0865","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TACOS SAN JOSE #1 4EX7842","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"26-0861","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TACOS SAN JOSE 23760U1","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"26-0600","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TACOS SAN JOSE 3T85656","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"27-0027","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TACOS SANTA ANITA #2 4TC9936","site_address":"235 TENNANT AV # 5 MORGAN HILL","permit_decal":"26-0326","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TACOS SANTIAGUITO 57424M1","site_address":"660 E GISH RD  SAN JOSE","permit_decal":"26-0498","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TACOS TEL PATRON 4VZ9002","site_address":"5320 MONTEREY RD # A SAN JOSE","permit_decal":"26-0316","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TACOS TIME 4LF1353","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"26-0768","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TACOS Y ANTOJITOS EL TORITO AZTECA 6M19768","site_address":"660 E GISH RD SAN JOSE","permit_decal":"27-0025","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TACOS Y FRUTAS JUQUILITA 87343K3","site_address":"114 S SANTA CRUZ AV LOS GATOS","permit_decal":"26-0877","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TACOS Y TLAYUDAS EL EJUTECO 26289N3","site_address":"660 E GISH RD SAN JOSE","permit_decal":"26-0627","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TACOS Y TLAYUDAS EL ELUTECO 61524X2","site_address":"660 E GISH RD SP 139 SAN JOSE","permit_decal":"26-0390","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TAILG8 TRUCK 08290N1","site_address":"4949 GREAT AMERCIA PY SANTA CLARA","permit_decal":"26-0164","permit_expire_date":"03/31/2026"}
+,{"program_identifier":"TAILGATE BAR #1 BEER CART","site_address":"4949 GREAT AMERICA PY  SANTA CLARA","permit_decal":"19-0021","permit_expire_date":"03/31/2026"}
+,{"program_identifier":"TAILGATE BAR #2 BEER CART","site_address":"4949 GREAT AMERICA PY  SANTA CLARA","permit_decal":"19-0022","permit_expire_date":"03/31/2026"}
+,{"program_identifier":"TAKOZ MOD MEX 2U79558","site_address":"660 E GISH RD  SAN JOSE","permit_decal":"26-0465","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TANCHITOS 4SZ1079","site_address":"2148 STORY RD #3 SAN JOSE","permit_decal":"26-0849","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TAQUERIA ANGELICA'S 7S40898","site_address":"107 S LINDEN AV S SAN FRANCISCO","permit_decal":"27-0072","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TAQUERIA DELICIAS 31512T1","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"26-0441","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TAQUERIA EL JEFE 21380S3","site_address":"4660 PEARL AV SAN JOSE","permit_decal":"26-0475","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TAQUERIA EL K'TRACHO INC 4WA3279","site_address":"15700 MONTEREY RD MORGAN HILL","permit_decal":"27-0024","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TAQUERIA LA HIGUERA 95773Y3","site_address":"1670 ROGERS AV SAN JOSE","permit_decal":"27-0023","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TAQUERIA LA PATRONA 3Z35893","site_address":"1605 ALMADEN RD SAN JOSE","permit_decal":"26-0535","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TAQUERIA LOS MEMELOS 4VF8679","site_address":"326 COMMERICAL ST SAN JOSE","permit_decal":"26-0867","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TAQUERIA LOS MEMELOS 4VK2891","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"27-0039","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TAQUERIA MIMI EL NOPAL 4WE3827","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"26-0724","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TAQUERIA PATZCUARO 4MD5102","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"26-0805","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TAQUERIA WILLIAMS 4UR6048","site_address":"1635 ALUM ROCK AV SAN JOSE","permit_decal":"26-0814","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TAQUERIA Y MARISCOS EL PONY 4VA5253","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"27-0002","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TAQUIZAS EL SUSPIRO 77801T2","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"26-0599","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TAQUIZAS RUIZ INC 58642T3","site_address":"1605 ALMADEN RD SAN JOSE","permit_decal":"26-0781","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TARASCO TAQUERIA 21951S3","site_address":"660 E GISH RD SAN JOSE","permit_decal":"26-0491","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TARASCO TAQUERIA#2 66948J2","site_address":"660 E GISH RD SAN JOSE","permit_decal":"26-0747","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TASTE OF MEXICO 4PJ808","site_address":"1590 BERRYESSA RD SAN JOSE","permit_decal":"26-0391","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TASTY HUT 7G39561","site_address":"1670 ROGERS AV SAN JOSE","permit_decal":"26-0548","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TAZ'S TACOS 4VZ1451","site_address":"2221 TASMAN DR # 650 SANTA CLARA","permit_decal":"26-0625","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TEA UP 95268R1","site_address":"135 N WOLFE RD 20 SUNNYVALE","permit_decal":"26-0302","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TERE'S FAST FOOD 4RZ1584","site_address":"1302 S 1ST ST SAN JOSE","permit_decal":"26-0417","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"THE EMPANADAS KING 6E35847","site_address":"2992 SPRING ST # D REDWOOD CITY","permit_decal":"26-0628","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"THE GOOD EATING COMPANY 11333C4","site_address":"2170 MARTIN AV SANTA CLARA","permit_decal":"27-0020","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"THE HABIT BURGER GRILL 12HABIT","site_address":"20735 STEVENS CREEK BL CUPERTINO","permit_decal":"26-0187","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"THE HALAL CARTEL 4WA8655","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"27-0066","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"THE KETLI CHAI LLC 4VB5610","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"26-0084","permit_expire_date":"03/31/2026"}
+,{"program_identifier":"THE PANA'S PARCHE CORP 4RL1452","site_address":"6944 ALMADEN EX SAN JOSE","permit_decal":"26-0133","permit_expire_date":"03/31/2026"}
+,{"program_identifier":"THE PATTY WAGON LLC 4WW4427","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"26-0710","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"THE REAL FOOD TRUCK 3U30242","site_address":"4580 ALMADEN EX # 103 SAN JOSE","permit_decal":"26-0280","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"THE ROLLING BURGER LLC 8V41791","site_address":"1605 ALMADEN RD SAN JOSE","permit_decal":"26-0838","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"THE ROLLING DUCK 14126L2","site_address":"660 E GISH RD SAN JOSE","permit_decal":"26-0474","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"THE WAFFLE ROOST 06369J3","site_address":"1635 ALUM ROCK AV SAN JOSE","permit_decal":"26-0182","permit_expire_date":"03/31/2026"}
+,{"program_identifier":"THE WAFFLE ROOST 44985R2","site_address":"1635 ALUM ROCK AV SAN JOSE","permit_decal":"26-0853","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"THUY'S CATERING 6F71456","site_address":"660 E GISH RD  SAN JOSE","permit_decal":"26-0671","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TIA JUANITAS MEXICAN FOOD LLC 4VE2166","site_address":"1901 LAS PLUMAS AV SAN JOSE","permit_decal":"26-0807","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TICO COFFEE ROASTERS 4PD9079","site_address":"1334 DELL AV STE G CAMPBELL","permit_decal":"26-0431","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TIRANGA 47 INDIAN FOOD 62194U3","site_address":"235 TENNANT AV MORGAN HILL","permit_decal":"26-0729","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TK'S KITCHEN 62006E3","site_address":"103 E FREMONT ST SUNNYVALE","permit_decal":"26-0788","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TLAXIACO'S PIZZA 6S64734","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"26-0157","permit_expire_date":"03/31/2026"}
+,{"program_identifier":"TOMMY THAI 4WA1973","site_address":"1482 W EL CAMINO REAL MOUNTAIN VIEW","permit_decal":"26-0456","permit_expire_date":"03/31/2026"}
+,{"program_identifier":"TOMY'S KITCHEN 73441K3","site_address":"918 INDUSTRIAL AV PALO ALTO","permit_decal":"26-0336","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TOOTSIES SMOKE SHACK 4VF2308","site_address":"4580 ALMADEN EX # 103 SAN JOSE","permit_decal":"26-0738","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TOQUE Y SAZON #2 40938P3","site_address":"660 E GISH RD SAN JOSE","permit_decal":"26-0510","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TORRES TAQUERIA 4MJ5292","site_address":"1605 ALMADEN RD SAN JOSE","permit_decal":"27-0046","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TORTILLERIA EL BUEN MAIZ 4WF4700","site_address":"2391 SPRING ST REDWOOD CITY","permit_decal":"26-0689","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TORTILLERIA LA FAMILIAR #2 4WJ9965","site_address":"1901 LAS PLUMAS AV # 30 SAN JOSE","permit_decal":"26-0129","permit_expire_date":"03/31/2026"}
+,{"program_identifier":"TORTILLERIA LA FAMILIAR 4UR5246","site_address":"1901 LAS PLUMAS AV # 30 SAN JOSE","permit_decal":"26-0841","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TORTILLERIA SINALOA INC 4WP9982","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"27-0078","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TORTILLERIA TEPEQUE 4WG7121","site_address":"1605 ALMADEN RD SAN JOSE","permit_decal":"27-0060","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TOSTADAS ON THE ROAD 4SU2228","site_address":"200 E HAMILTON AV CAMPBELL","permit_decal":"27-0010","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TOTOS TAQUERIA 32750B2","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"26-0168","permit_expire_date":"03/31/2026"}
+,{"program_identifier":"TRAN CATERING 8R82672","site_address":"660 E GISH RD SAN JOSE","permit_decal":"26-0199","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TRAVELIN' TOM'S COFFEE MT VIEW 11154C4","site_address":"2500 MASONIC DR SAN JOSE","permit_decal":"26-0320","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"TREEHOUSE SILICON VALLEY BEER TRAILER 4VZ1452","site_address":"1100 N MATHILDA AV SUNNYVALE","permit_decal":"26-0106","permit_expire_date":"03/31/2026"}
+,{"program_identifier":"TWIST & TASTE 4VX9477","site_address":"4580 ALMADEN EX # 103 SAN JOSE","permit_decal":"27-0004","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"UN RINCONCITO CHILANGO 4VF3024","site_address":"701 VINE ST SAN JOSE","permit_decal":"27-0007","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"UNCLE JIMMY'S 18077V1","site_address":"1727 BERRYESSA RD UNIT A SAN JOSE","permit_decal":"26-0490","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"VACA COANA MEXICANA 4WY5147","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"27-0062","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"VANESSA'S HOT DOGS 25175L2","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"26-0397","permit_expire_date":"03/31/2026"}
+,{"program_identifier":"VANESSA'S HOT DOGS 65735X2","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"26-0398","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"VERO'S LITTLE KITCHEN 4RH6645","site_address":"1635 ALUM ROCK AV SAN JOSE","permit_decal":"26-0707","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"VERO'S LITTLE KITCHEN 52859L3","site_address":"1635 ALUM ROCK AV SAN JOSE","permit_decal":"26-0538","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"VIRRUETA'S TACOS 8Y27932","site_address":"326 COMMERCIAL ST SAN JOSE","permit_decal":"26-0085","permit_expire_date":"03/31/2026"}
+,{"program_identifier":"VLOS TOLUCAS 65113J1","site_address":"918 INDUSTRIAL AV PALO ALTO","permit_decal":"26-0225","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"VN CATERING 6X43211","site_address":"660 E GISH RD  SAN JOSE","permit_decal":"27-0051","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"VOSTOK GYRO & SHAWARMA HALAL 4WH7249","site_address":"1721 ROGERS AV # S SAN JOSE","permit_decal":"26-0467","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"WAFFLE AMORE 63021E1","site_address":"2001 O'TOOLE AV SAN JOSE","permit_decal":"26-0403","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"WETZEL'S PRETZELS 09987G3","site_address":"6800 3RD ST # B SAN JOSE","permit_decal":"26-0190","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"WETZEL'S PRETZELS CART @ GREAT MALL OF THE BAY","site_address":"447 GREAT MALL DR STE 108A MILPITAS","permit_decal":"17-0202","permit_expire_date":"01/31/2027"}
+,{"program_identifier":"WINE CART #5","site_address":"1 AMPHITHEATRE PY  MOUNTAIN VIEW","permit_decal":"20-0452","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"WINERY DECK BAR @ THE MOUNTAIN WINERY","site_address":"14831 PIERCE RD  SARATOGA","permit_decal":"16-0961","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"WOKITCHEN 2 70689U3","site_address":"408 OLD COUNTRY RD BELMONT","permit_decal":"26-0331","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"WOKITCHEN 95507U3","site_address":"407 OLD COUNTY RD BELMONT","permit_decal":"26-0615","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"WONKS STREET TACOS 569994B","site_address":"284 BARNARD AV SAN JOSE","permit_decal":"26-0079","permit_expire_date":"03/31/2026"}
+,{"program_identifier":"WORLDWIDE FOODS / COUSINS MAINE LOBSTER 82870H3","site_address":"PIER 41 THE EMBARCADERO SAN FRANCISCO","permit_decal":"26-0470","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"ZAIDA'S KITCHEN 78061T2","site_address":"4580 ALMADEN EX 103 SAN JOSE","permit_decal":"27-0013","permit_expire_date":"04/30/2026"}
+,{"program_identifier":"ZOOM CAFFEE INC 14731H1","site_address":"1635 ALUM ROCK AV SAN JOSE","permit_decal":"26-0736","permit_expire_date":"04/30/2026"}]

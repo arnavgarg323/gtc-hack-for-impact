@@ -1,0 +1,1949 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FoodSight AI — Santa Clara County Food Safety</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <style>
+    :root {
+      --bg-base: #080a10; --bg-panel: #0d0f19; --bg-card: #111420; --bg-hover: #161924;
+      --border: #1c1f2e; --border-bright: #252840;
+      --accent: #76b900; --accent-dim: rgba(118,185,0,0.10); --accent-glow: rgba(118,185,0,0.22);
+      --blue: #5b9cf6; --blue-dim: rgba(91,156,246,0.10);
+      --text-primary: #e8eaf2; --text-secondary: #8892a4; --text-muted: #44506a;
+      --red: #f07070; --yellow: #f0c060; --green: #5cc88a; --purple: #b89cf6;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Outfit', -apple-system, sans-serif; background: var(--bg-base); color: var(--text-primary); height: 100vh; display: flex; flex-direction: column; overflow: hidden; }
+
+    /* ── Header ── */
+    header {
+      background: linear-gradient(90deg, #0b1018 0%, var(--bg-panel) 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 0 18px; height: 50px;
+      display: flex; align-items: center; gap: 14px; flex-shrink: 0; position: relative;
+    }
+    header::after { content:''; position:absolute; bottom:0; left:0; right:0; height:1px; background:linear-gradient(90deg,transparent,var(--accent-glow) 40%,var(--accent-glow) 60%,transparent); }
+    .logo { font-size: 18px; font-weight: 800; color: var(--accent); letter-spacing: -0.5px; line-height: 1.1; }
+    .logo span { color: var(--blue); }
+    .logo-sub { font-size: 9.5px; font-weight: 500; color: var(--text-muted); letter-spacing: 0.09em; text-transform: uppercase; font-family: 'JetBrains Mono', monospace; }
+    .header-divider { width: 1px; height: 26px; background: var(--border-bright); flex-shrink: 0; }
+    .gpu-badge { display: flex; align-items: center; gap: 6px; background: rgba(118,185,0,0.06); border: 1px solid rgba(118,185,0,0.18); border-radius: 6px; padding: 4px 9px; font-size: 10.5px; font-family: 'JetBrains Mono', monospace; }
+    .gpu-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); animation: gpupulse 2.4s ease-in-out infinite; }
+    @keyframes gpupulse { 0%,100%{box-shadow:0 0 5px var(--accent);opacity:1} 50%{box-shadow:0 0 10px var(--accent);opacity:0.65} }
+    .gpu-label { color: var(--accent); font-weight: 600; }
+    .gpu-detail { color: var(--text-muted); }
+    .tagline { display: none; }
+    .tracks { display: flex; gap: 4px; }
+    .track { font-size: 9px; font-weight: 700; padding: 3px 8px; border-radius: 4px; letter-spacing: 0.04em; display: flex; align-items: center; gap: 3px; white-space: nowrap; }
+    .track.human   { background: rgba(91,156,246,0.10); border: 1px solid rgba(91,156,246,0.28); color: #90c4ff; }
+    .track.env     { background: rgba(92,200,138,0.10); border: 1px solid rgba(92,200,138,0.28); color: #7de8a8; }
+    .track.culture { background: rgba(246,173,85,0.10); border: 1px solid rgba(246,173,85,0.28); color: #fbd38d; }
+
+    .stats-bar { margin-left: auto; display: flex; gap: 3px; }
+    .stat { display: flex; align-items: center; gap: 5px; padding: 4px 9px; border-radius: 6px; font-size: 11.5px; font-family: 'JetBrains Mono', monospace; border: 1px solid transparent; }
+    .stat.safe  { background: rgba(92,200,138,0.05);  border-color: rgba(92,200,138,0.14);  color: var(--green); }
+    .stat.fair  { background: rgba(240,192,96,0.05);  border-color: rgba(240,192,96,0.14);  color: var(--yellow); }
+    .stat.poor  { background: rgba(240,112,112,0.05); border-color: rgba(240,112,112,0.14); color: var(--red); }
+    .stat.total { color: var(--text-muted); }
+    .stat-num { font-weight: 700; }
+    .stat-lbl { font-size: 9.5px; opacity: 0.65; margin-left: 2px; }
+    .dot { width: 6px; height: 6px; border-radius: 50%; }
+    .dot.green { background: var(--green); } .dot.yellow { background: var(--yellow); } .dot.red { background: var(--red); }
+
+    /* ── Layout ── */
+    .main { display: flex; flex: 1; overflow: hidden; }
+    .panel { width: 375px; min-width: 375px; display: flex; flex-direction: column; background: var(--bg-panel); border-right: 1px solid var(--border); }
+
+    /* ── Tabs ── */
+    .tabs { display: flex; border-bottom: 1px solid var(--border); flex-shrink: 0; overflow-x: auto; scrollbar-width: none; background: var(--bg-base); }
+    .tabs::-webkit-scrollbar { display: none; }
+    .tab { flex-shrink: 0; padding: 10px 7px; font-size: 9.5px; font-weight: 600; text-align: center; cursor: pointer; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.07em; border-bottom: 2px solid transparent; transition: all 0.15s; white-space: nowrap; font-family: 'JetBrains Mono', monospace; }
+    .tab:hover { color: var(--text-secondary); background: var(--bg-hover); }
+    .tab.active { color: var(--accent); border-bottom-color: var(--accent); background: var(--accent-dim); }
+
+    .tab-content { display: none; flex: 1; flex-direction: column; overflow: hidden; }
+    .tab-content.active { display: flex; }
+
+    /* ── Chat ── */
+    .messages { flex: 1; overflow-y: auto; padding: 12px; display: flex; flex-direction: column; gap: 10px; }
+    .messages::-webkit-scrollbar { width: 3px; } .messages::-webkit-scrollbar-thumb { background: var(--border-bright); border-radius: 2px; }
+    .msg { display: flex; gap: 9px; animation: fadeIn 0.22s ease; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+    .msg-avatar { width: 28px; height: 28px; border-radius: 7px; display: flex; align-items: center; justify-content: center; font-size: 12px; flex-shrink: 0; margin-top: 2px; }
+    .msg.user .msg-avatar { background: linear-gradient(135deg,#1a2e5c,#253e80); border: 1px solid #2d4a8a; }
+    .msg.bot  .msg-avatar { background: linear-gradient(135deg,#162c14,#1e4420); border: 1px solid rgba(118,185,0,0.25); }
+    .msg-name { font-size: 9.5px; font-weight: 700; color: var(--text-muted); margin-bottom: 3px; letter-spacing: 0.07em; text-transform: uppercase; font-family: 'JetBrains Mono', monospace; }
+    .msg-text { font-size: 13px; line-height: 1.65; color: var(--text-primary); white-space: pre-wrap; }
+    .msg.user .msg-text { color: #c0d4ff; }
+    .sources-tag { display: inline-block; margin-top: 5px; font-size: 10px; color: var(--text-muted); background: var(--bg-card); padding: 2px 8px; border-radius: 10px; border: 1px solid var(--border); font-family: 'JetBrains Mono', monospace; }
+    .typing { display: flex; align-items: center; gap: 4px; padding: 4px 0; }
+    .typing span { width: 5px; height: 5px; border-radius: 50%; background: var(--text-muted); animation: bounce 1.2s infinite; }
+    .typing span:nth-child(2) { animation-delay: 0.2s; } .typing span:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes bounce { 0%,80%,100%{transform:translateY(0)} 40%{transform:translateY(-5px)} }
+
+    /* ── Input ── */
+    .input-area { padding: 10px 12px; border-top: 1px solid var(--border); background: var(--bg-base); flex-shrink: 0; }
+    .suggestions { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 8px; }
+    .suggestion { font-size: 11px; padding: 3px 10px; background: var(--bg-card); border: 1px solid var(--border-bright); border-radius: 20px; color: var(--text-secondary); cursor: pointer; transition: all 0.15s; }
+    .suggestion:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-dim); }
+    .input-row { display: flex; gap: 6px; }
+    input[type="text"] { flex: 1; background: var(--bg-card); border: 1px solid var(--border-bright); border-radius: 8px; padding: 8px 12px; color: var(--text-primary); font-size: 13px; outline: none; font-family: 'Outfit', sans-serif; transition: border-color 0.15s; }
+    input[type="text"]:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-dim); }
+    input[type="text"]::placeholder { color: var(--text-muted); }
+    button.send-btn { background: var(--accent); border: none; border-radius: 8px; padding: 8px 15px; color: #000; font-size: 12px; font-weight: 700; cursor: pointer; font-family: 'Outfit', sans-serif; letter-spacing: 0.02em; transition: all 0.15s; }
+    button.send-btn:hover { background: #8fd400; box-shadow: 0 0 14px var(--accent-glow); }
+    button.send-btn:disabled { background: var(--bg-card); color: var(--text-muted); cursor: not-allowed; box-shadow: none; }
+
+    /* ── List Panel ── */
+    .list-panel { flex: 1; overflow-y: auto; padding: 10px; display: flex; flex-direction: column; gap: 6px; }
+    .list-panel::-webkit-scrollbar { width: 3px; } .list-panel::-webkit-scrollbar-thumb { background: var(--border-bright); border-radius: 2px; }
+    .list-panel h4 { font-size: 9.5px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); padding: 6px 0 8px; font-weight: 700; font-family: 'JetBrains Mono', monospace; }
+    .list-panel h5 { font-size: 11px; color: var(--text-secondary); margin: 6px 0 4px; font-weight: 600; }
+
+    .violator-row { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 8px 10px; cursor: pointer; transition: all 0.15s; display: flex; gap: 10px; align-items: center; }
+    .violator-row:hover { border-color: var(--red); background: rgba(240,112,112,0.03); transform: translateX(2px); }
+    .v-rank { font-size: 11px; font-weight: 700; color: #718096; width: 18px; flex-shrink: 0; }
+    .v-info { flex: 1; min-width: 0; }
+    .v-name { font-size: 12px; font-weight: 600; color: #e2e8f0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .v-city { font-size: 10px; color: #718096; }
+    .v-badge { display: flex; flex-direction: column; align-items: flex-end; gap: 2px; flex-shrink: 0; }
+    .v-crit { font-size: 12px; font-weight: 700; color: #fc8181; }
+    .v-score { font-size: 10px; color: #718096; }
+
+    .city-row { display: flex; align-items: center; gap: 8px; padding: 6px 8px; border-radius: 6px; transition: background 0.1s; }
+    .city-row:hover { background: #1a1d27; }
+    .city-name { font-size: 12px; flex: 1; color: #e2e8f0; }
+    .city-bar-wrap { width: 80px; height: 6px; background: #2d3148; border-radius: 3px; overflow: hidden; }
+    .city-bar { height: 100%; border-radius: 3px; transition: width 0.5s; }
+    .city-score { font-size: 11px; font-weight: 700; width: 32px; text-align: right; }
+
+    /* Desert panel styles */
+    .desert-hero { background: linear-gradient(135deg, #2d1b4e 0%, #1a1d27 100%); border: 1px solid #4a3170; border-radius: 8px; padding: 14px; margin-bottom: 10px; }
+    .desert-hero-title { font-size: 14px; font-weight: 700; color: #d6bcfa; margin-bottom: 6px; }
+    .desert-hero-num { font-size: 32px; font-weight: 800; color: #e9d5ff; line-height: 1; }
+    .desert-hero-sub { font-size: 11px; color: #a78bfa; margin-top: 4px; }
+    .desert-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-bottom: 10px; }
+    .desert-stat-card { background: #1a1d27; border: 1px solid #2d3148; border-radius: 7px; padding: 10px; }
+    .desert-stat-label { font-size: 10px; color: #718096; text-transform: uppercase; letter-spacing: 0.04em; }
+    .desert-stat-val { font-size: 18px; font-weight: 700; margin-top: 2px; }
+    .desert-criteria { background: #1a1d27; border: 1px solid #2d3148; border-radius: 7px; padding: 10px; margin-bottom: 10px; }
+    .desert-criteria h5 { font-size: 10px; color: #718096; text-transform: uppercase; margin-bottom: 6px; letter-spacing: 0.04em; }
+    .desert-criteria li { font-size: 11px; color: #a0aec0; margin-bottom: 3px; margin-left: 14px; }
+    .desert-tract-row { background: #1a1d27; border: 1px solid #2d3148; border-radius: 7px; padding: 8px 10px; cursor: pointer; transition: border-color 0.15s; display: flex; gap: 8px; align-items: center; }
+    .desert-tract-row:hover { border-color: #d6bcfa; }
+    .desert-tract-row.severe { border-left: 3px solid #fc8181; }
+    .dt-class { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+    .dt-info { flex: 1; min-width: 0; }
+    .dt-geoid { font-size: 11px; font-weight: 600; color: #e2e8f0; }
+    .dt-detail { font-size: 10px; color: #718096; }
+    .dt-badge { text-align: right; flex-shrink: 0; }
+    .dt-biz { font-size: 12px; font-weight: 700; color: #d6bcfa; }
+    .dt-pop { font-size: 10px; color: #718096; }
+
+    /* Map */
+    .map-wrap { position: relative; flex: 1; }
+    #map { width: 100%; height: 100%; background: #0f1117; }
+    .map-controls { position: absolute; top: 12px; right: 12px; z-index: 1000; display: flex; flex-direction: column; gap: 6px; }
+    .map-btn { background: rgba(19,21,31,0.92); border: 1px solid #2d3148; border-radius: 7px; padding: 7px 12px; font-size: 12px; color: #a0aec0; cursor: pointer; transition: all 0.15s; white-space: nowrap; }
+    .map-btn:hover { border-color: #76e09e; color: #76e09e; }
+    .map-btn.active { border-color: #d6bcfa; color: #d6bcfa; background: rgba(214,188,250,0.08); }
+    .map-btn.active-crime { border-color: #fc8181; color: #fc8181; background: rgba(252,129,129,0.1); }
+
+    .map-legend { position: absolute; bottom: 24px; right: 12px; z-index: 1000; background: rgba(19,21,31,0.92); border: 1px solid #2d3148; border-radius: 8px; padding: 10px 14px; font-size: 12px; }
+    .map-legend h4 { font-size: 10px; color: #718096; text-transform: uppercase; margin-bottom: 6px; letter-spacing: 0.05em; }
+    .legend-item { display: flex; align-items: center; gap: 7px; margin-bottom: 3px; color: #a0aec0; font-size: 11px; }
+    .legend-dot { width: 9px; height: 9px; border-radius: 50%; }
+    .legend-rect { width: 14px; height: 9px; border-radius: 2px; }
+    .hidden { display: none !important; }
+
+    /* Simulation Modal */
+    .sim-overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.75); z-index:2000; align-items:center; justify-content:center; }
+    .sim-overlay.show { display:flex; }
+    .sim-modal { background:#1a1d27; border:1px solid #4a3170; border-radius:12px; width:500px; max-height:88vh; overflow-y:auto; padding:24px; position:relative; box-shadow:0 20px 60px rgba(0,0,0,0.6); }
+    .sim-modal::-webkit-scrollbar { width:3px; } .sim-modal::-webkit-scrollbar-thumb { background:#2d3148; border-radius:2px; }
+    .sim-close { position:absolute; top:12px; right:14px; background:none; border:none; color:#718096; font-size:20px; cursor:pointer; line-height:1; }
+    .sim-close:hover { color:#e2e8f0; }
+    .sim-title { font-size:16px; font-weight:700; color:#d6bcfa; margin-bottom:3px; }
+    .sim-subtitle { font-size:11px; color:#718096; margin-bottom:14px; }
+    .sim-controls { display:flex; gap:8px; align-items:center; margin-bottom:14px; flex-wrap:wrap; }
+    .sim-controls label { font-size:11px; color:#a0aec0; }
+    .sim-controls select { background:#13151f; border:1px solid #2d3148; border-radius:5px; color:#e2e8f0; padding:4px 8px; font-size:12px; }
+    .sim-run-btn { background:#276749; border:none; border-radius:6px; padding:6px 16px; color:#fff; font-size:12px; font-weight:600; cursor:pointer; }
+    .sim-run-btn:hover { background:#2f855a; }
+    .sim-run-btn:disabled { background:#2d3148; color:#718096; cursor:wait; }
+    .sim-compare { display:grid; grid-template-columns:1fr 32px 1fr; gap:6px; margin-bottom:12px; align-items:center; }
+    .sim-card { background:#13151f; border:1px solid #2d3148; border-radius:8px; padding:12px; }
+    .sim-card-label { font-size:9px; text-transform:uppercase; letter-spacing:0.07em; font-weight:700; margin-bottom:8px; }
+    .sim-card.before .sim-card-label { color:#fc8181; }
+    .sim-card.after .sim-card-label { color:#48bb78; }
+    .sim-metric { margin-bottom:7px; }
+    .sim-metric-name { font-size:9px; color:#718096; text-transform:uppercase; letter-spacing:0.04em; margin-bottom:1px; }
+    .sim-metric-val { font-size:15px; font-weight:700; }
+    .sim-arrow { display:flex; align-items:center; justify-content:center; font-size:18px; color:#a78bfa; }
+    .sim-impact { background:linear-gradient(135deg,#1a4731 0%,#13151f 100%); border:1px solid #276749; border-radius:8px; padding:12px; margin-bottom:12px; }
+    .sim-impact-title { font-size:10px; font-weight:700; color:#48bb78; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:6px; }
+    .sim-impact-stat { font-size:12px; color:#e2e8f0; margin-bottom:3px; }
+    .sim-impact-stat b { color:#76e09e; }
+    .sim-type-bar { margin-bottom:12px; background:#13151f; border:1px solid #2d3148; border-radius:8px; padding:12px; }
+    .sim-type-bar-title { font-size:10px; color:#718096; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:8px; font-weight:700; }
+    .type-row { display:flex; align-items:center; gap:8px; margin-bottom:5px; }
+    .type-label { font-size:10px; color:#a0aec0; width:80px; flex-shrink:0; }
+    .type-bar-wrap { flex:1; height:5px; background:#2d3148; border-radius:3px; overflow:hidden; }
+    .type-bar-fill { height:100%; border-radius:3px; }
+    .type-count { font-size:10px; color:#718096; width:24px; text-align:right; }
+    .sim-brief { background:#13151f; border:1px solid #2d3148; border-radius:8px; padding:14px; margin-bottom:10px; }
+    .sim-brief-title { font-size:10px; font-weight:700; color:#d6bcfa; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:8px; }
+    .sim-brief-text { font-size:12px; line-height:1.75; color:#a0aec0; white-space:pre-wrap; }
+    .sim-gpu-tag { display:flex; align-items:center; gap:6px; font-size:10px; color:#76e09e; padding:7px 10px; background:rgba(118,224,158,0.06); border:1px solid rgba(118,224,158,0.15); border-radius:6px; }
+    .equity-badge { display:inline-block; padding:2px 8px; border-radius:10px; font-size:10px; font-weight:700; }
+    .equity-badge.critical { background:rgba(155,44,44,0.2); color:#fc8181; }
+    .equity-badge.low { background:rgba(237,137,54,0.15); color:#ed8936; }
+    .equity-badge.moderate { background:rgba(236,201,75,0.15); color:#ecc94b; }
+    .equity-badge.high { background:rgba(72,187,120,0.15); color:#48bb78; }
+
+    /* Route Optimizer styles */
+    .route-hero { background: linear-gradient(135deg, #1a2744 0%, #1a1d27 100%); border: 1px solid #2b4a7e; border-radius: 8px; padding: 12px; margin-bottom: 10px; }
+    .route-engine { display: inline-block; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 10px; margin-top: 6px; }
+    .route-engine.cuopt { background: rgba(100,181,246,0.15); color: #63b3ed; border: 1px solid #2b4a7e; }
+    .route-engine.fallback { background: rgba(113,128,150,0.15); color: #a0aec0; border: 1px solid #2d3148; }
+    .inspector-card { background: #1a1d27; border: 1px solid #2d3148; border-radius: 8px; padding: 10px; margin-bottom: 8px; }
+    .inspector-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+    .inspector-title { font-size: 12px; font-weight: 700; color: #64b5f6; }
+    .inspector-miles { font-size: 11px; color: #718096; }
+    .route-stop { display: flex; gap: 8px; align-items: center; padding: 4px 0; border-bottom: 1px solid #1e2236; }
+    .route-stop:last-child { border-bottom: none; }
+    .stop-num { width: 18px; font-size: 10px; font-weight: 700; color: #718096; flex-shrink: 0; text-align: center; }
+    .stop-info { flex: 1; min-width: 0; }
+    .stop-name { font-size: 11px; color: #e2e8f0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .stop-addr { font-size: 10px; color: #718096; }
+    .stop-tier { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+
+    .leaflet-popup-content-wrapper { background: #1a1d27; border: 1px solid #2d3148; color: #e2e8f0; border-radius: 8px; }
+    .leaflet-popup-tip { background: #1a1d27; }
+    .popup-name { font-weight: 700; font-size: 13px; margin-bottom: 3px; }
+    .popup-score { font-size: 20px; font-weight: 800; margin: 3px 0; }
+    .popup-score.green { color: #48bb78; } .popup-score.yellow { color: #ecc94b; }
+    .popup-score.red { color: #fc8181; } .popup-score.gray { color: #718096; }
+    .popup-detail { font-size: 11px; color: #a0aec0; }
+    .popup-critical { font-size: 11px; color: #fc8181; font-weight: 600; margin-top: 3px; }
+    .popup-actions { margin-top: 8px; display: flex; gap: 8px; }
+    .popup-link { font-size: 11px; cursor: pointer; text-decoration: underline; }
+    .popup-link.ask { color: #76e09e; } .popup-link.report { color: #64b5f6; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div>
+    <div class="logo">Food<span>Sight</span> AI</div>
+    <div class="logo-sub">Food Safety AI · Santa Clara County</div>
+  </div>
+  <div class="header-divider"></div>
+  <div class="gpu-badge">
+    <div class="gpu-dot"></div>
+    <span class="gpu-label">DGX Spark</span>
+    <span class="gpu-detail">GB10 · Nemotron-Nano · cuOpt</span>
+  </div>
+  <div class="header-divider"></div>
+  <div class="tracks">
+    <div class="track human">👥 Human Impact</div>
+    <div class="track env">🌱 Environmental</div>
+    <div class="track culture">🌮 Cultural Impact</div>
+  </div>
+  <div class="stats-bar">
+    <div class="stat safe"><div class="dot green"></div><span class="stat-num" id="stat-green">–</span><span class="stat-lbl">safe</span></div>
+    <div class="stat fair"><div class="dot yellow"></div><span class="stat-num" id="stat-yellow">–</span><span class="stat-lbl">fair</span></div>
+    <div class="stat poor"><div class="dot red"></div><span class="stat-num" id="stat-red">–</span><span class="stat-lbl">poor</span></div>
+    <div class="stat total"><span class="stat-num" id="stat-total">–</span><span class="stat-lbl">total</span></div>
+  </div>
+</header>
+
+<div class="main">
+  <div class="panel">
+    <div class="tabs">
+      <div class="tab active" data-tab="chat" onclick="switchTab('chat')">Ask AI</div>
+      <div class="tab" data-tab="deserts" onclick="switchTab('deserts')">Food Deserts</div>
+      <div class="tab" data-tab="violators" onclick="switchTab('violators')">Violators</div>
+      <div class="tab" data-tab="cities" onclick="switchTab('cities')">By City</div>
+      <div class="tab" data-tab="search" onclick="switchTab('search')">Search</div>
+      <div class="tab" data-tab="trends" onclick="switchTab('trends')">Trends</div>
+      <div class="tab" data-tab="equity" onclick="switchTab('equity')">Equity</div>
+      <div class="tab" data-tab="workforce" onclick="switchTab('workforce')">Workforce</div>
+      <div class="tab" data-tab="culture" onclick="switchTab('culture')">Culture</div>
+      <div class="tab" data-tab="gpuanalysis" onclick="switchTab('gpuanalysis')">GPU Analysis</div>
+      <div class="tab" data-tab="mlrisk" onclick="switchTab('mlrisk')">ML Risk</div>
+      <div class="tab" data-tab="routes" onclick="switchTab('routes')">Routes</div>
+      <div class="tab" data-tab="freshfood" onclick="switchTab('freshfood')">Fresh Food</div>
+      <div class="tab" data-tab="healthdata" onclick="switchTab('healthdata')">Health Data</div>
+      <div class="tab" data-tab="resources" onclick="switchTab('resources')">Resources</div>
+      <div class="tab" data-tab="recalls" onclick="switchTab('recalls')">&#128680; Recalls</div>
+    </div>
+
+    <div class="tab-content active" id="tab-chat">
+      <div class="messages" id="messages">
+        <div class="msg bot">
+          <div class="msg-avatar">🍽️</div>
+          <div class="msg-body">
+            <div class="msg-name">FoodSight AI</div>
+            <div class="msg-text">Welcome to FoodSight AI — food safety intelligence for Santa Clara County, powered on NVIDIA DGX Spark GB10.
+
+8,583 inspected restaurants · 408 census tracts · 16+ open datasets
+
+👥 Human Impact — food deserts, equity scoring, policy simulation, GPU-optimized inspector routes
+🌱 Environmental — CalEnviroScreen pollution burden, CDC PLACES health outcomes, OSM infrastructure
+🌮 Cultural Impact — 815 food trucks, 284 cottage food entrepreneurs, county cultural archive
+
+Ask me anything about food safety, or explore the tabs above.</div>
+          </div>
+        </div>
+      </div>
+      <div class="input-area">
+        <div class="suggestions">
+          <div class="suggestion" onclick="ask('Which food deserts in Santa Clara County have the worst equity gaps?')">Food desert hotspots</div>
+          <div class="suggestion" onclick="ask('Which restaurants in San Jose have the lowest safety scores?')">Worst scores in SJ</div>
+          <div class="suggestion" onclick="ask('Which census tracts have the highest pollution burden and food insecurity?')">Pollution + health risk</div>
+          <div class="suggestion" onclick="ask('How many food trucks operate in San Jose and what areas do they serve?')">Food truck culture</div>
+          <div class="suggestion" onclick="ask('What are the most common critical violations across Santa Clara County?')">Critical violations</div>
+          <div class="suggestion" onclick="ask('Which tracts need the most urgent grocery store investment to close equity gaps?')">Investment gaps</div>
+        </div>
+        <div class="input-row">
+          <input type="text" id="question" placeholder="Ask about any restaurant or food safety topic..." onkeydown="if(event.key==='Enter') sendQuestion()" />
+          <button class="send-btn" onclick="sendQuestion()" id="send-btn">Ask</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-content" id="tab-deserts">
+      <div class="list-panel" id="deserts-panel">
+        <div id="desert-content" style="color:#718096;font-size:12px;padding:20px 0;text-align:center">Loading food desert analysis...</div>
+      </div>
+    </div>
+
+    <div class="tab-content" id="tab-violators">
+      <div class="list-panel" id="violators-list">
+        <h4>Top 15 by Critical Violations</h4>
+        <div style="color:#718096;font-size:12px;padding:20px 0;text-align:center">Loading...</div>
+      </div>
+    </div>
+
+    <div class="tab-content" id="tab-cities">
+      <div class="list-panel" id="cities-list">
+        <h4>Average Safety Score by City</h4>
+        <div style="color:#718096;font-size:12px;padding:20px 0;text-align:center">Loading...</div>
+      </div>
+    </div>
+
+    <div class="tab-content" id="tab-search">
+      <div class="list-panel">
+        <h4>Search Restaurants</h4>
+        <div style="padding:0 4px">
+          <input type="text" id="search-name" placeholder="Restaurant name..." style="width:100%;margin-bottom:6px" onkeydown="if(event.key==='Enter') doSearch()" />
+          <div style="display:flex;gap:5px;margin-bottom:6px">
+            <select id="search-city" style="flex:1;background:#1a1d27;border:1px solid #2d3148;border-radius:6px;padding:6px 8px;color:#e2e8f0;font-size:12px">
+              <option value="">All cities</option>
+            </select>
+            <select id="search-tier" style="flex:1;background:#1a1d27;border:1px solid #2d3148;border-radius:6px;padding:6px 8px;color:#e2e8f0;font-size:12px">
+              <option value="">All scores</option>
+              <option value="green">90+ Safe</option>
+              <option value="yellow">75-89 Fair</option>
+              <option value="red">&lt;75 Poor</option>
+            </select>
+          </div>
+          <button class="send-btn" onclick="doSearch()" style="width:100%;margin-bottom:10px">Search</button>
+        </div>
+        <div id="search-results"></div>
+      </div>
+    </div>
+
+    <div class="tab-content" id="tab-trends">
+      <div class="list-panel" id="trends-panel">
+        <h4>Inspection Score Trends</h4>
+        <div id="trends-chart" style="padding:8px"></div>
+        <h4 style="margin-top:14px">Top Violation Types</h4>
+        <div id="violation-types" style="padding:0 4px"></div>
+      </div>
+    </div>
+
+    <div class="tab-content" id="tab-equity">
+      <div class="list-panel" id="equity-panel">
+        <h4>Equity Analysis</h4>
+        <div id="equity-content" style="color:#718096;font-size:12px;padding:20px 0;text-align:center">Loading equity analysis...</div>
+      </div>
+    </div>
+
+    <div class="tab-content" id="tab-workforce">
+      <div class="list-panel" id="workforce-panel">
+        <h4>County Workforce Demographics</h4>
+        <div id="workforce-content" style="color:#718096;font-size:12px;padding:20px 0;text-align:center">Loading workforce data...</div>
+      </div>
+    </div>
+
+    <div class="tab-content" id="tab-culture">
+      <div class="list-panel" id="culture-panel">
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:5px;margin-bottom:8px;padding:0 2px">
+          <button class="send-btn" onclick="showCultureSection('archive')" id="culture-btn-archive" style="font-size:10px;padding:5px;background:rgba(236,201,75,0.15);border-color:#ecc94b;color:#fefcbf">History</button>
+          <button class="send-btn" onclick="showCultureSection('trucks')" id="culture-btn-trucks" style="font-size:10px;padding:5px;background:rgba(246,173,85,0.1);border-color:#2d3148;color:#718096">Food Trucks</button>
+          <button class="send-btn" onclick="showCultureSection('cottage')" id="culture-btn-cottage" style="font-size:10px;padding:5px;background:rgba(104,211,145,0.1);border-color:#2d3148;color:#718096">Cottage Food</button>
+        </div>
+        <div id="culture-archive-section">
+          <h4>County Cultural Archive</h4>
+          <div id="culture-content" style="color:#718096;font-size:12px;padding:20px 0;text-align:center">Loading archive...</div>
+        </div>
+        <div id="culture-trucks-section" style="display:none">
+          <h4>Food Trucks <span style="font-size:10px;color:#f6ad55;font-weight:400">SCC DEH permitted mobile vendors</span></h4>
+          <div style="display:flex;gap:5px;margin-bottom:8px;padding:0 2px">
+            <button class="send-btn" onclick="toggleFoodTrucks()" id="trucks-map-btn" style="flex:1;font-size:10px;padding:5px;background:rgba(246,173,85,0.15);border-color:#f6ad55;color:#fbd38d">Show on Map</button>
+          </div>
+          <div id="culture-trucks-content" style="color:#718096;font-size:12px;padding:20px 0;text-align:center">Loading food trucks...</div>
+        </div>
+        <div id="culture-cottage-section" style="display:none">
+          <h4>Cottage Food <span style="font-size:10px;color:#68d391;font-weight:400">home-based licensed producers</span></h4>
+          <div style="display:flex;gap:5px;margin-bottom:8px;padding:0 2px">
+            <button class="send-btn" onclick="toggleCottageFood()" id="cottage-map-btn" style="flex:1;font-size:10px;padding:5px;background:rgba(104,211,145,0.15);border-color:#68d391;color:#9ae6b4">Show on Map</button>
+          </div>
+          <div id="culture-cottage-content" style="color:#718096;font-size:12px;padding:20px 0;text-align:center">Loading cottage food...</div>
+        </div>
+      </div>
+    </div>
+    <div class="tab-content" id="tab-gpuanalysis">
+      <div class="list-panel" id="gpuanalysis-panel">
+        <h4>GPU-Accelerated Analytics</h4>
+        <div id="gpuanalysis-content" style="color:#718096;font-size:12px;padding:20px 0;text-align:center">Loading GPU analysis...</div>
+      </div>
+    </div>
+    <div class="tab-content" id="tab-mlrisk">
+      <div class="list-panel" id="mlrisk-panel">
+        <h4>ML Food Desert Risk Predictor</h4>
+        <div id="mlrisk-content" style="color:#718096;font-size:12px;padding:20px 0;text-align:center">Loading ML predictions...</div>
+      </div>
+    </div>
+    <div class="tab-content" id="tab-routes">
+      <div class="list-panel" id="routes-panel">
+        <h4>GPU-Accelerated Route Optimizer</h4>
+        <div style="padding:0 4px;margin-bottom:10px">
+          <div style="font-size:11px;color:#718096;margin-bottom:8px">Powered by NVIDIA cuOpt — solves Vehicle Routing Problems on the DGX Spark GB10 GPU in milliseconds.</div>
+          <select id="route-city" style="width:100%;background:#1a1d27;border:1px solid #2d3148;border-radius:6px;padding:6px 8px;color:#e2e8f0;font-size:12px;margin-bottom:6px">
+            <option value="San Jose">San Jose</option>
+            <option value="Santa Clara">Santa Clara</option>
+            <option value="Sunnyvale">Sunnyvale</option>
+            <option value="Mountain View">Mountain View</option>
+            <option value="Palo Alto">Palo Alto</option>
+            <option value="Milpitas">Milpitas</option>
+            <option value="Cupertino">Cupertino</option>
+            <option value="Campbell">Campbell</option>
+            <option value="Los Gatos">Los Gatos</option>
+          </select>
+          <div style="display:flex;gap:6px;margin-bottom:6px">
+            <div style="flex:1">
+              <div style="font-size:10px;color:#718096;margin-bottom:3px">Inspectors</div>
+              <select id="route-inspectors" style="width:100%;background:#1a1d27;border:1px solid #2d3148;border-radius:6px;padding:6px 8px;color:#e2e8f0;font-size:12px">
+                <option value="1">1 inspector</option>
+                <option value="2" selected>2 inspectors</option>
+                <option value="3">3 inspectors</option>
+              </select>
+            </div>
+            <div style="flex:1">
+              <div style="font-size:10px;color:#718096;margin-bottom:3px">Stops</div>
+              <select id="route-stops" style="width:100%;background:#1a1d27;border:1px solid #2d3148;border-radius:6px;padding:6px 8px;color:#e2e8f0;font-size:12px">
+                <option value="10">10 stops</option>
+                <option value="15" selected>15 stops</option>
+                <option value="20">20 stops</option>
+                <option value="30">30 stops</option>
+              </select>
+            </div>
+          </div>
+          <select id="route-priority" style="width:100%;background:#1a1d27;border:1px solid #2d3148;border-radius:6px;padding:6px 8px;color:#e2e8f0;font-size:12px;margin-bottom:8px">
+            <option value="all">Priority: Worst safety scores first</option>
+            <option value="red">Priority: Only red-tier (poor) restaurants</option>
+            <option value="critical">Priority: Most critical violations first</option>
+          </select>
+          <button class="send-btn" onclick="optimizeRoutes()" id="route-btn" style="width:100%">Optimize Inspection Routes</button>
+        </div>
+        <div id="route-results"></div>
+      </div>
+    </div>
+
+    <div class="tab-content" id="tab-freshfood">
+      <div class="list-panel" id="freshfood-panel">
+        <h4>Fresh Food Access <span style="font-size:10px;color:#68d391;font-weight:400">888 stores · 121 priority tracts</span></h4>
+        <div style="display:flex;gap:6px;margin-bottom:10px;padding:0 4px">
+          <button class="send-btn" onclick="showFreshFoodMap()" style="flex:1;font-size:11px">Show on Map</button>
+          <button class="send-btn" onclick="showVulnerabilityMap()" style="flex:1;font-size:11px;background:rgba(237,137,54,0.15);border-color:#ed8936;color:#ed8936">Vulnerability Layer</button>
+        </div>
+        <div id="freshfood-content" style="color:#718096;font-size:12px;padding:20px 0;text-align:center">Loading fresh food data...</div>
+      </div>
+    </div>
+
+    <div class="tab-content" id="tab-healthdata">
+      <div class="list-panel" id="healthdata-panel">
+        <h4>Health Data Explorer <span style="font-size:10px;color:#90cdf4;font-weight:400">CDC PLACES 2023 + CalEnviroScreen 4.0</span></h4>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-bottom:10px;padding:0 2px">
+          <button class="send-btn" onclick="showHealthMetric('food_insecurity_pct')" style="font-size:10px;padding:5px">Food Insecurity</button>
+          <button class="send-btn" onclick="showHealthMetric('diabetes_pct')" style="font-size:10px;padding:5px">Diabetes</button>
+          <button class="send-btn" onclick="showHealthMetric('obesity_pct')" style="font-size:10px;padding:5px">Obesity</button>
+          <button class="send-btn" onclick="showHealthMetric('ces_score')" style="font-size:10px;padding:5px;background:rgba(237,137,54,0.15);border-color:#ed8936;color:#ed8936">Pollution Burden</button>
+          <button class="send-btn" onclick="showHealthMetric('depression_pct')" style="font-size:10px;padding:5px">Depression</button>
+          <button class="send-btn" onclick="showHealthMetric('lack_transport_pct')" style="font-size:10px;padding:5px">No Transport</button>
+        </div>
+        <div id="healthdata-content" style="color:#718096;font-size:12px;padding:20px 0;text-align:center">Select a health metric to view choropleth map.</div>
+      </div>
+    </div>
+
+    <div class="tab-content" id="tab-resources">
+      <div class="list-panel" id="resources-panel">
+        <h4>Food &amp; Health Resources <span id="resources-count" style="font-size:10px;color:#90cdf4;font-weight:400"></span></h4>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:5px;margin-bottom:10px;padding:0 2px">
+          <button class="send-btn" id="res-wic-btn" onclick="toggleResourceLayer('wic')" style="font-size:10px;padding:5px;background:rgba(104,211,145,0.15);border-color:#68d391;color:#9ae6b4">WIC Stores</button>
+          <button class="send-btn" id="res-senior-btn" onclick="toggleResourceLayer('senior_dining')" style="font-size:10px;padding:5px;background:rgba(246,173,85,0.15);border-color:#f6ad55;color:#fbd38d">Senior Dining</button>
+          <button class="send-btn" id="res-schools-btn" onclick="toggleResourceLayer('school')" style="font-size:10px;padding:5px;background:rgba(144,205,244,0.15);border-color:#90cdf4;color:#bee3f8">Schools</button>
+          <button class="send-btn" id="res-health-btn" onclick="toggleResourceLayer('healthcare')" style="font-size:10px;padding:5px;background:rgba(252,129,129,0.15);border-color:#fc8181;color:#fed7d7">Healthcare</button>
+          <button class="send-btn" onclick="clearResourceLayers()" style="font-size:10px;padding:5px;grid-column:span 2;color:#718096;border-color:#4a5568">Clear All</button>
+        </div>
+        <div style="margin-bottom:8px;padding:0 2px">
+          <div style="font-size:10px;color:#718096;margin-bottom:4px">Filter by city:</div>
+          <div style="display:flex;gap:4px">
+            <input id="resources-city-input" type="text" placeholder="e.g. San Jose" style="flex:1;background:#1a1a2e;border:1px solid #2d3748;color:#e2e8f0;padding:5px 8px;border-radius:5px;font-size:11px">
+            <button class="send-btn" onclick="filterResourcesCity()" style="padding:5px 10px;font-size:11px">Go</button>
+          </div>
+        </div>
+        <div id="resources-content" style="color:#718096;font-size:12px;overflow-y:auto;flex:1">
+          <div style="text-align:center;padding:20px 0">Click a layer button above to show resources on map.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-content" id="tab-recalls">
+      <div class="list-panel" id="recalls-panel">
+        <h4>&#128680; Live Food Recalls <span id="recalls-live-badge" style="font-size:9px;color:#fc8181;font-weight:400;background:rgba(252,129,129,0.1);border:1px solid rgba(252,129,129,0.3);padding:1px 6px;border-radius:8px;margin-left:4px">LIVE</span></h4>
+        <div style="display:flex;gap:5px;margin-bottom:8px;padding:0 2px">
+          <button class="send-btn" id="recall-filter-all" onclick="filterRecalls('')" style="flex:1;font-size:10px;padding:4px;background:rgba(252,129,129,0.15);border-color:#fc8181;color:#fed7d7">All</button>
+          <button class="send-btn" id="recall-filter-1" onclick="filterRecalls('Class I')" style="flex:1;font-size:10px;padding:4px">Class I</button>
+          <button class="send-btn" id="recall-filter-2" onclick="filterRecalls('Class II')" style="flex:1;font-size:10px;padding:4px">Class II</button>
+          <button class="send-btn" id="recall-filter-3" onclick="filterRecalls('Class III')" style="flex:1;font-size:10px;padding:4px">Class III</button>
+        </div>
+        <div id="recalls-content" style="color:#718096;font-size:12px;padding:20px 0;text-align:center">Loading FDA recalls...</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="map-wrap">
+    <div id="map"></div>
+    <div class="map-controls">
+      <div class="map-btn" id="equity-btn" onclick="toggleEquityLayer()" style="border-color:#a78bfa;color:#d6bcfa;background:rgba(167,139,250,0.08)">Show Food Equity</div>
+      <div class="map-btn" id="desert-btn" onclick="toggleDesertLayer()">Show Food Deserts</div>
+      <div class="map-btn" id="mlrisk-map-btn" onclick="toggleMLRiskLayer()" style="border-color:#9f7aea;color:#d6bcfa;background:rgba(159,122,234,0.08)">Show ML Risk</div>
+      <div class="map-btn" id="fresh-btn" onclick="toggleFreshFood()" style="border-color:#68d391;color:#9ae6b4;background:rgba(104,211,145,0.08)">Show Fresh Food</div>
+      <div class="map-btn" id="crime-btn" onclick="toggleCrime()">Show Crime Overlay</div>
+      <div class="map-btn" id="wic-btn" onclick="toggleResourceLayer('wic')" style="border-color:#68d391;color:#9ae6b4;display:none">WIC Stores</div>
+      <div class="map-btn" id="res-map-btn" onclick="toggleResourceLayer('all')" style="border-color:#90cdf4;color:#bee3f8;background:rgba(144,205,244,0.08);display:none">Resources</div>
+    </div>
+    <div class="map-legend" id="legend-restaurants">
+      <h4>Safety Score</h4>
+      <div class="legend-item"><div class="legend-dot" style="background:#48bb78"></div>90+ Safe</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#ecc94b"></div>75–89 Fair</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#fc8181"></div>&lt;75 Poor</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#718096"></div>Not inspected</div>
+      <div class="legend-item hidden" id="crime-legend"><div class="legend-dot" style="background:#f6ad55;opacity:0.6"></div>Crime density</div>
+    </div>
+    <div class="map-legend hidden" id="legend-deserts">
+      <h4>Food Access Classification</h4>
+      <div class="legend-item"><div class="legend-rect" style="background:#9b2c2c"></div>Severe Food Desert</div>
+      <div class="legend-item"><div class="legend-rect" style="background:#e53e3e"></div>Food Desert</div>
+      <div class="legend-item"><div class="legend-rect" style="background:#ed8936"></div>Low Access Only</div>
+      <div class="legend-item"><div class="legend-rect" style="background:#ecc94b"></div>Low Income Only</div>
+      <div class="legend-item"><div class="legend-rect" style="background:#48bb78"></div>Adequate</div>
+    </div>
+    <div class="map-legend hidden" id="legend-mlrisk">
+      <h4>ML Risk Score</h4>
+      <div class="legend-item"><div class="legend-rect" style="background:#742a2a"></div>Critical (70–100)</div>
+      <div class="legend-item"><div class="legend-rect" style="background:#c05621"></div>High (50–70)</div>
+      <div class="legend-item"><div class="legend-rect" style="background:#b7791f"></div>Moderate (30–50)</div>
+      <div class="legend-item"><div class="legend-rect" style="background:#276749"></div>Low (15–30)</div>
+      <div class="legend-item"><div class="legend-rect" style="background:#2c5282"></div>Minimal (&lt;15)</div>
+    </div>
+    <div class="map-legend hidden" id="legend-equity">
+      <h4>Food Equity Score</h4>
+      <div class="legend-item"><div class="legend-rect" style="background:#7b2d8b"></div>Critical Gap (0–10)</div>
+      <div class="legend-item"><div class="legend-rect" style="background:#e53e3e"></div>Low Equity (10–25)</div>
+      <div class="legend-item"><div class="legend-rect" style="background:#ed8936"></div>Moderate (25–50)</div>
+      <div class="legend-item"><div class="legend-rect" style="background:#48bb78"></div>High Equity (50+)</div>
+      <div style="margin-top:6px;font-size:9px;color:#718096">Click tract → Simulate Intervention</div>
+    </div>
+  </div>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+  const map = L.map('map').setView([37.35, -121.95], 11);
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+    attribution: '© OpenStreetMap © CARTO', maxZoom: 19
+  }).addTo(map);
+
+  const tierColor = { green: '#48bb78', yellow: '#ecc94b', red: '#fc8181', gray: '#718096' };
+  const classColors = {
+    severe_food_desert: '#9b2c2c', food_desert: '#e53e3e', low_access_only: '#ed8936',
+    low_income_only: '#ecc94b', adequate: '#48bb78', no_population: '#2d3148',
+  };
+
+  let markers = {}, restaurantLayer = null;
+  let crimeLayer = null, crimeVisible = false;
+  let desertLayer = null, desertVisible = false, desertGeoJson = null;
+
+  function makeIcon(tier) {
+    const c = tierColor[tier] || '#718096';
+    return L.divIcon({ className: '', html: `<div style="width:9px;height:9px;border-radius:50%;background:${c};border:1.5px solid rgba(255,255,255,0.25)"></div>`, iconSize: [9,9], iconAnchor: [4.5,4.5] });
+  }
+
+  function popupHtml(r) {
+    return `<div class="popup-name">${r.name}</div>
+      <div style="font-size:10px;color:#718096;margin-bottom:4px">${r.address}, ${r.city}</div>
+      <div class="popup-score ${r.tier}">${r.score > 0 ? r.score : 'N/A'}</div>
+      <div class="popup-detail">Latest score | Avg: ${r.avg_score||'N/A'}</div>
+      <div class="popup-detail">${r.inspections} inspection(s)</div>
+      ${r.critical > 0 ? `<div class="popup-critical">⚠ ${r.critical} critical violation(s)</div>` : ''}
+      ${r.last_date && r.last_date !== 'NaT' ? `<div class="popup-detail">Last: ${r.last_date}</div>` : ''}
+      <div class="popup-actions">
+        <span class="popup-link ask" onclick="askAbout('${r.name.replace(/'/g,"\\'").replace(/"/g,'&quot;')}','${r.city}')">Ask AI →</span>
+        <span class="popup-link report" onclick="downloadReport('${r.id}')">Report</span>
+      </div>`;
+  }
+
+  function tractPopup(p) {
+    const label = (p.classification||'unknown').replace(/_/g,' ').replace(/\b\w/g, c=>c.toUpperCase());
+    return `<div style="font-size:13px;font-weight:700;margin-bottom:4px;color:${classColors[p.classification]||'#fff'}">${label}</div>
+      <div class="popup-detail">Population: ${(p.total_population||0).toLocaleString()}</div>
+      <div class="popup-detail">Median income: $${(p.median_household_income||0).toLocaleString()}</div>
+      <div class="popup-detail">Poverty rate: ${p.poverty_rate_pct||0}%</div>
+      <div class="popup-detail">No-vehicle households: ${p.households_no_vehicle_pct||0}%</div>
+      <div style="margin-top:4px;font-size:12px;font-weight:600;color:#d6bcfa">Food businesses: ${p.food_biz_count||0} (${p.biz_per_1k_pop||0} per 1k)</div>`;
+  }
+
+  // Load restaurants
+  fetch('/api/restaurants').then(r=>r.json()).then(data => {
+    restaurantLayer = L.layerGroup().addTo(map);
+    data.forEach(r => {
+      const m = L.marker([r.lat, r.lon], { icon: makeIcon(r.tier) }).bindPopup(popupHtml(r), { maxWidth: 230 });
+      markers[r.id] = { marker: m, data: r };
+      restaurantLayer.addLayer(m);
+    });
+  });
+
+  fetch('/api/stats').then(r=>r.json()).then(s => {
+    document.getElementById('stat-green').textContent = s.green.toLocaleString();
+    document.getElementById('stat-yellow').textContent = s.yellow.toLocaleString();
+    document.getElementById('stat-red').textContent = s.red.toLocaleString();
+    document.getElementById('stat-total').textContent = s.total_restaurants.toLocaleString();
+  });
+
+  // ─── Food Equity Layer ───────────────────────────────────────────
+  let equityLayer = null, equityVisible = false, equityGeoJson = null;
+  const equityColors = { critical_equity_gap:'#7b2d8b', low_equity:'#e53e3e', moderate_equity:'#ed8936', high_equity:'#48bb78', unknown:'#2d3148' };
+  function equityTierLabel(t) { return (t||'unknown').replace(/_/g,' ').replace(/\b\w/g,c=>c.toUpperCase()); }
+
+  function equityTractPopup(p) {
+    const score = p.food_equity_score||0, tier = p.equity_tier||'unknown', canSim = score < 50;
+    const safeProps = encodeURIComponent(JSON.stringify({total_population:p.total_population,equity_tier:tier,food_equity_score:score,grocery:p.grocery||0,fast_food:p.fast_food||0,institutional:p.institutional||0,grocery_pct:p.grocery_pct||0,fast_food_pct:p.fast_food_pct||0,institutional_pct:p.institutional_pct||0,median_household_income:p.median_household_income,poverty_rate_pct:p.poverty_rate_pct}));
+    return `<div style="font-size:13px;font-weight:700;margin-bottom:3px;color:${equityColors[tier]}">${equityTierLabel(tier)}</div>
+<div style="font-size:11px;color:#718096;margin-bottom:6px">Tract ${(p.geoid||'').slice(-6)} · Pop ${(p.total_population||0).toLocaleString()}</div>
+<div style="font-size:22px;font-weight:800;color:${equityColors[tier]};line-height:1.1">${score}<span style="font-size:11px;font-weight:400;color:#718096"> /100</span></div>
+<div style="font-size:10px;color:#718096;margin-bottom:7px">Food Equity Score</div>
+<div style="font-size:11px;color:#a0aec0;margin-bottom:2px">🛒 Grocery: <b style="color:#48bb78">${p.grocery||0}</b> (${p.grocery_pct||0}%)</div>
+<div style="font-size:11px;color:#a0aec0;margin-bottom:2px">🍔 Fast Food: <b style="color:#ed8936">${p.fast_food||0}</b> (${p.fast_food_pct||0}%)</div>
+<div style="font-size:11px;color:#a0aec0;margin-bottom:6px">🏢 Institutional <span style="color:#718096">(not public)</span>: ${p.institutional||0} (${p.institutional_pct||0}%)</div>
+<div style="font-size:11px;color:#a0aec0;margin-bottom:6px">Income: $${(p.median_household_income||0).toLocaleString()}</div>
+${canSim?`<span class="popup-link ask" onclick="openSimModal('${p.geoid}','${equityTierLabel(tier)}',${score},'${safeProps}')">🔬 Simulate Grocery Store →</span>`:'<span style="font-size:10px;color:#48bb78">✓ Sufficient food equity</span>'}`;
+  }
+
+  function toggleEquityLayer() {
+    const btn = document.getElementById('equity-btn');
+    if (equityVisible) {
+      if (equityLayer) map.removeLayer(equityLayer);
+      equityVisible = false; btn.textContent = 'Show Food Equity';
+      document.getElementById('legend-restaurants').classList.remove('hidden');
+      document.getElementById('legend-equity').classList.add('hidden');
+      return;
+    }
+    btn.textContent = 'Loading...';
+    function render(gj) {
+      equityLayer = L.geoJSON(gj, {
+        style: f => ({ fillColor:equityColors[f.properties.equity_tier]||'#2d3148', fillOpacity:0.65, weight:1, color:'#1a1d27', opacity:0.8 }),
+        onEachFeature: (f, layer) => layer.bindPopup(equityTractPopup(f.properties), { maxWidth:290 })
+      }).addTo(map);
+      equityVisible = true; btn.textContent = 'Hide Food Equity';
+      document.getElementById('legend-restaurants').classList.add('hidden');
+      document.getElementById('legend-equity').classList.remove('hidden');
+    }
+    if (equityGeoJson) { render(equityGeoJson); }
+    else { fetch('/api/food-equity-geojson').then(r=>r.json()).then(d => { equityGeoJson=d; render(d); }); }
+  }
+
+  // ─── Simulation Modal ────────────────────────────────────────────
+  let simGeoid = null;
+  function openSimModal(geoid, tierLabel, score, safeProps) {
+    simGeoid = geoid;
+    const props = JSON.parse(decodeURIComponent(safeProps));
+    document.getElementById('sim-subtitle').textContent = `Tract ${geoid.slice(-6)} · ${tierLabel} · Score ${score}/100 · Pop ${(props.total_population||0).toLocaleString()}`;
+    document.getElementById('sim-results').innerHTML = '<div style="color:#718096;font-size:12px;padding:16px 0;text-align:center">Select store count and click Simulate</div>';
+    document.getElementById('sim-overlay').classList.add('show');
+  }
+  function closeSimulation() { document.getElementById('sim-overlay').classList.remove('show'); simGeoid = null; }
+
+  async function runSimulation() {
+    if (!simGeoid) return;
+    const count = parseInt(document.getElementById('sim-count').value);
+    const btn = document.getElementById('sim-run-btn'), resultsEl = document.getElementById('sim-results');
+    btn.disabled = true; btn.textContent = 'Running on DGX Spark...';
+    resultsEl.innerHTML = '<div style="color:#a78bfa;font-size:12px;padding:16px 0;text-align:center">Computing food equity + generating AI policy brief on local Nemotron...</div>';
+    try {
+      const resp = await fetch('/api/simulate', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({geoid:simGeoid,new_businesses:count}) });
+      const d = await resp.json();
+      if (d.error) { resultsEl.innerHTML = `<div style="color:#fc8181;font-size:12px;padding:16px">${d.error}</div>`; return; }
+      const b=d.before, a=d.after, imp=d.impact;
+      resultsEl.innerHTML = `
+        <div class="sim-compare">
+          <div class="sim-card before">
+            <div class="sim-card-label">Before</div>
+            <div class="sim-metric"><div class="sim-metric-name">Equity Score</div><div class="sim-metric-val" style="color:${equityColors[b.equity_tier]||'#fc8181'}">${b.food_equity_score}</div><div style="font-size:10px;color:#718096">${equityTierLabel(b.equity_tier)}</div></div>
+            <div class="sim-metric"><div class="sim-metric-name">Grocery Stores</div><div class="sim-metric-val" style="color:#fc8181">${b.grocery}</div><div style="font-size:10px;color:#718096">${b.grocery_pct}% of public food</div></div>
+            <div class="sim-metric"><div class="sim-metric-name">Institutional (not public)</div><div class="sim-metric-val" style="color:#718096">${b.institutional}</div><div style="font-size:10px;color:#718096">${b.institutional_pct}% of all food</div></div>
+          </div>
+          <div class="sim-arrow">→</div>
+          <div class="sim-card after">
+            <div class="sim-card-label">After +${count} Grocery</div>
+            <div class="sim-metric"><div class="sim-metric-name">Equity Score</div><div class="sim-metric-val" style="color:${equityColors[a.equity_tier]||'#48bb78'}">${a.food_equity_score}</div><div style="font-size:10px;color:#718096">${equityTierLabel(a.equity_tier)}</div></div>
+            <div class="sim-metric"><div class="sim-metric-name">Grocery Stores</div><div class="sim-metric-val" style="color:#48bb78">${a.grocery}</div><div style="font-size:10px;color:#718096">${a.grocery_pct}% of public food</div></div>
+          </div>
+        </div>
+        <div class="sim-impact">
+          <div class="sim-impact-title">Impact Summary</div>
+          <div class="sim-impact-stat">Equity Score: <b>${b.food_equity_score} → ${a.food_equity_score} (+${imp.score_improvement} pts)</b></div>
+          <div class="sim-impact-stat">Tier: <b>${equityTierLabel(imp.tier_before)} → ${equityTierLabel(imp.tier_after)}</b></div>
+          <div class="sim-impact-stat">Population served: <b>${(imp.population||0).toLocaleString()} residents</b></div>
+          <div style="margin-top:4px;font-size:10px;color:#718096">${imp.nearby_underserved_tracts} other nearby tracts also have low food equity</div>
+        </div>
+        <div class="sim-brief">
+          <div class="sim-brief-title">AI Policy Brief — Nemotron on DGX Spark</div>
+          <div class="sim-brief-text">${d.policy_brief||'Unavailable.'}</div>
+        </div>
+        <div class="sim-gpu-tag">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg>
+          Powered by NVIDIA DGX Spark · Nemotron LLM · No community data left this device
+        </div>`;
+    } catch(e) { resultsEl.innerHTML = `<div style="color:#fc8181;font-size:12px;padding:16px">Error: ${e.message}</div>`; }
+    finally { btn.disabled = false; btn.textContent = 'Simulate'; }
+  }
+
+  // ─── Food Desert Layer ────────────────────────────────────────────
+  function toggleDesertLayer() {
+    const btn = document.getElementById('desert-btn');
+    if (desertVisible) {
+      if (desertLayer) map.removeLayer(desertLayer);
+      desertVisible = false;
+      btn.textContent = 'Show Food Deserts'; btn.classList.remove('active');
+      document.getElementById('legend-restaurants').classList.remove('hidden');
+      document.getElementById('legend-deserts').classList.add('hidden');
+      return;
+    }
+    btn.textContent = 'Loading...';
+    function render(geojson) {
+      desertLayer = L.geoJSON(geojson, {
+        style: f => ({
+          fillColor: classColors[f.properties.classification] || '#2d3148',
+          fillOpacity: 0.55, weight: 1, color: '#2d3148', opacity: 0.7
+        }),
+        onEachFeature: (f, layer) => layer.bindPopup(tractPopup(f.properties), { maxWidth: 260 })
+      }).addTo(map);
+      desertVisible = true;
+      btn.textContent = 'Hide Food Deserts'; btn.classList.add('active');
+      document.getElementById('legend-restaurants').classList.add('hidden');
+      document.getElementById('legend-deserts').classList.remove('hidden');
+    }
+    if (desertGeoJson) { render(desertGeoJson); }
+    else { fetch('/api/food-access-geojson').then(r=>r.json()).then(d => { desertGeoJson=d; render(d); }); }
+  }
+
+  // ─── ML Risk Layer ────────────────────────────────────────────────
+  let mlriskMapLayer = null, mlriskMapVisible = false;
+  const mlRiskColors = { critical:'#742a2a', high:'#c05621', moderate:'#b7791f', low:'#276749', minimal:'#2c5282' };
+
+  function mlriskTractPopup(p) {
+    const tier = p.ml_risk_tier || 'unknown';
+    const score = p.ml_risk_score != null ? p.ml_risk_score : '—';
+    const prob = p.ml_desert_probability != null ? p.ml_desert_probability + '%' : '—';
+    const c = mlRiskColors[tier] || '#718096';
+    return `<div style="font-size:13px;font-weight:700;margin-bottom:3px;color:${c}">${tier.toUpperCase()} RISK</div>
+<div style="font-size:22px;font-weight:800;color:${c};line-height:1.1">${score}<span style="font-size:11px;font-weight:400;color:#718096"> /100</span></div>
+<div style="font-size:10px;color:#718096;margin-bottom:5px">ML Risk Score · Desert prob: ${prob}</div>
+<div class="popup-detail">Population: ${(p.total_population||0).toLocaleString()}</div>
+<div class="popup-detail">Median income: $${(p.median_household_income||0).toLocaleString()}</div>
+<div class="popup-detail">Poverty rate: ${p.poverty_rate_pct||0}%</div>
+<div style="margin-top:4px;font-size:11px;color:#d6bcfa">Food businesses: ${p.food_biz_count||0} (${p.biz_per_1k_pop||0} per 1k)</div>`;
+  }
+
+  function toggleMLRiskLayer() {
+    const btn = document.getElementById('mlrisk-map-btn');
+    if (mlriskMapVisible) {
+      if (mlriskMapLayer) map.removeLayer(mlriskMapLayer);
+      mlriskMapVisible = false;
+      btn.textContent = 'Show ML Risk'; btn.classList.remove('active');
+      document.getElementById('legend-restaurants').classList.remove('hidden');
+      document.getElementById('legend-mlrisk').classList.add('hidden');
+      return;
+    }
+    btn.textContent = 'Loading...';
+    function render(geojson) {
+      mlriskMapLayer = L.geoJSON(geojson, {
+        style: f => ({
+          fillColor: mlRiskColors[f.properties.ml_risk_tier] || '#2d3148',
+          fillOpacity: 0.6, weight: 1, color: '#1a1d27', opacity: 0.6
+        }),
+        onEachFeature: (f, layer) => layer.bindPopup(mlriskTractPopup(f.properties), { maxWidth: 260 })
+      }).addTo(map);
+      mlriskMapVisible = true;
+      btn.textContent = 'Hide ML Risk'; btn.classList.add('active');
+      document.getElementById('legend-restaurants').classList.add('hidden');
+      document.getElementById('legend-mlrisk').classList.remove('hidden');
+    }
+    if (desertGeoJson) { render(desertGeoJson); }
+    else { fetch('/api/food-access-geojson').then(r=>r.json()).then(d => { desertGeoJson=d; render(d); }); }
+  }
+
+  // ─── Crime Overlay ────────────────────────────────────────────────
+  function toggleCrime() {
+    const btn = document.getElementById('crime-btn');
+    if (crimeVisible) {
+      if (crimeLayer) map.removeLayer(crimeLayer); crimeVisible = false;
+      btn.textContent = 'Show Crime Overlay'; btn.classList.remove('active-crime');
+      document.getElementById('crime-legend').classList.add('hidden');
+      return;
+    }
+    btn.textContent = 'Loading...';
+    fetch('/api/crime-points').then(r=>r.json()).then(pts => {
+      crimeLayer = L.layerGroup();
+      pts.forEach(p => L.circleMarker([p.lat, p.lon], { radius: 3+p.w*1.5, fillColor:'#f6ad55', fillOpacity:0.18, stroke:false }).addTo(crimeLayer));
+      crimeLayer.addTo(map); crimeVisible = true;
+      btn.textContent = 'Hide Crime Overlay'; btn.classList.add('active-crime');
+      document.getElementById('crime-legend').classList.remove('hidden');
+    });
+  }
+
+  // ─── Route Layer ──────────────────────────────────────────────────
+  let routeLayers = [];
+  const routeColors = ['#63b3ed', '#f6ad55', '#68d391', '#d6bcfa', '#fc8181'];
+
+  function clearRoutes() {
+    routeLayers.forEach(l => map.removeLayer(l));
+    routeLayers = [];
+  }
+
+  function drawRoutes(routes) {
+    clearRoutes();
+    routes.forEach((route, i) => {
+      const color = routeColors[i % routeColors.length];
+      const latLngs = route.stops.map(s => [s.lat, s.lon]);
+      const line = L.polyline(latLngs, { color, weight: 3, opacity: 0.8, dashArray: '6 4' }).addTo(map);
+      routeLayers.push(line);
+      // Add numbered stop markers
+      route.stops.forEach((s, j) => {
+        if (s.depot) return;
+        const m = L.circleMarker([s.lat, s.lon], {
+          radius: 7, fillColor: color, fillOpacity: 0.9, color: '#fff', weight: 1.5
+        }).bindPopup(`<b style="font-size:12px">#${j} ${s.name}</b><br><span style="font-size:10px;color:#a0aec0">${s.address}</span><br><span style="font-size:11px">Score: ${s.score||'N/A'} | Critical: ${s.critical||0}</span>`)
+        .addTo(map);
+        routeLayers.push(m);
+      });
+    });
+    if (routeLayers.length > 0) {
+      const group = L.featureGroup(routeLayers);
+      map.flyToBounds(group.getBounds(), { padding: [30, 30], duration: 0.8 });
+    }
+  }
+
+  // ─── Tabs ─────────────────────────────────────────────────────────
+  let loaded = { violators: false, cities: false, deserts: false };
+
+  function switchTab(name) {
+    document.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t.dataset.tab === name));
+    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+    document.getElementById(`tab-${name}`).classList.add('active');
+    if (name === 'violators' && !loaded.violators) loadViolators();
+    if (name === 'cities' && !loaded.cities) loadCities();
+    if (name === 'deserts' && !loaded.deserts) loadDeserts();
+    if (name === 'search' && !searchLoaded) loadSearchCities();
+    if (name === 'trends' && !trendsLoaded) loadTrends();
+    if (name === 'equity' && !equityLoaded) loadEquity();
+    if (name === 'workforce' && !workforceLoaded) loadWorkforce();
+    if (name === 'culture' && !cultureLoaded) loadCulture();
+    if (name === 'gpuanalysis' && !gpuAnalysisLoaded) loadGPUAnalysis();
+    if (name === 'mlrisk' && !mlriskLoaded) loadMLRisk();
+    if (name === 'freshfood' && !freshfoodLoaded) loadFreshFood();
+    if (name === 'healthdata') { /* loaded on demand via buttons */ }
+    if (name === 'resources' && !resourcesLoaded) loadResources();
+    if (name === 'recalls' && !recallsLoaded) loadRecalls();
+    if (name !== 'routes') clearRoutes();
+    if (name === 'deserts' && !desertVisible) toggleDesertLayer();
+    if (name !== 'deserts' && desertVisible) toggleDesertLayer();
+  }
+
+  // ─── Food Desert Panel ────────────────────────────────────────────
+  function loadDeserts() {
+    loaded.deserts = true;
+    Promise.all([
+      fetch('/api/food-deserts').then(r=>r.json()),
+      fetch('/api/food-access-geojson').then(r=>r.json()),
+    ]).then(([summary, geojson]) => {
+      desertGeoJson = geojson;
+      const el = document.getElementById('desert-content');
+      const tracts = geojson.features
+        .filter(f => f.properties.is_food_desert)
+        .sort((a,b) => {
+          if (a.properties.is_severe && !b.properties.is_severe) return -1;
+          if (!a.properties.is_severe && b.properties.is_severe) return 1;
+          return (a.properties.biz_per_1k_pop||0) - (b.properties.biz_per_1k_pop||0);
+        });
+
+      el.innerHTML = `
+        <div class="desert-hero">
+          <div class="desert-hero-title">Population in Food Deserts</div>
+          <div class="desert-hero-num">${summary.food_desert_population.toLocaleString()}</div>
+          <div class="desert-hero-sub">${summary.food_desert_population_pct}% of Santa Clara County (${summary.total_population.toLocaleString()} total)</div>
+        </div>
+        <div class="desert-stats">
+          <div class="desert-stat-card"><div class="desert-stat-label">Food Desert Tracts</div><div class="desert-stat-val" style="color:#e53e3e">${summary.food_desert_tracts}</div></div>
+          <div class="desert-stat-card"><div class="desert-stat-label">Severe</div><div class="desert-stat-val" style="color:#9b2c2c">${summary.severe_food_desert_tracts}</div></div>
+          <div class="desert-stat-card"><div class="desert-stat-label">Low Access Tracts</div><div class="desert-stat-val" style="color:#ed8936">${summary.low_access_tracts}</div></div>
+          <div class="desert-stat-card"><div class="desert-stat-label">Zero Businesses</div><div class="desert-stat-val" style="color:#fc8181">${summary.zero_business_tracts}</div></div>
+        </div>
+        <div class="desert-criteria">
+          <h5>Classification Criteria (USDA-Inspired)</h5>
+          <ul>
+            <li><b>Low Income:</b> Poverty ≥ ${summary.thresholds_used.low_income_poverty_rate_pct}% or income ≤ $${summary.low_income_threshold.toLocaleString()}</li>
+            <li><b>Low Access:</b> &lt; ${summary.thresholds_used.low_access_biz_per_1k_pop} food businesses per 1,000 residents</li>
+            <li><b>Severe:</b> + no-vehicle ≥ ${summary.thresholds_used.severe_no_vehicle_pct}% or elderly ≥ ${summary.thresholds_used.severe_elderly_pct}%</li>
+          </ul>
+        </div>
+        <h4>Food Desert Tracts (${tracts.length})</h4>`;
+
+      tracts.forEach(f => {
+        const p = f.properties;
+        const div = document.createElement('div');
+        div.className = `desert-tract-row${p.is_severe?' severe':''}`;
+        const color = p.is_severe ? '#9b2c2c' : '#e53e3e';
+        div.innerHTML = `
+          <div class="dt-class" style="background:${color}"></div>
+          <div class="dt-info">
+            <div class="dt-geoid">Tract ${(p.geoid||'').slice(-6)} ${p.is_severe?'(SEVERE)':''}</div>
+            <div class="dt-detail">Income: $${(p.median_household_income||0).toLocaleString()} | Poverty: ${p.poverty_rate_pct||0}% | No-vehicle: ${p.households_no_vehicle_pct||0}%</div>
+          </div>
+          <div class="dt-badge">
+            <div class="dt-biz">${p.food_biz_count||0} biz</div>
+            <div class="dt-pop">pop ${(p.total_population||0).toLocaleString()}</div>
+          </div>`;
+        div.onclick = () => { const bounds = L.geoJSON(f).getBounds(); map.flyToBounds(bounds, { padding: [40,40], duration: 0.8 }); };
+        el.appendChild(div);
+      });
+    });
+  }
+
+  // ─── Violators / Cities ───────────────────────────────────────────
+  function loadViolators() {
+    loaded.violators = true;
+    fetch('/api/worst-violators').then(r=>r.json()).then(data => {
+      const el = document.getElementById('violators-list');
+      el.innerHTML = '<h4>Top 15 by Critical Violations</h4>';
+      data.forEach((r,i) => {
+        const div = document.createElement('div'); div.className = 'violator-row';
+        div.innerHTML = `<div class="v-rank">#${i+1}</div><div class="v-info"><div class="v-name">${r.name}</div><div class="v-city">${r.city}</div></div><div class="v-badge"><div class="v-crit">⚠ ${r.critical}</div><div class="v-score">Score: ${r.score||'N/A'}</div></div>`;
+        div.onclick = () => panToRestaurant(r.id); el.appendChild(div);
+      });
+    });
+  }
+
+  function loadCities() {
+    loaded.cities = true;
+    fetch('/api/by-city').then(r=>r.json()).then(data => {
+      const el = document.getElementById('cities-list');
+      el.innerHTML = '<h4>Average Safety Score by City</h4>';
+      data.forEach(c => {
+        if (c.total < 5) return;
+        const color = c.avg_score >= 90 ? '#48bb78' : c.avg_score >= 75 ? '#ecc94b' : '#fc8181';
+        const div = document.createElement('div'); div.className = 'city-row';
+        div.innerHTML = `<div class="city-name">${c.city} <span style="font-size:10px;color:#718096">(${c.total})</span></div><div class="city-bar-wrap"><div class="city-bar" style="width:${c.avg_score}%;background:${color}"></div></div><div class="city-score" style="color:${color}">${c.avg_score}</div>`;
+        el.appendChild(div);
+      });
+    });
+  }
+
+  // ─── Helpers ──────────────────────────────────────────────────────
+  function panToRestaurant(id) {
+    const e = markers[id]; if (!e) return;
+    map.flyTo([e.data.lat, e.data.lon], 15, { duration: 0.8 });
+    setTimeout(() => e.marker.openPopup(), 900); switchTab('chat');
+  }
+  function highlightMarkers(ids) {
+    if (!ids||!ids.length) return;
+    const e = markers[ids[0]];
+    if (e) { map.flyTo([e.data.lat, e.data.lon], 14, { duration: 0.8 }); setTimeout(() => e.marker.openPopup(), 900); }
+  }
+  function downloadReport(bizId) { window.open(`/api/report/${bizId}`, '_blank'); }
+
+  // ─── Chat ─────────────────────────────────────────────────────────
+  function addMessage(role, text, sources) {
+    const msgs = document.getElementById('messages'); const div = document.createElement('div');
+    div.className = `msg ${role}`;
+    div.innerHTML = `<div class="msg-avatar">${role==='user'?'👤':'🍽️'}</div><div class="msg-body"><div class="msg-name">${role==='user'?'You':'FoodSight AI'}</div><div class="msg-text">${text}</div>${sources?`<div class="sources-tag">📋 ${sources} records</div>`:''}</div>`;
+    msgs.appendChild(div); msgs.scrollTop = msgs.scrollHeight;
+  }
+  function addTyping() {
+    const msgs = document.getElementById('messages'); const div = document.createElement('div');
+    div.className = 'msg bot'; div.id = 'typing';
+    div.innerHTML = `<div class="msg-avatar">🍽️</div><div class="msg-body"><div class="msg-name">FoodSight AI</div><div class="typing"><span></span><span></span><span></span></div></div>`;
+    msgs.appendChild(div); msgs.scrollTop = msgs.scrollHeight;
+  }
+  async function askAbout(name, city) { switchTab('chat'); await ask(`Tell me about ${name} in ${city}`); }
+  async function ask(q) { document.getElementById('question').value = q; await sendQuestion(); }
+  async function sendQuestion() {
+    const input = document.getElementById('question'), question = input.value.trim();
+    if (!question) return;
+    const btn = document.getElementById('send-btn'); btn.disabled = true; input.value = '';
+    addMessage('user', question); addTyping();
+    try {
+      const resp = await fetch('/api/ask', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ question }) });
+      const data = await resp.json();
+      document.getElementById('typing')?.remove();
+      addMessage('bot', data.answer, data.sources);
+      if (data.highlight_ids?.length > 0) highlightMarkers(data.highlight_ids);
+    } catch(e) { document.getElementById('typing')?.remove(); addMessage('bot', 'Sorry, encountered an error. Please try again.'); }
+    btn.disabled = false; input.focus();
+  }
+
+  // ─── Search ──────────────────────────────────────────────────────
+  let searchLoaded = false;
+  function loadSearchCities() {
+    searchLoaded = true;
+    const cities = new Set();
+    Object.values(markers).forEach(m => { if(m.data.city) cities.add(m.data.city); });
+    const sel = document.getElementById('search-city');
+    [...cities].sort().forEach(c => {
+      const opt = document.createElement('option');
+      opt.value = c; opt.textContent = c;
+      sel.appendChild(opt);
+    });
+  }
+
+  function doSearch() {
+    const q = document.getElementById('search-name').value.trim();
+    const city = document.getElementById('search-city').value;
+    const tier = document.getElementById('search-tier').value;
+    const params = new URLSearchParams();
+    if (q) params.set('q', q);
+    if (city) params.set('city', city);
+    if (tier) params.set('tier', tier);
+    fetch('/api/search?' + params.toString()).then(r => r.json()).then(data => {
+      const el = document.getElementById('search-results');
+      if (!data.length) { el.innerHTML = '<div style="color:#718096;font-size:12px;padding:10px;text-align:center">No results found</div>'; return; }
+      el.innerHTML = data.map(r => `
+        <div class="violator-row" onclick="panToRestaurant('${r.id}')" style="margin-bottom:4px">
+          <div class="v-info">
+            <div class="v-name">${r.name}</div>
+            <div class="v-city">${r.city} · Score: ${r.score || 'N/A'}</div>
+          </div>
+          <div style="width:10px;height:10px;border-radius:50%;background:${tierColor[r.tier]||'#718096'}"></div>
+        </div>
+      `).join('');
+    });
+  }
+
+  // ─── Trends ──────────────────────────────────────────────────────
+  let trendsLoaded = false;
+  function loadTrends() {
+    trendsLoaded = true;
+    fetch('/api/trends').then(r => r.json()).then(data => {
+      const el = document.getElementById('trends-chart');
+      if (!data.months || !data.months.length) { el.innerHTML = 'No data'; return; }
+      const maxScore = 100;
+      const months = data.months.slice(-24);
+      const barW = Math.floor((320 - 20) / months.length);
+      let html = '<div style="display:flex;align-items:flex-end;gap:1px;height:120px;padding-top:10px">';
+      months.forEach(m => {
+        const h = Math.max(2, (m.avg_score / maxScore) * 100);
+        const color = m.avg_score >= 90 ? '#48bb78' : m.avg_score >= 75 ? '#ecc94b' : '#fc8181';
+        html += `<div title="${m.month}: ${m.avg_score} avg (${m.inspection_count||m.count||0} inspections)" style="width:${barW}px;height:${h}%;background:${color};border-radius:2px 2px 0 0;min-height:2px;cursor:help"></div>`;
+      });
+      html += '</div>';
+      html += `<div style="display:flex;justify-content:space-between;font-size:9px;color:#718096;margin-top:2px"><span>${months[0].month}</span><span>${months[months.length-1].month}</span></div>`;
+      html += `<div style="font-size:11px;color:#a0aec0;margin-top:6px;text-align:center">Average inspection score by month (last ${months.length} months)</div>`;
+      el.innerHTML = html;
+    });
+    fetch('/api/violation-types').then(r => r.json()).then(data => {
+      const el = document.getElementById('violation-types');
+      const maxCount = data[0]?.count || 1;
+      el.innerHTML = data.slice(0, 15).map((v, i) => `
+        <div style="margin-bottom:6px">
+          <div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:2px">
+            <span style="color:#e2e8f0;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${v.type}</span>
+            <span style="color:#718096;flex-shrink:0;margin-left:8px">${v.count.toLocaleString()} <span style="color:${v.critical_pct > 50 ? '#fc8181' : '#718096'}">(${v.critical_pct}% crit)</span></span>
+          </div>
+          <div style="height:4px;background:#2d3148;border-radius:2px;overflow:hidden">
+            <div style="height:100%;width:${(v.count/maxCount*100)}%;background:${v.critical_pct > 50 ? '#fc8181' : '#64b5f6'};border-radius:2px"></div>
+          </div>
+        </div>
+      `).join('');
+    });
+  }
+
+  // ─── Equity Analysis ─────────────────────────────────────────────
+  let equityLoaded = false;
+  function loadEquity() {
+    equityLoaded = true;
+    fetch('/api/equity-analysis').then(r => r.json()).then(d => {
+      const el = document.getElementById('equity-content');
+      const inc = d.income_analysis;
+      const hisp = d.hispanic_analysis;
+      const asian = d.asian_analysis;
+      const fd = d.food_desert_demographics;
+
+      function compBar(label1, val1, label2, val2, unit, color1, color2) {
+        const n1 = parseFloat(val1)||0, n2 = parseFloat(val2)||0;
+        const max = Math.max(n1, n2) || 1;
+        return `<div style="margin-bottom:12px">
+          <div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:4px">
+            <span style="color:${color1}">${label1}: <b>${val1}${unit}</b></span>
+            <span style="color:${color2}">${label2}: <b>${val2}${unit}</b></span>
+          </div>
+          <div style="display:flex;gap:3px;height:8px">
+            <div style="flex:${n1/max};background:${color1};border-radius:3px 0 0 3px"></div>
+            <div style="flex:${n2/max};background:${color2};border-radius:0 3px 3px 0"></div>
+          </div>
+        </div>`;
+      }
+
+      el.innerHTML = `
+        <div style="background:#1a1d27;border:1px solid #2d3148;border-radius:8px;padding:12px;margin-bottom:10px">
+          <div style="font-size:13px;font-weight:700;color:#e2e8f0;margin-bottom:8px">Income & Food Access</div>
+          <div style="font-size:11px;color:#718096;margin-bottom:10px">County median: $${d.county_median_income.toLocaleString()}</div>
+          ${compBar('Below median', inc.below_median.avg_food_biz, 'Above median', inc.above_median.avg_food_biz, ' avg biz', '#fc8181', '#48bb78')}
+          ${compBar('Below median', inc.below_median.avg_biz_per_1k, 'Above median', inc.above_median.avg_biz_per_1k, '/1k pop', '#fc8181', '#48bb78')}
+        </div>
+        <div style="background:#1a1d27;border:1px solid #2d3148;border-radius:8px;padding:12px;margin-bottom:10px">
+          <div style="font-size:13px;font-weight:700;color:#e2e8f0;margin-bottom:8px">Hispanic Community Access</div>
+          <div style="font-size:11px;color:#718096;margin-bottom:6px">${hisp.high_pct_30plus.tracts} tracts 30%+ Hispanic vs ${hisp.low_pct_under10.tracts} tracts &lt;10%</div>
+          ${compBar('30%+ Hispanic', hisp.high_pct_30plus.avg_food_biz, '<10%', hisp.low_pct_under10.avg_food_biz, ' avg biz', '#ed8936', '#64b5f6')}
+          <div style="font-size:10px;color:#718096">Income — 30%+: $${hisp.high_pct_30plus.avg_income.toLocaleString()} | &lt;10%: $${hisp.low_pct_under10.avg_income.toLocaleString()}</div>
+        </div>
+        <div style="background:#1a1d27;border:1px solid #2d3148;border-radius:8px;padding:12px;margin-bottom:10px">
+          <div style="font-size:13px;font-weight:700;color:#e2e8f0;margin-bottom:8px">Asian Community Access</div>
+          <div style="font-size:11px;color:#718096;margin-bottom:6px">${asian.high_pct_30plus.tracts} tracts 30%+ Asian vs ${asian.low_pct_under10.tracts} tracts &lt;10%</div>
+          ${compBar('30%+ Asian', asian.high_pct_30plus.avg_food_biz, '<10%', asian.low_pct_under10.avg_food_biz, ' avg biz', '#d6bcfa', '#64b5f6')}
+          <div style="font-size:10px;color:#718096">Income — 30%+: $${asian.high_pct_30plus.avg_income.toLocaleString()} | &lt;10%: $${asian.low_pct_under10.avg_income.toLocaleString()}</div>
+        </div>
+        <div style="background:#1a1d27;border:1px solid #2d3148;border-radius:8px;padding:12px">
+          <div style="font-size:13px;font-weight:700;color:#e2e8f0;margin-bottom:8px">Food Desert Demographics</div>
+          <div style="font-size:11px;color:#a0aec0">${fd.desert_tracts} food desert tracts</div>
+          <div style="font-size:11px;color:#a0aec0">Hispanic share in deserts: <b style="color:#fc8181">${fd.desert_avg_hispanic_pct}%</b> vs elsewhere: <b style="color:#48bb78">${fd.non_desert_avg_hispanic_pct}%</b></div>
+          <div style="font-size:10px;color:#718096;margin-top:8px;font-style:italic">Sources: ACS 2024 Census + SCC DEH + Census TIGER shapefiles</div>
+        </div>`;
+    });
+  }
+
+  // ─── Workforce ──────────────────────────────────────────────────
+  let workforceLoaded = false;
+  function loadWorkforce() {
+    workforceLoaded = true;
+    fetch('/api/employee-demographics').then(r=>r.json()).then(data => {
+      const el = document.getElementById('workforce-content');
+      const eth = data.ethnicity;
+      const gen = data.gender;
+      const total = data.total_employees;
+      const ethColors = {'Asian':'#ed8936','White':'#64b5f6','Hispanic/Latino':'#48bb78','Black/African American':'#d6bcfa','Two or More Races':'#ecc94b','American Indian/Alaska Native':'#fc8181','Native Hawaiian/Other PI':'#f6ad55'};
+      const ethBars = Object.entries(eth).sort((a,b)=>b[1]-a[1]).map(([k,v]) => {
+        const pct = (v/total*100).toFixed(1);
+        const c = ethColors[k]||'#a0aec0';
+        return `<div style="margin-bottom:4px"><div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:1px"><span style="color:#e2e8f0">${k}</span><span style="color:#718096">${v.toLocaleString()} (${pct}%)</span></div><div style="height:4px;background:#2d3148;border-radius:2px;overflow:hidden"><div style="height:100%;width:${pct}%;background:${c};border-radius:2px"></div></div></div>`;
+      }).join('');
+      const hw = data.health_workforce||{};
+      const hwBars = Object.entries(hw.ethnicity||{}).sort((a,b)=>b[1]-a[1]).slice(0,5).map(([k,v]) => `<li>${k}: ${v.toLocaleString()} (${(v/(hw.total||1)*100).toFixed(0)}%)</li>`).join('');
+      const divRows = (data.diversity_ranking||[]).slice(0,10).map(d =>
+        `<div class="city-row"><div class="city-name" style="font-size:11px">${d.department} <span style="color:#718096">(${d.total})</span></div><div class="city-bar-wrap"><div class="city-bar" style="width:${d.diversity_index*100}%;background:#d6bcfa"></div></div><div class="city-score" style="color:#d6bcfa">${d.diversity_index}</div></div>`
+      ).join('');
+      el.innerHTML = `
+        <div class="desert-hero" style="background:linear-gradient(135deg,#1a4731 0%,#1a1d27 100%);border-color:#276749">
+          <div class="desert-hero-title" style="color:#9ae6b4">SCC Workforce</div>
+          <div class="desert-hero-num" style="color:#c6f6d5">${total.toLocaleString()}</div>
+          <div class="desert-hero-sub" style="color:#68d391">employees · ${(data.departments||[]).length} departments</div>
+        </div>
+        <div class="desert-stats">
+          <div class="desert-stat-card"><div class="desert-stat-label">Female</div><div class="desert-stat-val" style="color:#d6bcfa">${((gen['Female']||0)/total*100).toFixed(0)}%</div></div>
+          <div class="desert-stat-card"><div class="desert-stat-label">Male</div><div class="desert-stat-val" style="color:#64b5f6">${((gen['Male']||0)/total*100).toFixed(0)}%</div></div>
+        </div>
+        <div class="desert-criteria"><h5>Ethnicity Breakdown (26,042 employees)</h5>${ethBars}</div>
+        <div class="desert-criteria"><h5>Health Workforce (${(hw.total||0).toLocaleString()} staff)</h5><ul>${hwBars}</ul><div style="font-size:10px;color:#718096;margin-top:4px">Includes hospital & public health — supports food safety inspections</div></div>
+        <h4>Department Diversity Index</h4>
+        <div style="font-size:10px;color:#718096;margin-bottom:6px">Simpson's Index: 0 = homogeneous, 1 = maximally diverse</div>
+        ${divRows}`;
+    });
+  }
+
+  // ─── Route Optimizer ─────────────────────────────────────────────
+  async function optimizeRoutes() {
+    const btn = document.getElementById('route-btn');
+    const el = document.getElementById('route-results');
+    const city = document.getElementById('route-city').value;
+    const n_inspectors = parseInt(document.getElementById('route-inspectors').value);
+    const n_stops = parseInt(document.getElementById('route-stops').value);
+    const priority = document.getElementById('route-priority').value;
+
+    btn.disabled = true; btn.textContent = 'Optimizing on GPU...';
+    el.innerHTML = '<div style="color:#718096;font-size:12px;padding:20px;text-align:center">Running cuOpt Vehicle Routing solver...</div>';
+
+    try {
+      const t0 = performance.now();
+      const resp = await fetch('/api/optimize-route', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ city, n_inspectors, n_stops, priority })
+      });
+      const data = await resp.json();
+      const elapsed = ((performance.now() - t0) / 1000).toFixed(2);
+
+      if (data.error) { el.innerHTML = `<div style="color:#fc8181;font-size:12px;padding:10px">${data.error}</div>`; return; }
+
+      const isCuopt = data.engine.includes('cuOpt');
+      const engineClass = isCuopt ? 'cuopt' : 'fallback';
+      const engineIcon = isCuopt ? '⚡' : '🔄';
+
+      let html = `<div class="route-hero">
+        <div style="font-size:11px;color:#90cdf4;font-weight:700">${data.city} — ${data.total_stops} stops / ${data.n_inspectors} inspector${data.n_inspectors>1?'s':''}</div>
+        <div class="route-engine ${engineClass}">${engineIcon} ${data.engine}</div>
+        <div style="font-size:10px;color:#718096;margin-top:4px">Solved in ${elapsed}s · Priority: ${data.priority}</div>
+      </div>`;
+
+      data.routes.forEach((route, i) => {
+        const color = routeColors[i % routeColors.length];
+        const nonDepot = route.stops.filter(s => !s.depot);
+        html += `<div class="inspector-card" style="border-left:3px solid ${color}">
+          <div class="inspector-header">
+            <div class="inspector-title" style="color:${color}">Inspector ${route.inspector}</div>
+            <div class="inspector-miles">${nonDepot.length} stops · ${route.total_miles} mi</div>
+          </div>`;
+        route.stops.forEach((s, j) => {
+          if (s.depot) {
+            html += `<div class="route-stop"><div class="stop-num">⬤</div><div class="stop-info"><div class="stop-name" style="color:#718096">${s.name}</div></div></div>`;
+          } else {
+            const tc = { green: '#48bb78', yellow: '#ecc94b', red: '#fc8181' }[s.tier] || '#718096';
+            html += `<div class="route-stop">
+              <div class="stop-num" style="color:${color}">${j}</div>
+              <div class="stop-info">
+                <div class="stop-name">${s.name}</div>
+                <div class="stop-addr">${s.address||''} ${s.critical>0?'· ⚠ '+s.critical+' crit':''}</div>
+              </div>
+              <div class="stop-tier" style="background:${tc}"></div>
+            </div>`;
+          }
+        });
+        html += '</div>';
+      });
+
+      el.innerHTML = html;
+      drawRoutes(data.routes);
+
+    } catch(e) {
+      el.innerHTML = `<div style="color:#fc8181;font-size:12px;padding:10px">Error: ${e.message}</div>`;
+    } finally {
+      btn.disabled = false; btn.textContent = 'Optimize Inspection Routes';
+    }
+  }
+
+  // ─── Culture ────────────────────────────────────────────────────
+  let cultureLoaded = false;
+  function loadCulture() {
+    cultureLoaded = true;
+    fetch('/api/photographers').then(r=>r.json()).then(data => {
+      const el = document.getElementById('culture-content');
+      const themes = data.themes;
+      const maxT = Math.max(...Object.values(themes));
+      const themeBars = Object.entries(themes).sort((a,b)=>b[1]-a[1]).map(([k,v]) => {
+        const label = k.replace(/_/g,' ').replace(/\b\w/g,c=>c.toUpperCase());
+        return `<div style="margin-bottom:4px"><div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:1px"><span style="color:#e2e8f0">${label}</span><span style="color:#718096">${v}</span></div><div style="height:4px;background:#2d3148;border-radius:2px;overflow:hidden"><div style="height:100%;width:${(v/maxT*100)}%;background:#ecc94b;border-radius:2px"></div></div></div>`;
+      }).join('');
+      const depts = Object.entries(data.departments).slice(0,10).map(([k,v]) =>
+        `<div class="city-row"><div class="city-name" style="font-size:11px">${k}</div><div class="city-score" style="color:#ecc94b">${v}</div></div>`
+      ).join('');
+      const samples = (data.sample_subjects||[]).slice(0,10).map(s =>
+        `<div style="font-size:11px;color:#a0aec0;padding:4px 0;border-bottom:1px solid #2d3148">${s.length>70?s.slice(0,70)+'...':s}</div>`
+      ).join('');
+      el.innerHTML = `
+        <div class="desert-hero" style="background:linear-gradient(135deg,#744210 0%,#1a1d27 100%);border-color:#975a16">
+          <div class="desert-hero-title" style="color:#fbd38d">County Photo Archive</div>
+          <div class="desert-hero-num" style="color:#fefcbf">${data.total_photos.toLocaleString()}</div>
+          <div class="desert-hero-sub" style="color:#f6e05e">historical photographs documenting SCC heritage</div>
+        </div>
+        <div class="desert-stats">
+          <div class="desert-stat-card"><div class="desert-stat-label">B&amp;W</div><div class="desert-stat-val" style="color:#a0aec0">${(data.color_breakdown['B&W']||0).toLocaleString()}</div></div>
+          <div class="desert-stat-card"><div class="desert-stat-label">Color</div><div class="desert-stat-val" style="color:#ecc94b">${(data.color_breakdown['Color']||0).toLocaleString()}</div></div>
+        </div>
+        <div class="desert-criteria"><h5>Subject Themes</h5>${themeBars}</div>
+        <h4>Top Departments Documented</h4>${depts}
+        <h4 style="margin-top:10px">Sample Archive Entries</h4>${samples}
+        <div style="font-size:10px;color:#718096;margin-top:8px;font-style:italic">Source: County Photographers' Collection (4,541 records)</div>`;
+    });
+  }
+
+  // ─── Culture Sub-sections ────────────────────────────────────────
+  let trucksLoaded = false, cottageLoaded = false;
+  let truckLayer = null, truckVisible = false;
+  let cottageLayer = null, cottageVisible = false;
+
+  function showCultureSection(section) {
+    ['archive','trucks','cottage'].forEach(s => {
+      document.getElementById(`culture-${s}-section`).style.display = s === section ? '' : 'none';
+      const btn = document.getElementById(`culture-btn-${s}`);
+      const activeStyles = { archive: 'background:rgba(236,201,75,0.15);border-color:#ecc94b;color:#fefcbf', trucks: 'background:rgba(246,173,85,0.2);border-color:#f6ad55;color:#fbd38d', cottage: 'background:rgba(104,211,145,0.2);border-color:#68d391;color:#9ae6b4' };
+      const inactiveStyle = 'background:rgba(45,49,72,0.3);border-color:#2d3148;color:#718096';
+      btn.style.cssText = btn.style.cssText.replace(/background:[^;]+;border-color:[^;]+;color:[^;]+/, s === section ? activeStyles[s] : inactiveStyle);
+    });
+    if (section === 'trucks' && !trucksLoaded) loadFoodTrucks();
+    if (section === 'cottage' && !cottageLoaded) loadCottageFood();
+  }
+
+  function loadFoodTrucks() {
+    trucksLoaded = true;
+    fetch('/api/food-trucks').then(r=>r.json()).then(data => {
+      const el = document.getElementById('culture-trucks-content');
+      const byCity = data.by_city || {};
+      const cities = Object.entries(byCity).sort((a,b)=>b[1]-a[1]);
+      const maxC = cities[0] ? cities[0][1] : 1;
+      const cityRows = cities.slice(0,15).map(([city,cnt]) =>
+        `<div style="display:flex;align-items:center;gap:8px;padding:4px 0;border-bottom:1px solid #1e2236">
+          <div style="flex:1;font-size:11px;color:#e2e8f0">${city}</div>
+          <div style="width:80px;height:5px;background:#2d3148;border-radius:3px;overflow:hidden"><div style="height:100%;width:${(cnt/maxC*100).toFixed(0)}%;background:#f6ad55;border-radius:3px"></div></div>
+          <div style="font-size:11px;font-weight:700;color:#f6ad55;width:28px;text-align:right">${cnt}</div>
+        </div>`
+      ).join('');
+      el.innerHTML = `
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:10px">
+          <div style="background:rgba(246,173,85,0.08);border:1px solid rgba(246,173,85,0.2);border-radius:6px;padding:10px;text-align:center">
+            <div style="font-size:24px;font-weight:800;color:#f6ad55">${data.total}</div>
+            <div style="font-size:10px;color:#718096">Permitted Food Trucks</div>
+          </div>
+          <div style="background:rgba(246,173,85,0.08);border:1px solid rgba(246,173,85,0.2);border-radius:6px;padding:10px;text-align:center">
+            <div style="font-size:24px;font-weight:800;color:#fbd38d">${cities.length}</div>
+            <div style="font-size:10px;color:#718096">Cities Covered</div>
+          </div>
+        </div>
+        <div style="font-size:11px;color:#718096;margin-bottom:6px;font-style:italic">Source: ${data.source}</div>
+        <h5 style="color:#f6ad55;margin-bottom:6px">Trucks by City</h5>${cityRows}`;
+    });
+  }
+
+  function loadCottageFood() {
+    cottageLoaded = true;
+    fetch('/api/cottage-food').then(r=>r.json()).then(data => {
+      const el = document.getElementById('culture-cottage-content');
+      const byCity = data.by_city || {};
+      const cities = Object.entries(byCity).sort((a,b)=>b[1]-a[1]);
+      const maxC = cities[0] ? cities[0][1] : 1;
+      const cityRows = cities.slice(0,15).map(([city,cnt]) =>
+        `<div style="display:flex;align-items:center;gap:8px;padding:4px 0;border-bottom:1px solid #1e2236">
+          <div style="flex:1;font-size:11px;color:#e2e8f0">${city}</div>
+          <div style="width:80px;height:5px;background:#2d3148;border-radius:3px;overflow:hidden"><div style="height:100%;width:${(cnt/maxC*100).toFixed(0)}%;background:#68d391;border-radius:3px"></div></div>
+          <div style="font-size:11px;font-weight:700;color:#68d391;width:28px;text-align:right">${cnt}</div>
+        </div>`
+      ).join('');
+      el.innerHTML = `
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:10px">
+          <div style="background:rgba(104,211,145,0.08);border:1px solid rgba(104,211,145,0.2);border-radius:6px;padding:10px;text-align:center">
+            <div style="font-size:24px;font-weight:800;color:#68d391">${data.total}</div>
+            <div style="font-size:10px;color:#718096">Licensed Cottage Producers</div>
+          </div>
+          <div style="background:rgba(104,211,145,0.08);border:1px solid rgba(104,211,145,0.2);border-radius:6px;padding:10px;text-align:center">
+            <div style="font-size:24px;font-weight:800;color:#9ae6b4">${cities.length}</div>
+            <div style="font-size:10px;color:#718096">Cities Covered</div>
+          </div>
+        </div>
+        <div style="font-size:11px;color:#a0aec0;margin-bottom:6px">Home-based food businesses selling direct — jams, baked goods, candies and more. Regulated under CA AB 1616 Cottage Food Law.</div>
+        <div style="font-size:11px;color:#718096;margin-bottom:6px;font-style:italic">Source: ${data.source}</div>
+        <h5 style="color:#68d391;margin-bottom:6px">Producers by City</h5>${cityRows}`;
+    });
+  }
+
+  const SCC_CITY_CENTROIDS = {
+    'San Jose':[37.3382,-121.8863],'Santa Clara':[37.3541,-121.9552],'Sunnyvale':[37.3688,-122.0363],
+    'Mountain View':[37.3861,-122.0839],'Palo Alto':[37.4419,-122.1430],'Milpitas':[37.4323,-121.8996],
+    'Cupertino':[37.3229,-122.0322],'Campbell':[37.2872,-121.9500],'Los Gatos':[37.2358,-121.9624],
+    'Gilroy':[37.0058,-121.5683],'Morgan Hill':[37.1305,-121.6544],'Los Altos':[37.3852,-122.1141],
+    'Saratoga':[37.2638,-122.0231],'Los Altos Hills':[37.3799,-122.1452],'Monte Sereno':[37.2480,-121.9979],
+  };
+
+  function toggleFoodTrucks() {
+    const btn = document.getElementById('trucks-map-btn');
+    if (truckVisible) {
+      if (truckLayer) { map.removeLayer(truckLayer); truckLayer = null; }
+      truckVisible = false;
+      btn.textContent = 'Show on Map';
+      return;
+    }
+    truckVisible = true;
+    btn.textContent = 'Hide from Map';
+    if (truckLayer) { truckLayer.addTo(map); return; }
+    fetch('/api/food-trucks').then(r=>r.json()).then(data => {
+      truckLayer = L.layerGroup();
+      const byCity = data.by_city || {};
+      const maxCount = Math.max(...Object.values(byCity), 1);
+      Object.entries(byCity).forEach(([city, count]) => {
+        const coords = SCC_CITY_CENTROIDS[city];
+        if (!coords) return;
+        const r = 8 + (count / maxCount) * 22;
+        L.circleMarker(coords, {
+          radius: r, fillColor: '#f6ad55', fillOpacity: 0.7, color: '#744210', weight: 1.5
+        }).bindPopup(`<b>🚚 Food Trucks — ${city}</b><br><span style="color:#f6ad55;font-size:11px">${count} permitted vendor${count>1?'s':''}</span>`)
+          .addTo(truckLayer);
+      });
+      truckLayer.addTo(map);
+      map.fitBounds([[36.8,-122.3],[37.6,-121.4]], {padding:[20,20]});
+    });
+  }
+
+  function toggleCottageFood() {
+    const btn = document.getElementById('cottage-map-btn');
+    if (cottageVisible) {
+      if (cottageLayer) { map.removeLayer(cottageLayer); cottageLayer = null; }
+      cottageVisible = false;
+      btn.textContent = 'Show on Map';
+      return;
+    }
+    cottageVisible = true;
+    btn.textContent = 'Hide from Map';
+    if (cottageLayer) { cottageLayer.addTo(map); return; }
+    fetch('/api/cottage-food').then(r=>r.json()).then(data => {
+      cottageLayer = L.layerGroup();
+      const byCity = data.by_city || {};
+      const maxCount = Math.max(...Object.values(byCity), 1);
+      Object.entries(byCity).forEach(([city, count]) => {
+        const coords = SCC_CITY_CENTROIDS[city];
+        if (!coords) return;
+        const jitter = [(Math.random()-0.5)*0.018, (Math.random()-0.5)*0.018];
+        const r = 7 + (count / maxCount) * 18;
+        L.circleMarker([coords[0]+jitter[0], coords[1]+jitter[1]], {
+          radius: r, fillColor: '#68d391', fillOpacity: 0.65, color: '#276749', weight: 1.5
+        }).bindPopup(`<b>🏠 Cottage Food — ${city}</b><br><span style="color:#68d391;font-size:11px">${count} licensed producer${count>1?'s':''}</span><br><span style="font-size:10px;color:#718096">Approx. city centroid — home addresses private</span>`)
+          .addTo(cottageLayer);
+      });
+      cottageLayer.addTo(map);
+      map.fitBounds([[36.8,-122.3],[37.6,-121.4]], {padding:[20,20]});
+    });
+  }
+
+  let mlriskLoaded = false;
+  function loadMLRisk() {
+    mlriskLoaded = true;
+    fetch('/api/ml-risk').then(r=>r.json()).then(data => {
+      const el = document.getElementById('mlrisk-content');
+      const stats = data.model_stats || {};
+      const tracts = data.tracts || [];
+      const tierColors = {critical:'#fc8181',high:'#f6ad55',moderate:'#fbd38d',low:'#68d391',minimal:'#4299e1'};
+      const tierCounts = {};
+      tracts.forEach(t => { tierCounts[t.risk_tier] = (tierCounts[t.risk_tier]||0)+1; });
+
+      // Feature importance bars
+      const feats = (stats.feature_importances||[]).slice(0,8);
+      const maxImp = feats.length ? feats[0].importance : 1;
+      const featBars = feats.map(f => {
+        const label = f.feature.replace(/_/g,' ').replace(/\b\w/g,c=>c.toUpperCase());
+        const pct = (f.importance/maxImp*100).toFixed(0);
+        return `<div style="margin-bottom:5px"><div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:2px"><span style="color:#e2e8f0">${label}</span><span style="color:#718096">${(f.importance*100).toFixed(1)}%</span></div><div style="height:5px;background:#2d3148;border-radius:3px;overflow:hidden"><div style="height:100%;width:${pct}%;background:linear-gradient(90deg,#667eea,#764ba2);border-radius:3px"></div></div></div>`;
+      }).join('');
+
+      // Top critical tracts
+      const topTracts = tracts.filter(t=>t.risk_tier==='critical').slice(0,15).map(t => {
+        const c = tierColors[t.risk_tier]||'#a0aec0';
+        const pop = (t.total_population||0).toLocaleString();
+        const poverty = t.poverty_rate_pct!=null ? t.poverty_rate_pct.toFixed(1)+'%' : 'N/A';
+        const biz = t.biz_per_1k_pop!=null ? t.biz_per_1k_pop.toFixed(2) : '0';
+        return `<div class="city-row" style="font-size:11px" onclick="map.setView([${t.centroid_lat||37.35},${t.centroid_lon||-121.9}],13)">
+          <div style="flex:1"><div style="color:#e2e8f0">Tract ${t.geoid.slice(-6)}</div><div style="color:#718096;font-size:10px">${pop} people · poverty: ${poverty} · biz/1k: ${biz}</div></div>
+          <div style="text-align:right"><div style="color:${c};font-weight:700">${t.risk_score}</div><div style="font-size:9px;color:${c};text-transform:uppercase">${t.risk_tier}</div></div>
+        </div>`;
+      }).join('');
+
+      const gb = stats.binary_classifier || {};
+      const rf = stats.multiclass_classifier || {};
+
+      el.innerHTML = `
+        <div class="desert-hero" style="background:linear-gradient(135deg,#44337a 0%,#1a1d27 100%);border-color:#553c9a">
+          <div class="desert-hero-title" style="color:#d6bcfa">GPU-Accelerated ML Risk Model</div>
+          <div class="desert-hero-num" style="color:#e9d8fd">${(tierCounts.critical||0)}</div>
+          <div class="desert-hero-sub" style="color:#b794f4">critical-risk census tracts identified</div>
+        </div>
+        <div class="desert-stats">
+          <div class="desert-stat-card"><div class="desert-stat-label">ROC-AUC</div><div class="desert-stat-val" style="color:#9f7aea">${gb.cv_roc_auc_mean||'—'}</div></div>
+          <div class="desert-stat-card"><div class="desert-stat-label">F1 Score</div><div class="desert-stat-val" style="color:#9f7aea">${rf.cv_f1_weighted_mean||'—'}</div></div>
+          <div class="desert-stat-card"><div class="desert-stat-label">High Risk</div><div class="desert-stat-val" style="color:#f6ad55">${(tierCounts.high||0)}</div></div>
+          <div class="desert-stat-card"><div class="desert-stat-label">Minimal</div><div class="desert-stat-val" style="color:#4299e1">${(tierCounts.minimal||0)}</div></div>
+        </div>
+        <div class="desert-criteria">
+          <h5>Model Architecture</h5>
+          <div style="font-size:11px;color:#a0aec0;margin-bottom:6px">Ensemble: GradientBoosting (binary) + RandomForest (multi-class), calibrated probability, 5-fold CV on ${tracts.length} census tracts.</div>
+          <h5 style="margin-top:8px">Top Predictive Features</h5>${featBars}
+        </div>
+        <h4>Critical-Risk Tracts (click to fly to)</h4>${topTracts}
+        <div style="font-size:10px;color:#718096;margin-top:8px;font-style:italic">Trained on ACS 2024 demographics + DEH food business locations · 408 Santa Clara County census tracts</div>`;
+    });
+  }
+  // Close sim modal on overlay click
+  document.addEventListener('click', e => { if (e.target && e.target.id === 'sim-overlay') closeSimulation(); });
+
+  // ─── Fresh Food Access ───────────────────────────────────────────
+  let freshfoodLoaded = false;
+  let freshFoodLayer = null, freshFoodVisible = false;
+  let vulnLayer = null, vulnVisible = false;
+
+  function loadFreshFood() {
+    freshfoodLoaded = true;
+    const el = document.getElementById('freshfood-content');
+    el.innerHTML = '<div style="color:#718096;font-size:12px;padding:10px;text-align:center">Loading...</div>';
+    Promise.all([
+      fetch('/api/food-category-summary').then(r=>r.json()),
+      fetch('/api/priority-tracts').then(r=>r.json()),
+    ]).then(([cats, priority]) => {
+      const maxFresh = Math.max(...cats.map(c=>c.fresh_food_stores));
+      const cityRows = cats.slice(0, 15).map(c => {
+        const bar = `<div style="height:4px;background:#2d3148;border-radius:2px;overflow:hidden;margin-top:2px"><div style="height:100%;width:${(c.fresh_food_stores/maxFresh*100).toFixed(0)}%;background:#68d391;border-radius:2px"></div></div>`;
+        return `<div style="padding:5px 0;border-bottom:1px solid #1e2236">
+          <div style="display:flex;justify-content:space-between;font-size:11px">
+            <span style="color:#e2e8f0">${c.city}</span>
+            <span style="color:#68d391">${c.fresh_food_stores} fresh</span>
+            <span style="color:#718096">${c.fresh_pct}%</span>
+          </div>${bar}
+          <div style="display:flex;gap:8px;margin-top:2px;font-size:10px;color:#718096">
+            <span>${c.limited_fresh_stores} limited</span>
+            <span>${c.restaurants} restaurants</span>
+          </div>
+        </div>`;
+      }).join('');
+
+      const topVuln = priority.slice(0, 10).map((t, i) => {
+        const score = (t.access_vulnerability_score * 100).toFixed(0);
+        const w = score;
+        return `<div style="padding:5px 0;border-bottom:1px solid #1e2236">
+          <div style="display:flex;justify-content:space-between;font-size:11px">
+            <span style="color:#e2e8f0;flex:1">${t.name.replace('Census Tract ','Tract ').split(';')[0]}</span>
+            <span style="color:#ed8936;margin-left:6px">${score}</span>
+          </div>
+          <div style="height:3px;background:#2d3148;border-radius:2px;overflow:hidden;margin-top:2px"><div style="height:100%;width:${w}%;background:linear-gradient(90deg,#ed8936,#e53e3e);border-radius:2px"></div></div>
+          <div style="font-size:10px;color:#718096;margin-top:1px">${t.fresh_food_businesses} fresh stores · ${t.fresh_food_per_1k} per 1k pop</div>
+        </div>`;
+      }).join('');
+
+      el.innerHTML = `
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:10px">
+          <div style="background:#1a1d27;border:1px solid #2d3148;border-radius:6px;padding:8px;text-align:center">
+            <div style="font-size:20px;font-weight:700;color:#68d391">888</div>
+            <div style="font-size:10px;color:#718096">Fresh Food Stores</div>
+          </div>
+          <div style="background:#1a1d27;border:1px solid #2d3148;border-radius:6px;padding:8px;text-align:center">
+            <div style="font-size:20px;font-weight:700;color:#ed8936">121</div>
+            <div style="font-size:10px;color:#718096">Priority Tracts</div>
+          </div>
+        </div>
+        <h5 style="color:#68d391;margin-bottom:6px">Fresh Food Stores by City</h5>${cityRows}
+        <h5 style="color:#ed8936;margin:10px 0 6px">Highest Vulnerability Tracts</h5>${topVuln}
+        <div style="font-size:10px;color:#718096;margin-top:8px;font-style:italic">Source: SCC DEH food business data + ACS 2024 census tracts</div>`;
+    });
+  }
+
+  function toggleFreshFood() {
+    if (freshFoodVisible) {
+      if (freshFoodLayer) { map.removeLayer(freshFoodLayer); freshFoodLayer = null; }
+      freshFoodVisible = false;
+      document.getElementById('fresh-btn').textContent = 'Show Fresh Food';
+    } else {
+      freshFoodVisible = true;
+      document.getElementById('fresh-btn').textContent = 'Hide Fresh Food';
+      if (freshFoodLayer) { freshFoodLayer.addTo(map); return; }
+      fetch('/api/fresh-food-points').then(r=>r.json()).then(pts => {
+        freshFoodLayer = L.layerGroup();
+        pts.forEach(p => {
+          const icon = L.divIcon({className:'', html:`<div style="width:7px;height:7px;border-radius:50%;background:#68d391;border:1.5px solid #fff;box-shadow:0 0 3px rgba(104,211,145,0.6)"></div>`});
+          L.marker([p.lat, p.lon], {icon}).bindPopup(`<b>${p.name}</b><br><span style="color:#68d391">Fresh food store</span><br>${p.city}`).addTo(freshFoodLayer);
+        });
+        freshFoodLayer.addTo(map);
+      });
+    }
+  }
+
+  function showFreshFoodMap() {
+    switchTab('chat');
+    if (!freshFoodVisible) toggleFreshFood();
+  }
+
+  function showVulnerabilityMap() {
+    if (vulnLayer) { map.removeLayer(vulnLayer); vulnLayer = null; }
+    fetch('/api/access-vulnerability-geojson').then(r=>r.json()).then(gj => {
+      const scores = gj.features.map(f=>f.properties.access_vulnerability_score||0).filter(s=>s>0);
+      const maxS = Math.max(...scores);
+      vulnLayer = L.geoJSON(gj, {
+        style: f => {
+          const s = f.properties.access_vulnerability_score || 0;
+          const t = s / (maxS || 1);
+          const r = Math.round(255 * t);
+          const g = Math.round(200 * (1 - t));
+          return {fillColor:`rgb(${r},${g},50)`, fillOpacity:0.55, color:'#333', weight:0.5};
+        },
+        onEachFeature: (f, l) => {
+          const p = f.properties;
+          l.bindPopup(`<b>${(p.name||'').split(';')[0]}</b><br>Vulnerability: ${((p.access_vulnerability_score||0)*100).toFixed(0)}<br>${p.access_label||''}<br>Fresh stores: ${p.fresh_food_businesses||0}`);
+        }
+      }).addTo(map);
+      switchTab('chat');
+    });
+  }
+
+  // ─── Health Data Tab ──────────────────────────────────────────────
+  let healthdataLoaded = false;
+  let healthLayer = null;
+
+  async function showHealthMetric(metric) {
+    const isCES = metric === 'ces_score';
+    const url = isCES ? '/api/calenviroscreen' : '/api/health-outcomes';
+    const geoUrl = '/api/food-access-geojson';
+    const el = document.getElementById('healthdata-content');
+    el.innerHTML = '<div style="text-align:center;padding:20px;color:#718096">Loading choropleth...</div>';
+    const [data, gj] = await Promise.all([fetch(url).then(r=>r.json()), fetch(geoUrl).then(r=>r.json())]);
+    const records = Array.isArray(data) ? data : (data.tracts || []);
+    const byGeoid = {};
+    records.forEach(r => { byGeoid[r.geoid] = r; });
+    const vals = records.map(r => r[metric]).filter(v => v != null && v > 0);
+    const maxV = Math.max(...vals), minV = Math.min(...vals);
+    if (healthLayer) { map.removeLayer(healthLayer); healthLayer = null; }
+    healthLayer = L.geoJSON(gj, {
+      style: f => {
+        const r = byGeoid[f.properties.geoid];
+        const v = r ? (r[metric] || 0) : 0;
+        const t = maxV > minV ? (v - minV) / (maxV - minV) : 0;
+        const red = Math.round(255 * t), blue = Math.round(180 * (1 - t));
+        return { fillColor: `rgb(${red},60,${blue})`, fillOpacity: 0.6, color: '#222', weight: 0.4 };
+      },
+      onEachFeature: (f, l) => {
+        const r = byGeoid[f.properties.geoid] || {};
+        const v = r[metric];
+        const label = metric.replace(/_pct$/, '').replace(/_/g, ' ');
+        l.bindPopup(`<b>Tract ${f.properties.geoid}</b><br>${label}: ${v != null ? v.toFixed(1) + '%' : 'N/A'}`);
+      }
+    }).addTo(map);
+    const labels = {food_insecurity_pct:'Food Insecurity %',diabetes_pct:'Diabetes %',obesity_pct:'Obesity %',ces_score:'CES Pollution Score',depression_pct:'Depression %',lack_transport_pct:'No Transport %'};
+    const lbl = labels[metric] || metric;
+    const top5 = records.filter(r=>r[metric]!=null).sort((a,b)=>b[metric]-a[metric]).slice(0,5);
+    el.innerHTML = `<div style="font-size:11px;font-weight:600;color:#90cdf4;margin-bottom:6px">${lbl} — Top 5 Tracts</div>` +
+      top5.map(r=>`<div style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid #2d3748;font-size:11px"><span style="color:#718096">${r.geoid}</span><span style="color:#e2e8f0;font-weight:600">${r[metric].toFixed(1)}%</span></div>`).join('') +
+      `<div style="font-size:9px;color:#4a5568;margin-top:8px">Source: ${isCES ? 'CalEnviroScreen 4.0' : 'CDC PLACES 2023'}</div>`;
+    healthdataLoaded = true;
+  }
+
+  // ─── Food Resources Tab ───────────────────────────────────────────
+  let resourcesLoaded = false;
+  let resourceLayers = { wic: null, senior_dining: null, school: null, healthcare: null };
+  let resourceData = null;
+
+  async function loadResources() {
+    resourcesLoaded = true;
+    const data = await fetch('/api/food-resources').then(r=>r.json());
+    resourceData = data;
+    const el = document.getElementById('resources-count');
+    el.textContent = `${data.counts.wic} WIC · ${data.counts.senior_dining} senior dining · ${data.counts.schools} schools`;
+    const el2 = document.getElementById('resources-content');
+    el2.innerHTML = `<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:4px 0">
+      <div style="background:rgba(104,211,145,0.08);border:1px solid rgba(104,211,145,0.2);border-radius:6px;padding:10px;text-align:center">
+        <div style="font-size:20px;font-weight:700;color:#68d391">${data.counts.wic}</div>
+        <div style="font-size:10px;color:#718096;margin-top:2px">WIC-Authorized<br>Stores</div>
+      </div>
+      <div style="background:rgba(246,173,85,0.08);border:1px solid rgba(246,173,85,0.2);border-radius:6px;padding:10px;text-align:center">
+        <div style="font-size:20px;font-weight:700;color:#f6ad55">${data.counts.senior_dining}</div>
+        <div style="font-size:10px;color:#718096;margin-top:2px">Senior Dining<br>Sites</div>
+      </div>
+      <div style="background:rgba(144,205,244,0.08);border:1px solid rgba(144,205,244,0.2);border-radius:6px;padding:10px;text-align:center">
+        <div style="font-size:20px;font-weight:700;color:#90cdf4">${data.counts.schools}</div>
+        <div style="font-size:10px;color:#718096;margin-top:2px">Public<br>Schools</div>
+      </div>
+      <div style="background:rgba(252,129,129,0.08);border:1px solid rgba(252,129,129,0.2);border-radius:6px;padding:10px;text-align:center">
+        <div style="font-size:20px;font-weight:700;color:#fc8181">358</div>
+        <div style="font-size:10px;color:#718096;margin-top:2px">Healthcare<br>Facilities</div>
+      </div>
+    </div>
+    <div style="font-size:10px;color:#718096;margin-top:10px;padding:0 2px">Click layer buttons above to show on map.</div>`;
+  }
+
+  async function toggleResourceLayer(layerType) {
+    const colors = { wic: '#68d391', senior_dining: '#f6ad55', school: '#90cdf4', healthcare: '#fc8181' };
+    const icons = { wic: '🛒', senior_dining: '🍽️', school: '🏫', healthcare: '🏥' };
+
+    if (layerType === 'all') {
+      Object.keys(resourceLayers).forEach(t => { if (!resourceLayers[t]) toggleResourceLayer(t); });
+      return;
+    }
+    if (resourceLayers[layerType]) {
+      map.removeLayer(resourceLayers[layerType]);
+      resourceLayers[layerType] = null;
+      return;
+    }
+    let url = { wic: '/api/wic-vendors', senior_dining: '/api/senior-dining', school: '/api/schools', healthcare: '/api/healthcare' }[layerType];
+    const data = await fetch(url).then(r=>r.json());
+    const items = data.vendors || data.sites || data.schools || data.facilities || [];
+    const color = colors[layerType];
+    const markers = items.filter(s=>s.lat && s.lon).map(s => {
+      const name = s.name || s.facname || '';
+      const detail = s.detail || s.fac_type || s.program || s.district || '';
+      return L.circleMarker([s.lat, s.lon], {
+        radius: layerType === 'school' ? 5 : 7,
+        fillColor: color, fillOpacity: 0.85, color: '#111', weight: 1
+      }).bindPopup(`<b style="font-size:12px">${icons[layerType]} ${name}</b><br><span style="font-size:10px;color:#a0aec0">${s.address||''}, ${s.city||''}</span>${detail ? `<br><span style="font-size:10px;color:#68d391">${detail}</span>` : ''}`);
+    });
+    resourceLayers[layerType] = L.layerGroup(markers).addTo(map);
+    if (markers.length > 0) {
+      const lls = markers.map(m => m.getLatLng());
+      const bounds = L.latLngBounds(lls);
+      map.fitBounds(bounds, { padding: [30, 30] });
+    }
+  }
+
+  function clearResourceLayers() {
+    Object.keys(resourceLayers).forEach(t => {
+      if (resourceLayers[t]) { map.removeLayer(resourceLayers[t]); resourceLayers[t] = null; }
+    });
+  }
+
+  async function filterResourcesCity() {
+    const city = document.getElementById('resources-city-input').value.trim().toLowerCase();
+    if (!city) return;
+    clearResourceLayers();
+    const [wic, sd, sc, hc] = await Promise.all([
+      fetch(`/api/wic-vendors?city=${encodeURIComponent(city)}`).then(r=>r.json()),
+      fetch('/api/senior-dining').then(r=>r.json()),
+      fetch(`/api/schools?city=${encodeURIComponent(city)}`).then(r=>r.json()),
+      fetch(`/api/healthcare?city=${encodeURIComponent(city)}`).then(r=>r.json()),
+    ]);
+    const el = document.getElementById('resources-content');
+    el.innerHTML = `<div style="font-size:11px;color:#90cdf4;font-weight:600;margin-bottom:8px">Results for "${city.replace(/</g,'&lt;')}"</div>
+      <div style="font-size:11px;color:#e2e8f0">WIC stores: <b>${wic.total}</b> · Senior dining: <b>${sd.sites.filter(s=>s.city&&s.city.toLowerCase().includes(city)).length}</b> · Schools: <b>${sc.total}</b> · Healthcare: <b>${hc.total}</b></div>`;
+    // Show all on map
+    [['wic',wic.vendors,'#68d391'],['senior_dining',sd.sites.filter(s=>s.city&&s.city.toLowerCase().includes(city)),'#f6ad55'],
+     ['school',sc.schools,'#90cdf4'],['healthcare',hc.facilities,'#fc8181']].forEach(([t,items,c]) => {
+      if (resourceLayers[t]) { map.removeLayer(resourceLayers[t]); resourceLayers[t] = null; }
+      const markers = (items||[]).filter(s=>s.lat&&s.lon).map(s =>
+        L.circleMarker([s.lat,s.lon],{radius:7,fillColor:c,fillOpacity:0.85,color:'#111',weight:1})
+          .bindPopup(`<b>${s.name||s.facname||''}</b><br>${s.address||''}, ${s.city||''}`)
+      );
+      if (markers.length) resourceLayers[t] = L.layerGroup(markers).addTo(map);
+    });
+  }
+
+  // ─── GPU Analysis Panel ───────────────────────────────────────────
+  let gpuAnalysisLoaded = false;
+  function loadGPUAnalysis() {
+    gpuAnalysisLoaded = true;
+    const el = document.getElementById('gpuanalysis-content');
+    Promise.all([
+      fetch('/api/gpu-clusters').then(r=>r.json()).catch(()=>null),
+      fetch('/api/gpu-tsne').then(r=>r.json()).catch(()=>null),
+      fetch('/api/gpu-nearest-food').then(r=>r.json()).catch(()=>null),
+      fetch('/api/gpu-benchmark').then(r=>r.json()).catch(()=>null),
+    ]).then(([clusters, tsne, nearest, bench]) => {
+      if (!clusters) { el.textContent = 'Run run_analysis.py to generate GPU analysis data.'; return; }
+
+      const profiles = clusters.profiles || [];
+      const clusterColors = ['#667eea','#f6ad55','#68d391','#fc8181','#76e4f7','#d6bcfa'];
+      const gpu = clusters.gpu;
+      const algo = tsne ? (tsne.algo || 'Embedding') : 'Embedding';
+
+      // Cluster cards
+      const clusterCards = profiles.map((p, i) => {
+        const c = clusterColors[i % clusterColors.length];
+        const bar = (p.food_desert_rate_pct / 100 * 100).toFixed(0);
+        return `<div style="background:#161824;border:1px solid #2d3148;border-radius:8px;padding:10px;margin-bottom:8px">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px">
+            <span style="color:${c};font-weight:700;font-size:12px">Cluster ${p.cluster}: ${p.label}</span>
+            <span style="color:#718096;font-size:11px">${p.n_tracts} tracts · ${(p.total_pop||0).toLocaleString()} ppl</span>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;font-size:11px">
+            <div style="color:#a0aec0">Avg income: <b style="color:#e2e8f0">$${(p.avg_income||0).toLocaleString()}</b></div>
+            <div style="color:#a0aec0">Biz/1k: <b style="color:${p.avg_biz_per_1k<3?'#fc8181':'#68d391'}">${p.avg_biz_per_1k}</b></div>
+            <div style="color:#a0aec0">Poverty: <b style="color:#f6ad55">${p.avg_poverty_pct}%</b></div>
+            <div style="color:#a0aec0">No vehicle: <b style="color:#a0aec0">${p.avg_no_vehicle_pct}%</b></div>
+          </div>
+          <div style="margin-top:5px;font-size:10px;color:#718096">Food desert rate: ${p.food_desert_rate_pct}%
+            <div style="height:3px;background:#2d3148;border-radius:2px;margin-top:2px;overflow:hidden"><div style="height:100%;width:${bar}%;background:${c};border-radius:2px"></div></div>
+          </div>
+        </div>`;
+      }).join('');
+
+      // t-SNE scatter (mini canvas)
+      const canvasId = 'tsne-canvas-' + Date.now();
+      let scatterHtml = '';
+      if (tsne && tsne.points) {
+        scatterHtml = `<canvas id="${canvasId}" width="260" height="180" style="display:block;margin:8px auto;border-radius:8px;background:#0d0f1a"></canvas>`;
+      }
+
+      // Worst access tracts
+      const worstAccess = (nearest && nearest.deserts || []).slice(0, 8).map(t => {
+        const nearest1 = t.nearest_food_businesses && t.nearest_food_businesses[0];
+        return `<div class="city-row" style="font-size:11px" onclick="map.setView([${t.centroid_lat},${t.centroid_lon}],13)">
+          <div style="flex:1"><div style="color:#e2e8f0">Tract ${String(t.geoid).slice(-6)}</div>
+          <div style="color:#718096;font-size:10px">${(t.population||0).toLocaleString()} people · ${nearest1?nearest1.name.slice(0,25):'?'}</div></div>
+          <div style="color:#fc8181;font-weight:700">${t.closest_miles} mi</div>
+        </div>`;
+      }).join('');
+
+      // Benchmark
+      let benchHtml = '';
+      if (bench) {
+        const speedup = bench.gpu_speedup || bench.gpu_speedup_estimated;
+        const label = bench.gpu_speedup ? 'Measured' : 'Estimated';
+        benchHtml = `<div style="background:#1a1d27;border:1px solid #2d3148;border-radius:8px;padding:10px;margin-bottom:10px">
+          <div style="font-size:12px;font-weight:700;color:#9f7aea;margin-bottom:6px">⚡ GPU Benchmark (RandomForest, 300 trees)</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;font-size:11px">
+            <div style="color:#a0aec0">CPU (sklearn): <b style="color:#e2e8f0">${bench.cpu_rf_elapsed_sec}s</b></div>
+            <div style="color:#a0aec0">GPU speedup: <b style="color:#68d391">${speedup}× ${label}</b></div>
+          </div>
+          ${bench.gpu_available ? '' : '<div style="font-size:10px;color:#f6ad55;margin-top:5px">⚠ GPU occupied by vLLM — run <code>run_gpu_when_ready.sh</code> for measured speedup</div>'}
+        </div>`;
+      }
+
+      el.innerHTML = `
+        <div class="desert-hero" style="background:linear-gradient(135deg,#1a365d 0%,#1a1d27 100%);border-color:#2b6cb0">
+          <div class="desert-hero-title" style="color:#90cdf4">cuML + cuDF on DGX Spark GB10</div>
+          <div class="desert-hero-num" style="color:#bee3f8">${profiles.length}</div>
+          <div class="desert-hero-sub" style="color:#63b3ed">food access cluster patterns identified</div>
+        </div>
+        <div class="desert-stats">
+          <div class="desert-stat-card"><div class="desert-stat-label">Algorithm</div><div class="desert-stat-val" style="color:#63b3ed;font-size:11px">KMeans</div></div>
+          <div class="desert-stat-card"><div class="desert-stat-label">Embedding</div><div class="desert-stat-val" style="color:#63b3ed;font-size:11px">${gpu?'UMAP':'t-SNE'}</div></div>
+          <div class="desert-stat-card"><div class="desert-stat-label">Tracts</div><div class="desert-stat-val" style="color:#63b3ed">${tsne?tsne.points.length:0}</div></div>
+          <div class="desert-stat-card"><div class="desert-stat-label">Mode</div><div class="desert-stat-val" style="color:${gpu?'#68d391':'#f6ad55'};font-size:11px">${gpu?'GPU':'CPU'}</div></div>
+        </div>
+        ${benchHtml}
+        ${scatterHtml}
+        <h4>Tract Clusters (${algo})</h4>
+        ${clusterCards}
+        <h4 style="margin-top:10px">Worst Food Access (by distance to nearest food)</h4>
+        ${worstAccess}
+        <div style="font-size:10px;color:#718096;margin-top:8px;font-style:italic">
+          ${gpu ? `✓ Computed with cuML ${clusters.elapsed_sec}s on NVIDIA DGX Spark Blackwell` : 'CPU fallback active — GPU occupied by Nemotron-Super LLM. Run run_gpu_when_ready.sh for GPU mode.'}
+        </div>`;
+
+      // Draw t-SNE scatter
+      if (tsne && tsne.points && document.getElementById(canvasId)) {
+        requestAnimationFrame(() => {
+          const canvas = document.getElementById(canvasId);
+          if (!canvas) return;
+          const ctx = canvas.getContext('2d');
+          const pts = tsne.points;
+          const xs = pts.map(p=>p.x), ys = pts.map(p=>p.y);
+          const minX=Math.min(...xs), maxX=Math.max(...xs), minY=Math.min(...ys), maxY=Math.max(...ys);
+          const W=canvas.width, H=canvas.height, PAD=10;
+          pts.forEach(p => {
+            const cx = PAD + (p.x-minX)/(maxX-minX)*(W-2*PAD);
+            const cy = PAD + (p.y-minY)/(maxY-minY)*(H-2*PAD);
+            ctx.beginPath();
+            ctx.arc(cx, cy, 3, 0, 2*Math.PI);
+            ctx.fillStyle = clusterColors[p.cluster % clusterColors.length] + 'cc';
+            ctx.fill();
+          });
+        });
+      }
+    });
+  }
+
+  // ─── Live FDA Recalls ─────────────────────────────────────────────
+  let recallsLoaded = false;
+  let allRecalls = [];
+
+  function loadRecalls() {
+    recallsLoaded = true;
+    fetch('/api/food-recalls').then(r=>r.json()).then(data => {
+      allRecalls = data.recalls || [];
+      renderRecalls(allRecalls);
+    }).catch(() => {
+      document.getElementById('recalls-content').innerHTML = '<div style="color:#fc8181;font-size:12px;padding:20px;text-align:center">Unable to load recalls (network error)</div>';
+    });
+  }
+
+  function filterRecalls(cls) {
+    ['','Class I','Class II','Class III'].forEach(c => {
+      const id = c === '' ? 'recall-filter-all' : 'recall-filter-'+c.slice(-1);
+      const btn = document.getElementById(id);
+      if (!btn) return;
+      const active = c === cls;
+      btn.style.background = active ? 'rgba(252,129,129,0.2)' : '';
+      btn.style.borderColor = active ? '#fc8181' : '';
+      btn.style.color = active ? '#fed7d7' : '';
+    });
+    const filtered = cls ? allRecalls.filter(r => r.classification && r.classification.includes(cls)) : allRecalls;
+    renderRecalls(filtered);
+  }
+
+  function renderRecalls(recalls) {
+    const el = document.getElementById('recalls-content');
+    if (!recalls.length) { el.innerHTML = '<div style="color:#718096;font-size:12px;padding:20px;text-align:center">No recalls found</div>'; return; }
+    const clsColor = {'Class I':'#fc8181','Class II':'#f6ad55','Class III':'#ecc94b'};
+    const clsBg = {'Class I':'rgba(252,129,129,0.1)','Class II':'rgba(246,173,85,0.1)','Class III':'rgba(236,201,75,0.1)'};
+    const clsDesc = {'Class I':'Health hazard','Class II':'Remote hazard','Class III':'Minor violation'};
+    const counts = {};
+    recalls.forEach(r => { const c = r.classification||'Unknown'; counts[c]=(counts[c]||0)+1; });
+    let html = `<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:5px;margin-bottom:10px">`;
+    ['Class I','Class II','Class III'].forEach(c => {
+      const n = counts[c]||0;
+      const col = clsColor[c]||'#718096';
+      html += `<div style="background:${clsBg[c]||'rgba(45,49,72,0.3)'};border:1px solid ${col}33;border-radius:6px;padding:7px;text-align:center">
+        <div style="font-size:16px;font-weight:800;color:${col}">${n}</div>
+        <div style="font-size:9px;color:#718096">${c}</div>
+        <div style="font-size:8px;color:#4a5568">${clsDesc[c]}</div>
+      </div>`;
+    });
+    html += `</div><div style="font-size:9px;color:#4a5568;margin-bottom:8px;text-align:center">Source: OpenFDA · California distribution · ${recalls.length} recalls</div>`;
+    html += recalls.map(r => {
+      const col = clsColor[r.classification]||'#718096';
+      const bg = clsBg[r.classification]||'rgba(45,49,72,0.1)';
+      const date = r.date ? r.date.replace(/(\d{4})(\d{2})(\d{2})/,'$2/$3/$1') : '';
+      const isActive = r.status !== 'Terminated';
+      return `<div style="background:${bg};border:1px solid ${col}33;border-left:3px solid ${col};border-radius:6px;padding:9px;margin-bottom:6px">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:6px;margin-bottom:4px">
+          <div style="font-size:10px;font-weight:700;color:${col};flex-shrink:0">${r.classification||'?'}</div>
+          <div style="display:flex;gap:4px;align-items:center;flex-shrink:0">
+            ${isActive ? '<div style="font-size:8px;background:rgba(252,129,129,0.15);color:#fc8181;border:1px solid rgba(252,129,129,0.3);padding:1px 5px;border-radius:5px">ACTIVE</div>' : '<div style="font-size:8px;color:#4a5568">Terminated</div>'}
+            <div style="font-size:9px;color:#718096">${date}</div>
+          </div>
+        </div>
+        <div style="font-size:11px;color:#e2e8f0;margin-bottom:3px;line-height:1.4">${(r.product||'').slice(0,100)}${r.product&&r.product.length>100?'…':''}</div>
+        <div style="font-size:10px;color:#a0aec0;margin-bottom:3px">&#127970; ${r.firm||''}${r.city?', '+r.city:''}</div>
+        <div style="font-size:10px;color:#718096;font-style:italic">${(r.reason||'').slice(0,120)}${r.reason&&r.reason.length>120?'…':''}</div>
+      </div>`;
+    }).join('');
+    el.innerHTML = html;
+  }
+</script>
+
+<!-- Simulation Modal -->
+<div class="sim-overlay" id="sim-overlay">
+  <div class="sim-modal">
+    <button class="sim-close" onclick="closeSimulation()">×</button>
+    <div class="sim-title">🔬 What-If: Grocery Store Intervention</div>
+    <div class="sim-subtitle" id="sim-subtitle">Loading...</div>
+    <div class="sim-controls">
+      <label>Add</label>
+      <select id="sim-count">
+        <option value="1">1</option><option value="2">2</option>
+        <option value="3">3</option><option value="5">5</option>
+      </select>
+      <label>grocery store(s) to this tract</label>
+      <button class="sim-run-btn" id="sim-run-btn" onclick="runSimulation()">Simulate</button>
+    </div>
+    <div id="sim-results"></div>
+  </div>
+</div>
+</body>
+</html>

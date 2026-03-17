@@ -1,0 +1,1 @@
+{"cpu_rf_elapsed_sec": 0.1205, "gpu_rf_elapsed_sec": null, "gpu_speedup": null, "gpu_speedup_estimated": 8.5, "n_estimators": 300, "n_tracts": 408, "gpu_available": false, "device": "CPU (GPU occupied by vLLM)", "note": "Run run_gpu_when_ready.sh to get actual GPU speedup", "cuml_version": null}

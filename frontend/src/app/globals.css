@@ -1,0 +1,277 @@
+@import "tailwindcss";
+
+:root {
+  --accent: #76b900;
+  --accent-dim: rgba(118, 185, 0, 0.12);
+  --accent-glow: rgba(118, 185, 0, 0.25);
+  --bg-base: #080a10;
+  --bg-panel: #0d0f19;
+  --bg-card: #111420;
+  --border: #1c1f2e;
+  --border-bright: #2a2f45;
+  --text-primary: #e8eaf2;
+  --text-secondary: #8892a4;
+  --text-muted: #44506a;
+  --red: #f07070;
+  --yellow: #f0c060;
+  --green: #5cc88a;
+  --purple: #b89cf6;
+  --blue: #5b9cf6;
+  --red-dim: rgba(240, 112, 112, 0.15);
+  --yellow-dim: rgba(240, 192, 96, 0.15);
+  --green-dim: rgba(92, 200, 138, 0.15);
+  --purple-dim: rgba(184, 156, 246, 0.15);
+  --blue-dim: rgba(91, 156, 246, 0.15);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  background: var(--bg-base);
+  color: var(--text-primary);
+  font-family: var(--font-outfit), "Outfit", sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-base);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-bright);
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* Typography utilities */
+.font-mono {
+  font-family: var(--font-jetbrains), "JetBrains Mono", monospace;
+}
+
+/* Pulsing dot animation */
+@keyframes pulse-dot {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(0.85);
+  }
+}
+
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: pulse-dot 2s ease-in-out infinite;
+  box-shadow: 0 0 6px var(--accent-glow);
+}
+
+/* Typing indicator dots */
+@keyframes bounce-dot {
+  0%, 80%, 100% {
+    transform: translateY(0);
+    opacity: 0.4;
+  }
+  40% {
+    transform: translateY(-6px);
+    opacity: 1;
+  }
+}
+
+.typing-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--text-muted);
+  display: inline-block;
+}
+.typing-dot:nth-child(1) { animation: bounce-dot 1.2s ease-in-out infinite; }
+.typing-dot:nth-child(2) { animation: bounce-dot 1.2s ease-in-out 0.2s infinite; }
+.typing-dot:nth-child(3) { animation: bounce-dot 1.2s ease-in-out 0.4s infinite; }
+
+/* Card / Panel base */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.panel {
+  background: var(--bg-panel);
+  border-right: 1px solid var(--border);
+}
+
+/* Score badges */
+.badge-green {
+  background: var(--green-dim);
+  color: var(--green);
+  border: 1px solid rgba(92, 200, 138, 0.3);
+}
+.badge-yellow {
+  background: var(--yellow-dim);
+  color: var(--yellow);
+  border: 1px solid rgba(240, 192, 96, 0.3);
+}
+.badge-red {
+  background: var(--red-dim);
+  color: var(--red);
+  border: 1px solid rgba(240, 112, 112, 0.3);
+}
+.badge-blue {
+  background: var(--blue-dim);
+  color: var(--blue);
+  border: 1px solid rgba(91, 156, 246, 0.3);
+}
+.badge-purple {
+  background: var(--purple-dim);
+  color: var(--purple);
+  border: 1px solid rgba(184, 156, 246, 0.3);
+}
+
+/* Input base */
+input, select, textarea {
+  background: var(--bg-base);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 8px 10px;
+  font-size: 13px;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.15s;
+  width: 100%;
+}
+input:focus, select:focus, textarea:focus {
+  border-color: var(--accent);
+}
+input::placeholder, textarea::placeholder {
+  color: var(--text-muted);
+}
+
+/* Button base */
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 13px;
+  transition: all 0.15s;
+}
+
+.btn-accent {
+  background: var(--accent);
+  color: #000;
+  font-weight: 600;
+  padding: 8px 16px;
+}
+.btn-accent:hover {
+  background: #8fd400;
+  box-shadow: 0 0 12px var(--accent-glow);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
+  padding: 6px 12px;
+}
+.btn-ghost:hover {
+  border-color: var(--border-bright);
+  color: var(--text-primary);
+  background: var(--bg-card);
+}
+
+.btn-ghost-active {
+  background: var(--accent-dim);
+  color: var(--accent);
+  border: 1px solid rgba(118, 185, 0, 0.3);
+  padding: 6px 12px;
+}
+
+/* Score dot */
+.score-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.score-dot-green { background: var(--green); }
+.score-dot-yellow { background: var(--yellow); }
+.score-dot-red { background: var(--red); }
+.score-dot-gray { background: var(--text-muted); }
+
+/* Divider */
+.divider {
+  height: 1px;
+  background: var(--border);
+}
+
+/* Skeleton loading */
+@keyframes shimmer {
+  0% { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--bg-card) 25%,
+    var(--border) 37%,
+    var(--bg-card) 63%
+  );
+  background-size: 400px 100%;
+  animation: shimmer 1.4s ease infinite;
+  border-radius: 4px;
+}
+
+/* Leaflet overrides */
+.leaflet-container {
+  background: #0a0c14 !important;
+  font-family: var(--font-outfit), "Outfit", sans-serif;
+}
+.leaflet-tile {
+  filter: brightness(0.6) saturate(0.7) hue-rotate(180deg) invert(1);
+}
+.leaflet-control-zoom a {
+  background: var(--bg-card) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border) !important;
+}
+.leaflet-control-zoom a:hover {
+  background: var(--bg-panel) !important;
+}
+.leaflet-popup-content-wrapper {
+  background: var(--bg-card) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6) !important;
+}
+.leaflet-popup-tip {
+  background: var(--bg-card) !important;
+}
+.leaflet-popup-content {
+  margin: 12px 14px !important;
+  font-size: 13px !important;
+}
