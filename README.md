@@ -1,8 +1,8 @@
-# SafeEats SCC — AI-Powered Food Safety & Equity Platform
+# FoodSight SCC — AI-Powered Food Safety & Equity Platform
 
 > **GTC Hack for Impact** · Santa Clara County · NVIDIA DGX Spark GB10 Blackwell
 
-SafeEats SCC is a full-stack AI platform that combines local LLM inference, GPU-accelerated ML, and interactive mapping to make food safety and food equity data actionable for Santa Clara County. Built on a DGX Spark supercomputer, it processes 8,588 restaurants, ~3.8 million inspection violations, and 408 census tracts entirely on-device — no data ever leaves the machine.
+FoodSight SCC is a full-stack AI platform that combines local LLM inference, GPU-accelerated ML, and interactive mapping to make food safety and food equity data actionable for Santa Clara County. Built on a DGX Spark supercomputer, it processes 8,588 restaurants, ~3.8 million inspection violations, and 408 census tracts entirely on-device — no data ever leaves the machine.
 
 ---
 
@@ -36,7 +36,7 @@ SafeEats SCC is a full-stack AI platform that combines local LLM inference, GPU-
 
 ## Overview
 
-SafeEats SCC answers questions like:
+FoodSight SCC answers questions like:
 
 - *Which restaurants in Sunnyvale have the most critical violations?*
 - *Which census tracts are food deserts and who lives there?*
@@ -116,8 +116,8 @@ gtc-hack-for-impact/
 │   ├── templates/
 │   │   └── index.html                # Fallback HTML template (131KB, dark-mode UI)
 │   ├── openclaw/
-│   │   ├── safeeats-policy.yaml      # Sandbox network + filesystem policy (v7)
-│   │   └── skills/safeeats-scc/      # App-specific OpenClaw skills
+│   │   ├── foodsight-policy.yaml      # Sandbox network + filesystem policy (v7)
+│   │   └── skills/foodsight-scc/      # App-specific OpenClaw skills
 │   ├── docs/
 │   │   └── superpowers/
 │   │       ├── plans/                # Implementation plans
@@ -678,13 +678,13 @@ Raw input files live in `data/`. These are the source CSVs that the processing s
 
 ## OpenClaw Security Policy
 
-`backend/openclaw/safeeats-policy.yaml` (version 7) defines a strict sandbox policy for the OpenClaw agent framework.
+`backend/openclaw/foodsight-policy.yaml` (version 7) defines a strict sandbox policy for the OpenClaw agent framework.
 
 **Network access (allowlist only):**
 
 | Destination | Protocol | Methods | Purpose |
 |---|---|---|---|
-| `localhost:5000` | REST | GET, POST | SafeEats Flask API |
+| `localhost:5000` | REST | GET, POST | FoodSight Flask API |
 | `localhost:8000` | REST | GET, POST | vLLM inference |
 | `api.claude.ai` | REST | POST | Claude Code backend |
 | `integrate.api.nvidia.com` | REST | POST | NVIDIA NIM cloud fallback |
@@ -703,7 +703,7 @@ Raw input files live in `data/`. These are the source CSVs that the processing s
 
 ## DGX Spark Setup (SKILL.md)
 
-`SKILL.md` is a 347-line operations guide for running SafeEats on NVIDIA DGX Spark GB10.
+`SKILL.md` is a 347-line operations guide for running FoodSight on NVIDIA DGX Spark GB10.
 
 **Hardware specs:**
 - CPU: ARM64 (Grace Hopper Superchip GB10)
