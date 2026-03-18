@@ -1,4 +1,5 @@
 # FoodSight SCC — AI-Powered Food Safety & Equity Platform
+https://drive.google.com/file/d/1oFw1ZHG3nl2U1HFthmUchaRFeF4_uOS5/view?usp=sharing
 
 > **GTC Hack for Impact** · Santa Clara County · NVIDIA DGX Spark GB10 Blackwell
 
