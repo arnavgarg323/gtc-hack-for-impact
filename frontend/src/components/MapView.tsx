@@ -25,11 +25,16 @@ const MapView = forwardRef<MapRef, MapViewProps>(function MapView(
   const healthLayerRef = useRef<any>(null);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const routeLayersRef = useRef<any[]>([]);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const extraLayersRef = useRef<Record<string, any>>({});
   const [controls, setControls] = useState({
     equity: false,
     deserts: false,
     mlrisk: false,
     freshfood: false,
+    trucks: false,
+    cottage: false,
+    crime: false,
   });
   const [mapReady, setMapReady] = useState(false);
 
@@ -222,6 +227,111 @@ const MapView = forwardRef<MapRef, MapViewProps>(function MapView(
     });
   }, [mapReady, controls.deserts]);
 
+  const SCC_CITY_CENTROIDS: Record<string, [number, number]> = {
+    "San Jose": [37.3382, -121.8863], "Santa Clara": [37.3541, -121.9552],
+    "Sunnyvale": [37.3688, -122.0363], "Mountain View": [37.3861, -122.0839],
+    "Palo Alto": [37.4419, -122.1430], "Milpitas": [37.4323, -121.8996],
+    "Cupertino": [37.3230, -122.0322], "Campbell": [37.2872, -121.9500],
+    "Los Gatos": [37.2358, -121.9625], "Saratoga": [37.2638, -122.0231],
+    "Los Altos": [37.3852, -122.1141], "Morgan Hill": [37.1305, -121.6544],
+    "Gilroy": [37.0058, -121.5683],
+  };
+
+  // Load extra toggle layers
+  useEffect(() => {
+    if (!mapReady) return;
+    import("leaflet").then((L) => {
+      // Food Trucks
+      if (controls.trucks && !extraLayersRef.current.trucks) {
+        fetch("/api/food-trucks").then(r => r.json()).then(data => {
+          const byCity = data.by_city || {};
+          const counts = Object.values(byCity) as number[];
+          const maxCount = Math.max(...counts, 1);
+          const group = L.layerGroup();
+          Object.entries(byCity).forEach(([city, cnt]) => {
+            const coords = SCC_CITY_CENTROIDS[city];
+            if (!coords) return;
+            const r = 8 + ((cnt as number) / maxCount) * 24;
+            const icon = L.divIcon({ className: "", html: `<div style="width:${r*2}px;height:${r*2}px;border-radius:50%;background:rgba(251,191,36,0.25);border:2px solid #FBBF24;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#FBBF24;font-family:monospace">${cnt}</div>`, iconSize: [r*2, r*2], iconAnchor: [r, r] });
+            L.marker(coords, { icon }).bindPopup(`<b>${city}</b><br>${cnt} food trucks permitted`).addTo(group);
+          });
+          extraLayersRef.current.trucks = group.addTo(mapRef.current);
+        }).catch(() => {});
+      } else if (!controls.trucks && extraLayersRef.current.trucks) {
+        mapRef.current.removeLayer(extraLayersRef.current.trucks);
+        delete extraLayersRef.current.trucks;
+      }
+
+      // Cottage Food
+      if (controls.cottage && !extraLayersRef.current.cottage) {
+        fetch("/api/cottage-food").then(r => r.json()).then(data => {
+          const byCity = data.by_city || {};
+          const counts = Object.values(byCity) as number[];
+          const maxCount = Math.max(...counts, 1);
+          const group = L.layerGroup();
+          Object.entries(byCity).forEach(([city, cnt]) => {
+            const coords = SCC_CITY_CENTROIDS[city];
+            if (!coords) return;
+            const r = 6 + ((cnt as number) / maxCount) * 18;
+            const icon = L.divIcon({ className: "", html: `<div style="width:${r*2}px;height:${r*2}px;border-radius:50%;background:rgba(52,211,153,0.25);border:2px solid #34D399;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#34D399;font-family:monospace">${cnt}</div>`, iconSize: [r*2, r*2], iconAnchor: [r, r] });
+            L.marker(coords, { icon }).bindPopup(`<b>${city}</b><br>${cnt} cottage food producers`).addTo(group);
+          });
+          extraLayersRef.current.cottage = group.addTo(mapRef.current);
+        }).catch(() => {});
+      } else if (!controls.cottage && extraLayersRef.current.cottage) {
+        mapRef.current.removeLayer(extraLayersRef.current.cottage);
+        delete extraLayersRef.current.cottage;
+      }
+
+      // Crime
+      if (controls.crime && !extraLayersRef.current.crime) {
+        fetch("/api/crime-points").then(r => r.json()).then(data => {
+          const points = data.points || data;
+          if (!Array.isArray(points)) return;
+          const group = L.layerGroup();
+          points.slice(0, 2000).forEach((p: Record<string, unknown>) => {
+            if (!p.latitude || !p.longitude) return;
+            const icon = L.divIcon({ className: "", html: `<div style="width:5px;height:5px;border-radius:50%;background:rgba(251,146,60,0.7)"></div>`, iconSize: [5, 5], iconAnchor: [2.5, 2.5] });
+            L.marker([parseFloat(p.latitude as string), parseFloat(p.longitude as string)], { icon }).bindPopup(`<b>${p.type || p.category || "Incident"}</b><br>${p.date || ""}`).addTo(group);
+          });
+          extraLayersRef.current.crime = group.addTo(mapRef.current);
+        }).catch(() => {});
+      } else if (!controls.crime && extraLayersRef.current.crime) {
+        mapRef.current.removeLayer(extraLayersRef.current.crime);
+        delete extraLayersRef.current.crime;
+      }
+
+      // ML Risk
+      if (controls.mlrisk && !extraLayersRef.current.mlrisk) {
+        Promise.all([
+          fetch("/api/ml-risk").then(r => r.json()),
+          fetch("/api/food-access-geojson").then(r => r.json()),
+        ]).then(([ml, gj]) => {
+          const tracts = ml.tracts || [];
+          const byGeoid: Record<string, Record<string, unknown>> = {};
+          tracts.forEach((t: Record<string, unknown>) => { byGeoid[t.geoid as string] = t; });
+          const TIER_COLORS: Record<string, string> = { critical: "#F87171", high: "#FB923C", moderate: "#FBBF24", low: "#4ADE80", minimal: "#60A5FA" };
+          extraLayersRef.current.mlrisk = L.geoJSON(gj, {
+            style: (f) => {
+              const t = byGeoid[f?.properties?.geoid];
+              if (!t) return { fillOpacity: 0, weight: 0 };
+              return { fillColor: TIER_COLORS[(t.risk_tier as string)] || "#475569", fillOpacity: 0.6, color: "#0D1017", weight: 0.5 };
+            },
+            onEachFeature: (f, l) => {
+              const t = byGeoid[f.properties.geoid];
+              if (!t) return;
+              l.bindPopup(`<b>Tract ${(f.properties.geoid || "").slice(-6)}</b><br>Risk: ${(t.risk_tier as string)?.toUpperCase()}<br>Score: ${t.risk_score}<br>Pop: ${Number(t.total_population || 0).toLocaleString()}`);
+            }
+          }).addTo(mapRef.current);
+        }).catch(() => {});
+      } else if (!controls.mlrisk && extraLayersRef.current.mlrisk) {
+        mapRef.current.removeLayer(extraLayersRef.current.mlrisk);
+        delete extraLayersRef.current.mlrisk;
+      }
+    });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [mapReady, controls.trucks, controls.cottage, controls.crime, controls.mlrisk]);
+
   // Expose imperative methods
   useImperativeHandle(ref, () => ({
     flyTo(lat: number, lon: number, zoom = 15) {
@@ -375,6 +485,9 @@ const MapView = forwardRef<MapRef, MapViewProps>(function MapView(
             { key: "deserts", label: "Food Deserts" },
             { key: "mlrisk", label: "ML Risk" },
             { key: "freshfood", label: "Fresh Food" },
+            { key: "trucks", label: "Food Trucks" },
+            { key: "cottage", label: "Cottage Food" },
+            { key: "crime", label: "Crime" },
           ] as const
         ).map(({ key, label }) => (
           <button

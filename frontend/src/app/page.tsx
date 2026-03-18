@@ -21,6 +21,7 @@ import HealthDataTab from "@/components/tabs/HealthDataTab";
 import ResourcesTab from "@/components/tabs/ResourcesTab";
 import RecallsTab from "@/components/tabs/RecallsTab";
 import VisionTab from "@/components/tabs/VisionTab";
+import SimulationModal from "@/components/SimulationModal";
 import type { Restaurant, Route, HealthDataPoint, MapRef } from "@/types";
 
 // Dynamic import for Leaflet map (no SSR)
@@ -66,6 +67,7 @@ const MapView = dynamic(() => import("@/components/MapView"), {
 export default function Home() {
   const [activeTab, setActiveTab] = useState<TabId>("chat");
   const [restaurants, setRestaurants] = useState<Restaurant[]>([]);
+  const [simGeoid, setSimGeoid] = useState<string | null>(null);
   const mapRef = useRef<MapRef>(null);
 
   // Load all restaurant markers on mount
@@ -94,7 +96,7 @@ export default function Home() {
       case "chat":
         return <ChatTab />;
       case "deserts":
-        return <DesertsTab onFlyTo={handleFlyTo} />;
+        return <DesertsTab onFlyTo={handleFlyTo} onSimulate={setSimGeoid} />;
       case "violators":
         return <ViolatorsTab onPanTo={handleFlyTo} />;
       case "cities":
@@ -171,6 +173,11 @@ export default function Home() {
           <MapView ref={mapRef} restaurants={restaurants} />
         </div>
       </div>
+
+      {/* Simulation Modal */}
+      {simGeoid && (
+        <SimulationModal geoid={simGeoid} onClose={() => setSimGeoid(null)} />
+      )}
     </div>
   );
 }

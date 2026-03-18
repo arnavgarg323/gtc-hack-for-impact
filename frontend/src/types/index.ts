@@ -30,6 +30,8 @@ export interface Route {
   inspector: number;
   stops: RouteStop[];
   total_distance?: number;
+  total_miles?: number;
+  engine?: string;
   color?: string;
 }
 
@@ -42,6 +44,9 @@ export interface RouteStop {
   lon: number;
   priority?: string;
   score?: number;
+  tier?: string;
+  critical?: number;
+  depot?: boolean;
 }
 
 export interface DesertTract {

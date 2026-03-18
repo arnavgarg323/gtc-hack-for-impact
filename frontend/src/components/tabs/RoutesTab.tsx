@@ -43,18 +43,23 @@ export default function RoutesTab({ onDrawRoutes }: RoutesTabProps) {
   const [priority, setPriority] = useState("critical");
   const [loading, setLoading] = useState(false);
   const [routes, setRoutes] = useState<Route[]>([]);
+  const [engine, setEngine] = useState<string | null>(null);
+  const [elapsed, setElapsed] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   async function optimizeRoutes() {
     setLoading(true);
     setError(null);
+    const t0 = performance.now();
     try {
       const r = await fetch("/api/optimize-route", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ city, inspectors, stops_per_inspector: stops, priority }),
+        body: JSON.stringify({ city, n_inspectors: inspectors, n_stops: stops, priority }),
       });
       const d = await r.json();
+      setEngine(d.engine || null);
+      setElapsed(((performance.now() - t0) / 1000).toFixed(2));
       const routeList: Route[] = (Array.isArray(d) ? d : d.routes || []).map(
         (route: Route, i: number) => ({
           ...route,
@@ -233,6 +238,14 @@ export default function RoutesTab({ onDrawRoutes }: RoutesTabProps) {
       {/* Routes list */}
       {routes.length > 0 && (
         <div style={{ overflowY: "auto", flex: 1, padding: "8px 12px" }}>
+          {/* Engine badge */}
+          {engine && (
+            <div style={{ display: "flex", alignItems: "center", gap: 6, padding: "6px 10px", borderRadius: 7, marginBottom: 8, background: engine.includes("cuOpt") ? "rgba(91,156,246,0.1)" : "rgba(68,80,106,0.15)", border: `1px solid ${engine.includes("cuOpt") ? "rgba(91,156,246,0.25)" : "var(--border)"}` }}>
+              <span style={{ fontSize: 12 }}>{engine.includes("cuOpt") ? "⚡" : "🔄"}</span>
+              <span style={{ fontSize: 11, color: engine.includes("cuOpt") ? "var(--blue)" : "var(--text-secondary)", fontFamily: "var(--font-jetbrains), monospace" }}>{engine}</span>
+              {elapsed && <span style={{ fontSize: 10, color: "var(--text-muted)", marginLeft: "auto" }}>{elapsed}s</span>}
+            </div>
+          )}
           <div
             style={{
               fontFamily: "var(--font-jetbrains), monospace",

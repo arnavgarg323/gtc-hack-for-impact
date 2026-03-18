@@ -5,9 +5,10 @@ import type { DesertStats, DesertTract } from "@/types";
 
 interface DesertsTabProps {
   onFlyTo: (lat: number, lon: number) => void;
+  onSimulate?: (geoid: string) => void;
 }
 
-export default function DesertsTab({ onFlyTo }: DesertsTabProps) {
+export default function DesertsTab({ onFlyTo, onSimulate }: DesertsTabProps) {
   const [data, setData] = useState<DesertStats | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -160,6 +161,7 @@ export default function DesertsTab({ onFlyTo }: DesertsTabProps) {
                     onFlyTo(tract.lat, tract.lon);
                   }
                 }}
+                onSimulate={onSimulate ? () => onSimulate(tract.tract_id) : undefined}
               />
             ))}
           </div>
@@ -173,10 +175,12 @@ function TractRow({
   tract,
   selected,
   onSelect,
+  onSimulate,
 }: {
   tract: DesertTract;
   selected: boolean;
   onSelect: () => void;
+  onSimulate?: () => void;
 }) {
   const severityColor =
     tract.severity === "severe"
@@ -235,17 +239,31 @@ function TractRow({
             ` · ${(tract.poverty_rate * 100).toFixed(0)}% poverty`}
         </div>
       </div>
-      <div
-        style={{
-          fontFamily: "var(--font-jetbrains), monospace",
-          fontSize: "10px",
-          color: severityColor,
-          textTransform: "uppercase",
-          letterSpacing: "0.5px",
-          flexShrink: 0,
-        }}
-      >
-        {tract.severity}
+      <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: 3, flexShrink: 0 }}>
+        <div
+          style={{
+            fontFamily: "var(--font-jetbrains), monospace",
+            fontSize: "10px",
+            color: severityColor,
+            textTransform: "uppercase",
+            letterSpacing: "0.5px",
+          }}
+        >
+          {tract.severity}
+        </div>
+        {onSimulate && (
+          <button
+            onClick={(e) => { e.stopPropagation(); onSimulate(); }}
+            style={{
+              padding: "3px 7px", fontSize: 9, fontWeight: 600,
+              background: "var(--accent-dim)", border: "1px solid rgba(118,185,0,0.3)",
+              borderRadius: 4, color: "var(--accent)", cursor: "pointer",
+              fontFamily: "var(--font-jetbrains), monospace",
+            }}
+          >
+            Simulate
+          </button>
+        )}
       </div>
     </div>
   );
